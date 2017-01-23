@@ -1,0 +1,44 @@
+/etc/mdm/Xsession: Beginning session setup...
+localuser:marvi154 being added to access control list
+mate-session[6449]: WARNING: Unable to find provider '' of required component 'dock'
+/usr/bin/start-pulseaudio-x11: 24: /usr/bin/start-pulseaudio-x11: /usr/bin/pactl: not found
+GNOME_KEYRING_CONTROL=/run/user/1000004086/keyring-zTFR1E
+SSH_AUTH_SOCK=/run/user/1000004086/keyring-zTFR1E/ssh
+GPG_AGENT_INFO=/run/user/1000004086/keyring-zTFR1E/gpg:0:1
+GNOME_KEYRING_CONTROL=/run/user/1000004086/keyring-zTFR1E
+SSH_AUTH_SOCK=/run/user/1000004086/keyring-zTFR1E/ssh
+GPG_AGENT_INFO=/run/user/1000004086/keyring-zTFR1E/gpg:0:1
+GNOME_KEYRING_CONTROL=/run/user/1000004086/keyring-zTFR1E
+SSH_AUTH_SOCK=/run/user/1000004086/keyring-zTFR1E/ssh
+GPG_AGENT_INFO=/run/user/1000004086/keyring-zTFR1E/gpg:0:1
+GNOME_KEYRING_CONTROL=/run/user/1000004086/keyring-zTFR1E
+SSH_AUTH_SOCK=/run/user/1000004086/keyring-zTFR1E/ssh
+GPG_AGENT_INFO=/run/user/1000004086/keyring-zTFR1E/gpg:0:1
+git-annex: Nothing listed in /home/marvi154/.config/git-annex/autostart
+/usr/lib/python2.7/dist-packages/gi/overrides/Gtk.py:50: RuntimeWarning: You have imported the Gtk 2.0 module.  Because Gtk 2.0 was not designed for use with introspection some of the interfaces and API will fail.  As such this is not supported by the pygobject development team and we encourage you to port your app to Gtk 3 or greater. PyGTK is the recomended python module to use with Gtk 2.0
+  warnings.warn(warn_msg, RuntimeWarning)
+Initializing caja-open-terminal extension
+Initializing caja-dropbox 1.12.0
+sys:1: Warning: /build/buildd/glib2.0-2.40.2/./gobject/gsignal.c:2580: instance '0x7f2de800d660' has no handler with id '5953'
+sys:1: Warning: /build/buildd/glib2.0-2.40.2/./gobject/gsignal.c:2580: instance '0x27fc6c0' has no handler with id '5568'
+sys:1: Warning: /build/buildd/glib2.0-2.40.2/./gobject/gsignal.c:2580: instance '0x7f2de800d660' has no handler with id '3162'
+sys:1: Warning: /build/buildd/glib2.0-2.40.2/./gobject/gsignal.c:2580: instance '0x27fc6c0' has no handler with id '2867'
+sys:1: Warning: /build/buildd/glib2.0-2.40.2/./gobject/gsignal.c:2580: instance '0x2d2e660' has no handler with id '4876'
+Fönsterhanterarvarning: Buggy client sent a _NET_ACTIVE_WINDOW message with a timestamp of 0 for 0x240001f ()
+Fönsterhanterarvarning: meta_window_activate called by a pager with a 0 timestamp; the pager needs to be fixed.
+Fönsterhanterarvarning: Buggy client sent a _NET_ACTIVE_WINDOW message with a timestamp of 0 for 0x240001f ()
+Fönsterhanterarvarning: meta_window_activate called by a pager with a 0 timestamp; the pager needs to be fixed.
+Fönsterhanterarvarning: Buggy client sent a _NET_ACTIVE_WINDOW message with a timestamp of 0 for 0x240001f ()
+Fönsterhanterarvarning: meta_window_activate called by a pager with a 0 timestamp; the pager needs to be fixed.
+Fönsterhanterarvarning: Buggy client sent a _NET_ACTIVE_WINDOW message with a timestamp of 0 for 0x240001f ()
+Fönsterhanterarvarning: meta_window_activate called by a pager with a 0 timestamp; the pager needs to be fixed.
+Fönsterhanterarvarning: Buggy client sent a _NET_ACTIVE_WINDOW message with a timestamp of 0 for 0x240001f ()
+Fönsterhanterarvarning: meta_window_activate called by a pager with a 0 timestamp; the pager needs to be fixed.
+Fönsterhanterarvarning: Buggy client sent a _NET_ACTIVE_WINDOW message with a timestamp of 0 for 0x240001f ()
+Fönsterhanterarvarning: meta_window_activate called by a pager with a 0 timestamp; the pager needs to be fixed.
+Fönsterhanterarvarning: Buggy client sent a _NET_ACTIVE_WINDOW message with a timestamp of 0 for 0x240001f ()
+Fönsterhanterarvarning: meta_window_activate called by a pager with a 0 timestamp; the pager needs to be fixed.
+sys:1: Warning: /build/buildd/glib2.0-2.40.2/./gobject/gsignal.c:2580: instance '0x27fc6c0' has no handler with id '2855'
+Fönsterhanterarvarning: CurrentTime used to choose focus window; focus window may not be correct.
+Fönsterhanterarvarning: Got a request to focus the no_focus_window with a timestamp of 0.  This shouldn't happen!
+[1478259281,000,xklavier.c:xkl_engine_start_listen/] 	The backend does not require manual layout management - but it is provided by the application

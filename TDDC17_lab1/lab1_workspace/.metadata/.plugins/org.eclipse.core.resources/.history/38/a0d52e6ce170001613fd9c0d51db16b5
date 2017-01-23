@@ -1,0 +1,45 @@
+package tddc17;
+import java.util.*;
+
+import aima.core.agent.Action;
+import aima.core.agent.impl.NoOpAction;
+import aima.core.environment.liuvacuum.*;
+
+public class Queue {
+	private Vector <Integer> commandQueue;
+	
+	Queue(){
+		commandQueue=new Vector<Integer>();
+	}
+	
+	public Boolean hasNext(){
+		return !commandQueue.isEmpty();
+	}
+	
+	public Action getNext(){
+		int fetchTmp = commandQueue.firstElement();
+		commandQueue.remove(0);
+		switch(fetchTmp){
+			case 0:
+				return NoOpAction.NO_OP;
+			case 1:
+				return LIUVacuumEnvironment.ACTION_MOVE_FORWARD;
+			case 2:
+				return LIUVacuumEnvironment.ACTION_TURN_RIGHT;
+			case 3:
+				return LIUVacuumEnvironment.ACTION_TURN_LEFT;
+			case 4:
+				return LIUVacuumEnvironment.ACTION_SUCK;
+			}
+		return NoOpAction.NO_OP;
+		}
+	public void addCommandSequence(int[] seq){
+		for(int i=0; i<seq.length;i++){
+			commandQueue.add(0, seq[i]);
+		}
+	}
+	public int getNumberOfCommands(){
+		return commandQueue.size();
+	}
+	
+}

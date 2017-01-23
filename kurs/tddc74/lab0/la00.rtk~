@@ -1,0 +1,5 @@
+#lang racket
+
+;; uppgift 5
+define myname "<Margareta>")
+(printf "Hej ~a" myname)

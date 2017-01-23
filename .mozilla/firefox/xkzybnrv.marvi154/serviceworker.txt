@@ -1,0 +1,6 @@
+4
+
+https://www.studentuniverse.co.uk/
+https://www.studentuniverse.co.uk/simpleServiceWorker.js
+{478838d1-fa0d-46ea-aed0-1ba3d1b7dbcf}
+#

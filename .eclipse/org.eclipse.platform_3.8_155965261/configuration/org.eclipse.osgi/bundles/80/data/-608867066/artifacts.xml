@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='/usr/share/eclipse/dropins/cdt-profiling-framework' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+  <properties size='1'>
+    <property name='p2.timestamp' value='1475841292930'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='8'>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.linuxtools.profiling' version='1.1.0.dist'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/cdt-profiling-framework/eclipse/features/org.eclipse.linuxtools.profiling_1.1.0.dist/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/cdt-profiling-framework/eclipse/features/org.eclipse.linuxtools.profiling_1.1.0.dist'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.profiling.launch.ui' version='0.9.2.dist'>
+      <properties size='2'>
+        <property name='artifact.size' value='19351'/>
+        <property name='download.size' value='19351'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/cdt-profiling-framework/eclipse/plugins/org.eclipse.linuxtools.profiling.launch.ui_0.9.2.dist.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/cdt-profiling-framework/eclipse/plugins/org.eclipse.linuxtools.profiling.launch.ui_0.9.2.dist.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.profiling.ui' version='1.0.0.dist'>
+      <properties size='2'>
+        <property name='artifact.size' value='9797'/>
+        <property name='download.size' value='9797'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/cdt-profiling-framework/eclipse/plugins/org.eclipse.linuxtools.profiling.ui_1.0.0.dist.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/cdt-profiling-framework/eclipse/plugins/org.eclipse.linuxtools.profiling.ui_1.0.0.dist.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.tools.launch.core' version='1.1.0.dist'>
+      <properties size='2'>
+        <property name='artifact.size' value='12366'/>
+        <property name='download.size' value='12366'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/cdt-profiling-framework/eclipse/plugins/org.eclipse.linuxtools.tools.launch.core_1.1.0.dist.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/cdt-profiling-framework/eclipse/plugins/org.eclipse.linuxtools.tools.launch.core_1.1.0.dist.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.tools.launch.ui' version='1.0.0.dist'>
+      <properties size='2'>
+        <property name='artifact.size' value='9666'/>
+        <property name='download.size' value='9666'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/cdt-profiling-framework/eclipse/plugins/org.eclipse.linuxtools.tools.launch.ui_1.0.0.dist.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/cdt-profiling-framework/eclipse/plugins/org.eclipse.linuxtools.tools.launch.ui_1.0.0.dist.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.profiling.launch' version='1.2.0.dist'>
+      <properties size='2'>
+        <property name='artifact.size' value='96487'/>
+        <property name='download.size' value='96487'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/cdt-profiling-framework/eclipse/plugins/org.eclipse.linuxtools.profiling.launch_1.2.0.dist.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/cdt-profiling-framework/eclipse/plugins/org.eclipse.linuxtools.profiling.launch_1.2.0.dist.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.binutils' version='4.0.0.dist'>
+      <properties size='2'>
+        <property name='artifact.size' value='35557'/>
+        <property name='download.size' value='35557'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/cdt-profiling-framework/eclipse/plugins/org.eclipse.linuxtools.binutils_4.0.0.dist.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/cdt-profiling-framework/eclipse/plugins/org.eclipse.linuxtools.binutils_4.0.0.dist.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.profiling.docs' version='1.0.0.dist'>
+      <properties size='2'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/cdt-profiling-framework/eclipse/plugins/org.eclipse.linuxtools.profiling.docs_1.0.0.dist/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/cdt-profiling-framework/eclipse/plugins/org.eclipse.linuxtools.profiling.docs_1.0.0.dist'/>
+      </repositoryProperties>
+    </artifact>
+  </artifacts>
+</repository>

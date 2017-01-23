@@ -1,0 +1,5 @@
+MAX_RECENT_WORKSPACES=5
+RECENT_WORKSPACES=/home/marvi154/Git/University-works/Java/lab5_workspace\n/home/marvi154/Git/University-works/Java/TDDC17_lab2/lab2_workspace\n/home/marvi154/Git/University-works/Java/TDDC17_lab1_2/lab1_workspace\n/home/marvi154/Git/University-works/Java/TDDC17_lab1_1/lab1_workspace\n/home/marvi154/TDDC17_lab1/lab1_workspace
+RECENT_WORKSPACES_PROTOCOL=3
+SHOW_WORKSPACE_SELECTION_DIALOG=true
+eclipse.preferences.version=1

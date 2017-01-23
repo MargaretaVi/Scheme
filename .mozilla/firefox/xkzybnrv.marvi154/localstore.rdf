@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="chrome://browser/content/browser.xul">
+    <NC:persist RDF:resource="chrome://browser/content/browser.xul#main-window"/>
+    <NC:persist RDF:resource="chrome://browser/content/browser.xul#sidebar-box"/>
+    <NC:persist RDF:resource="chrome://browser/content/browser.xul#sidebar-title"/>
+    <NC:persist RDF:resource="chrome://browser/content/browser.xul#navigator-toolbox"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="chrome://mozapps/content/handling/dialog.xul#handling"
+                   width="347"
+                   height="398"
+                   screenX="666"
+                   screenY="309" />
+  <RDF:Description RDF:about="chrome://mozapps/content/handling/dialog.xul">
+    <NC:persist RDF:resource="chrome://mozapps/content/handling/dialog.xul#handling"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="chrome://mozapps/content/downloads/unknownContentType.xul">
+    <NC:persist RDF:resource="chrome://mozapps/content/downloads/unknownContentType.xul#unknownContentType"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="chrome://mozapps/content/downloads/unknownContentType.xul#unknownContentType"
+                   screenY="298"
+                   screenX="0" />
+  <RDF:Description RDF:about="chrome://mozapps/content/downloads/downloads.xul#downloadManager"
+                   width="485"
+                   sizemode="normal"
+                   height="302"
+                   screenX="6"
+                   screenY="24" />
+  <RDF:Description RDF:about="chrome://mozapps/content/downloads/downloads.xul">
+    <NC:persist RDF:resource="chrome://mozapps/content/downloads/downloads.xul#downloadManager"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="chrome://browser/content/search/engineManager.xul#engineManager"
+                   screenX="396"
+                   screenY="332"
+                   width="420"
+                   height="350" />
+  <RDF:Description RDF:about="chrome://browser/content/search/engineManager.xul">
+    <NC:persist RDF:resource="chrome://browser/content/search/engineManager.xul#engineManager"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="chrome://browser/content/browser.xul#navigator-toolbox"
+                   iconsize="small" />
+  <RDF:Description RDF:about="chrome://browser/content/browser.xul#sidebar-title"
+                   value="" />
+  <RDF:Description RDF:about="chrome://browser/content/browser.xul#sidebar-box"
+                   src="chrome://browser/content/history/history-panel.xul"
+                   sidebarcommand=""
+                   width="" />
+  <RDF:Description RDF:about="chrome://browser/content/browser.xul#main-window"
+                   width="1213"
+                   sizemode="normal"
+                   height="924"
+                   screenX="0"
+                   screenY="0" />
+</RDF:RDF>

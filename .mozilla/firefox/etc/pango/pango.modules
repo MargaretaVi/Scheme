@@ -1,0 +1,33 @@
+# Pango Modules file
+# Automatically generated file, do not edit
+#
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-arabic-fc.so ArabicScriptEngineFc PangoEngineShape PangoRenderFc arabic:* nko:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-arabic-lang.so ArabicScriptEngineLang PangoEngineLang PangoRenderNone arabic:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-basic-fc.so BasicScriptEngineFc PangoEngineShape PangoRenderFc latin:* cyrillic:* greek:* armenian:* georgian:* runic:* ogham:* bopomofo:* cherokee:* coptic:* deseret:* ethiopic:* gothic:* han:* hiragana:* katakana:* old-italic:* canadian-aboriginal:* yi:* braille:* cypriot:* limbu:* osmanya:* shavian:* linear-b:* ugaritic:* glagolitic:* cuneiform:* phoenician:* common:
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-basic-x.so BasicScriptEngineX PangoEngineShape PangoRenderX common:
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-hangul-fc.so HangulScriptEngineFc PangoEngineShape PangoRenderFc hangul:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-hebrew-fc.so HebrewScriptEngineFc PangoEngineShape PangoRenderFc hebrew:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-fc.so devaScriptEngineFc PangoEngineShape PangoRenderFc devanagari:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-fc.so bengScriptEngineFc PangoEngineShape PangoRenderFc bengali:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-fc.so guruScriptEngineFc PangoEngineShape PangoRenderFc gurmukhi:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-fc.so gujrScriptEngineFc PangoEngineShape PangoRenderFc gujarati:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-fc.so oryaScriptEngineFc PangoEngineShape PangoRenderFc oriya:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-fc.so tamlScriptEngineFc PangoEngineShape PangoRenderFc tamil:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-fc.so teluScriptEngineFc PangoEngineShape PangoRenderFc telugu:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-fc.so kndaScriptEngineFc PangoEngineShape PangoRenderFc kannada:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-fc.so mlymScriptEngineFc PangoEngineShape PangoRenderFc malayalam:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-fc.so sinhScriptEngineFc PangoEngineShape PangoRenderFc sinhala:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-lang.so devaIndicScriptEngineLang PangoEngineLang PangoRenderNone devanagari:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-lang.so bengIndicScriptEngineLang PangoEngineLang PangoRenderNone bengali:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-lang.so guruIndicScriptEngineLang PangoEngineLang PangoRenderNone gurmukhi:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-lang.so gujrIndicScriptEngineLang PangoEngineLang PangoRenderNone gujarati:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-lang.so oryaIndicScriptEngineLang PangoEngineLang PangoRenderNone oriya:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-lang.so tamlIndicScriptEngineLang PangoEngineLang PangoRenderNone tamil:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-lang.so teluIndicScriptEngineLang PangoEngineLang PangoRenderNone telugu:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-lang.so kndaIndicScriptEngineLang PangoEngineLang PangoRenderNone kannada:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-lang.so mlymIndicScriptEngineLang PangoEngineLang PangoRenderNone malayalam:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-indic-lang.so sinhIndicScriptEngineLang PangoEngineLang PangoRenderNone sinhala:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-khmer-fc.so KhmerScriptEngineFc PangoEngineShape PangoRenderFc khmer:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-syriac-fc.so SyriacScriptEngineFc PangoEngineShape PangoRenderFc syriac:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-thai-fc.so ThaiScriptEngineFc PangoEngineShape PangoRenderFc thai:* lao:*
+/sw/firefox-19.0/depend/lib/pango/1.6.0/modules/pango-tibetan-fc.so TibetanScriptEngineFc PangoEngineShape PangoRenderFc tibetan:*

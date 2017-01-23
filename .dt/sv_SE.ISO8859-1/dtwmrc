@@ -1,0 +1,419 @@
+####################################################################
+#
+#    Original copy: /usr/dt/config/C/sys.dtwmrc
+#
+#    The Resource Description File for the CDE Window Manager dtwm
+#
+#    (c) Copyright 1993, 1994 Hewlett-Packard Company.
+#    (c) Copyright 1993, 1994 International Business Machines Corp. 
+#    (c) Copyright 1993, 1994 Sun Microsystems, Inc.
+#    (c) Copyright 1993, 1994 Unix System Labs, Inc., a subsidiary
+#        of Novell, Inc.
+#
+#    $XConsortium: sys.dtwmrc.src /main/cde1_maint/3 1995/10/30 17:23:26 drk $
+#
+####################################################################
+
+###
+#
+#  Please make a COPY of this file before editing it.
+#
+#  Personalized copies typically exist as:
+#
+#       $HOME/.dt/dtwmrc
+#
+###
+
+###
+#
+# Root Menu Description
+#
+###
+
+Menu DtRootMenu
+{
+    "Menyn Arbetsyta"			f.title
+    
+# Raderna nedan genereras av dtaction GenerateRootMenu. Ändra dem inte.
+# Linjer under har genererats av dtaction GenerateRootMenu. Redigera inte dessa.
+# vvv dtaction GenerateRootMenu vvv
+    "Filer"		f.menu FilerMenyn
+    "Hjälp"		f.menu HjälpMenyn
+    "Kort"		f.menu KortMenyn
+    "Länkar"		f.menu LänkarMenyn
+    "Mappar"		f.menu MapparMenyn
+    "Post"		f.menu PostMenyn
+    "Program"		f.menu ProgramMenyn
+    "Verktyg"		f.menu VerktygMenyn
+    "Värdar"		f.menu VärdarMenyn
+# ^^^ dtaction GenerateRootMenu ^^^
+# Linjer över har genererats av dtaction GenerateRootMenu. Redigera inte dessa.
+# Raderna ovan genereras av dtaction GenerateRootMenu. Ändra dem inte.
+    	no-label				f.separator
+	"Fönster"				f.menu WindowsMenu
+	no-label				f.separator
+	"Lägg till alternativ till meny..."	f.action AddItemToMenu
+	"Anpassa meny..."			f.action CustomizeWorkspaceMenu
+	no-label				f.separator
+	"Lås bildskärm"				f.action LockDisplay
+
+    	"Viloläge..."				f.action SDTsuspend
+
+    	"Logga ut..."				f.action ExitSession
+}
+
+Menu WindowsMenu
+{
+    	"Fönster"				f.title
+	"Flytta uppåt"				f.circle_up
+	"Flytta nedåt"				f.circle_down
+	"Uppdatera"				f.refresh
+	"Rensa ikoner"				f.pack_icons
+	no-label				f.separator
+	"Minimera/återställ huvudgruppen"	f.toggle_frontpanel
+	"Återställ Arbetsytehanteraren..."	f.restart
+	"Uppdatera menyn Arbetsyta"		f.action UpdateWorkspaceMenu
+	no-label				f.separator
+	"Deaktivera behörighetskontroll"	f.action Xhost+
+	"Aktivera behörighetskontroll"		f.action Xhost-
+	no-label				f.separator
+	"Avbryt fönster..."			f.exec /usr/openwin/bin/xkill
+}
+
+Menu ProgramsMenu
+{
+    	"Program"			f.title
+	"Filhanterare...		f.action DtfileHome
+	"Textredigerare..."		f.action TextEditor
+	"Elektronisk post..."		f.action Dtmail
+	"Kalender..."			f.action Dtcm
+	"Webbläsare..."			f.action WebBrowser
+	no-label			f.separator
+	"Terminal..."			f.action Terminal
+	"Konsol..."			f.action DttermConsole
+	no-label			f.separator
+	"Kalkylator..."			f.action Dtcalc
+	"Prestandamätare..."		f.action OWperfmeter
+
+    	"Strömförsörjning..."		f.action SDTpowermgr
+
+    	"Utskriftshanterare..."		f.action DtPrintManager
+	"Ljud..."			f.action SDTaudio
+	no-label			f.separator
+	"Bildverktyg..."		f.action SDTimage
+	"Kamera..."			f.action SDTsnapshot
+	"Ikonredigerare..."		f.action Dticon
+	no-label			f.separator
+	"Skrivbordsinställningar..."	f.action Dtstyle
+	"Programhanterare..."		f.action Dtappmgr
+	"Hjälp..."			f.action Dthelpview
+	"AnswerBook2..."		f.action SDTab2
+}
+
+###
+#
+# Front panel Manu Description
+#
+###
+
+Menu DtPanelMenu
+{
+    	Återställ		_t	f.normalize
+	Flytta			_F	f.move
+	Minimera		_M	f.minimize
+	"Flytta bak"		_y	f.lower
+	Uppdatera		_U	f.refresh
+	no-label			f.separator
+	"Logga ut..."		_L	f.action ExitSession
+}
+
+
+###
+#
+# Sample Window Menu Description
+# This menu description exists as a sample only.
+# The normal window manager menu is built in.
+#
+###
+
+Menu SampleWindowMenu
+{
+    	"Återställ"		_t			f.normalize
+	"Flytta"		_F			f.move
+	"Ändra storlek"		_n			f.resize
+	"Minimera"		_M			f.minimize
+	"Maximera"		_x			f.maximize
+	"Flytta bak"		_y			f.lower
+	no-label					f.separator
+	"Lägg på arbetsyta..."	_L			f.workspace_presence
+	"Lägg på alla arbetsytor"	_a		f.occupy_all
+	"Ta bort från arbetsyta"	_b		f.remove
+	no-label					f.separator
+	"Stäng"			_S	Alt<Key>F4	f.kill
+}
+
+###
+#
+# Alternate Window Menu Description without accelerators
+#
+###
+
+Menu NoAcceleratorWindowMenu
+{
+    	"Återställ"			_t	f.normalize
+	"Flytta"			_F	f.move
+	"Ändra storlek"			_n	f.resize
+	"Minimera"			_M	f.minimize
+	"Maximera"			_x	f.maximize
+	"Flytta bak"			_y	f.lower
+	no-label				f.separator
+	"Lägg på arbetsyta..."		_L	f.workspace_presence
+	"Lägg på alla arbetsytor"	_a	f.occupy_all
+	"Ta bort från arbetsyta"	_b	f.remove
+	no-label				f.separator
+	"Stäng"				_S	f.kill
+}
+
+###
+#
+# Key Bindings Description
+#
+###
+
+Keys DtKeyBindings
+{
+
+
+	#
+	# Global
+	#
+	#Alt<Key>Menu			root|icon|window	f.toggle_frontpanel 
+	Alt<Key>Tab			root|icon|window	f.next_key
+	Alt Shift<Key>Tab		root|icon|window	f.prev_key
+	Alt<Key>Escape			root|icon|window	f.next_key
+	Alt Shift<Key>Escape		root|icon|window	f.prev_key
+	Alt<Key>Down			root|icon|window	f.circle_down
+	Alt<Key>Up			root|icon|window	f.circle_up
+	Alt<Key>Left			root|icon|window	f.prev_workspace
+	Alt<Key>Right			root|icon|window	f.next_workspace
+	Alt Ctrl Shift<Key>exclam	root|icon|window	f.set_behavior
+	#
+	# Root
+	#
+	<Key>SunAgain			root|ifkey		f.pack_icons
+	<Key>SunProps			root|ifkey		f.version
+	<Key>SunUndo			root|ifkey		f.refresh
+	<Key>SunFront			root|ifkey		f.circle_up
+	Shift<Key>SunFront		root|ifkey		f.circle_down
+	<Key>Down			root			f.circle_down
+	<Key>Up				root			f.circle_up
+	<Key>Right			root			f.next_workspace
+	<Key>Left			root			f.prev_workspace
+	#
+	<Key>SunAudioMute        	root|icon|window|ifkey  f.exec /usr/dt/appconfig/sdtvolctl/muteVolume
+	<Key>SunAudioRaiseVolume 	root|icon|window|ifkey  f.exec /usr/dt/appconfig/sdtvolctl/volumeUp
+	<Key>SunAudioLowerVolume 	root|icon|window|ifkey  f.exec /usr/dt/appconfig/sdtvolctl/volumeDown
+	#
+	# Window/Icon
+	#
+	<Key>SunFront               	window|icon|ifkey       f.raise_lower
+	<Key>SunOpen 	               	window|ifkey            f.minimize
+	Shift<Key>Escape		window|icon		f.post_wmenu
+	Alt<Key>space			window|icon		f.post_wmenu
+	Alt<Key>F6  			window			f.next_key transient
+	Alt Shift<Key>F6		window			f.prev_key transient
+	Alt<Key>F4			window|icon|ifkey	f.kill
+	Alt<Key>SunProps		window|icon|ifkey	f.workspace_presence
+	Alt<Key>SunPaste		window|icon|ifkey	f.occupy_all
+	Alt<Key>SunCut			window|icon|ifkey	f.remove
+	Alt<Key>KP_Insert		window|icon		f.occupy_all
+	Alt<Key>Delete			window|icon		f.remove
+	Ctrl<Key>L2			window|ifkey		f.next_cmap
+	Ctrl<Key>L4			window|ifkey		f.prev_cmap
+	#
+	# Icon
+	#
+	<Key>SunOpen                	icon|ifkey              f.restore
+	Alt<Key>F4	                icon|ifkey		f.kill
+	<Key>SunProps			icon|ifkey		f.workspace_presence
+	<Key>SunPaste			icon|ifkey		f.occupy_all
+	<Key>SunCut			icon|ifkey		f.remove
+	<Key>KP_Insert			icon|ifkey		f.occupy_all
+	<Key>Delete			icon|ifkey		f.remove
+
+}
+
+###
+#
+# Mouse Button Bindings Description
+#
+###
+
+Buttons DtButtonBindings
+{
+
+    <Btn1Down>		root			f.marquee_selection
+<Btn2Click>		root			f.toggle_frontpanel
+<Btn3Down>		root			f.menu  DtRootMenu
+Shift<Btn1Click>	frame|icon		f.lower
+<Btn1Click>		frame|icon		f.raise
+<Btn1Click2>	frame			f.maximize
+<Btn1Click2>	icon			f.restore
+<Btn2Click>		frame|icon		f.raise_lower
+<Btn3Down>		frame|icon		f.post_wmenu
+Alt<Btn1Click>	frame|icon|window	f.raise
+Alt<Btn1Click2>	frame|window		f.minimize
+Alt<Btn1Click2>	icon			f.restore
+Alt<Btn2Click>	frame|icon		f.raise_lower
+Alt<Btn1Down>	frame|icon|window	f.move
+Alt<Btn3Down>	window			f.minimize
+
+}
+
+
+###
+#
+# Defaults:   Window menus, key bindings, and mouse button bindings
+#
+###
+
+Menu DefaultWindowMenu
+{
+    	"Återställ"	_t	Alt<Key>F5	f.normalize
+	"Flytta"	_F	Alt<Key>F7	f.move
+	"Ändra storlek"	_n	Alt<Key>F8	f.resize
+	"Minimera"	_M	Alt<Key>F9	f.minimize
+	"Maximera"	_x	Alt<Key>F10	f.maximize
+	"Flytta bak"	_y	Alt<Key>F3	f.lower
+	no-label				f.separator
+	"Stäng"		_S	Alt<Key>F4	f.kill
+}
+
+Keys DefaultKeyBindings
+{
+    	Shift<Key>Escape		icon|window		f.post_wmenu
+	Alt<Key>space			icon|window		f.post_wmenu
+	Alt<Key>Tab			root|icon|window	f.next_key
+	Alt Shift<Key>Tab		root|icon|window	f.prev_key
+	Alt<Key>Escape			root|icon|window	f.next_key
+	Alt Shift<Key>Escape		root|icon|window	f.prev_key
+	Alt Ctrl Shift<Key>exclam	root|icon|window	f.set_behavior
+	Alt<Key>F6			window			f.next_key transient
+}
+
+Buttons DefaultButtonBindings
+{
+    	<Btn1Down>			frame|icon	f.raise
+	<Btn3Down>			icon		f.post_wmenu
+}
+
+####################################################################
+
+Menu ApplicationsMenu
+{
+    	"Program"		f.title
+	"Programhanteraren"	f.action Dtappmgr
+	"Ljudkontroll"		f.action SDtAudioControl
+	"Ljud och video"	f.action SDTjmplay
+	"Kalkylator"		f.action Dtcalc
+	"Kalender"		f.action Dtcm
+	"Ikonredigerare"	f.action Dticon
+	"Bildverktyg"		f.action SDTimage
+	"Kamera"		f.action SDTsnapshot
+	"Textredigerare"	f.action TextEditor
+	"Textanteckning"	f.action Note
+	"Röstanteckning"	f.action Record
+}
+
+Menu CardsMenu
+{
+    	"Kort"			f.title
+	"Adresshanterare"	f.action SDtName
+}
+
+Menu FilesMenu
+{
+    	"Filer"			f.title
+	"Filhanterare"		f.action Dtfile
+	"Sök fil"		f.action SDtFind
+	"Egenskaper..."		f.action FileProperties
+}
+
+Menu FoldersMenu
+{
+    	"Mappar"				f.title
+	"Töm papperskorgen"			f.action DtEmptyTrash
+	"Filhanterare - Hem"			f.action DtfileHome
+	"Öppna diskett"         		f.action OpenFloppy
+	"Hanteraren för flyttbara media"	f.action Dtmediamgr
+	"Papperskorg"				f.action Dttrash
+}
+
+Menu HelpMenu
+{
+    	"Hjälp"				f.title
+	"AnswerBook2"			f.action SDTab2
+	"Introduktion - skrivbordet"	f.action OpenDtIntro
+	"Info om frontpanelen"		f.action FPHelp
+	"Hjälpfönster"			f.action Dthelpview
+	"My Oracle Support"		f.action Open "/usr/dt/config/C/wsmenu/Help/My_Oracle_Support"
+	"Oracle Solaris Documentation"	f.action Open "/usr/dt/config/C/wsmenu/Help/Oracle_Solaris_Documentation"
+$
+}
+
+Menu HostsMenu
+{
+    	"Värdar"		f.title
+	"Sök värd..."		f.action HOST_Find
+	"Prestandamätare"	f.action SDtPerfmeter
+	"Terminalkonsol"	f.action DttermConsole
+	"Denna värd"		f.action Terminal "/usr/dt/config/C/wsmenu/Hosts/This_Host"
+	"Systeminformation"     f.action SDtWsinfo
+}
+
+Menu LinksMenu
+{
+    	"Länkar"		f.title
+	"Sök webbsida"		f.action Open "/usr/dt/config/C/wsmenu/Links/Find_Web_Page"
+	"Webbläsare"		f.action WebBrowser
+}
+
+Menu MailMenu
+{
+    	"Post"			f.title
+	"Elektronisk post"	f.action Dtmail
+}
+
+Menu ToolsMenu
+{
+    	"Verktyg"			f.title
+	"Skapa funktion"		f.action Dtcreate
+	"Skrivbordsinställningar"	f.action DtControls
+	"Snabbtangentredigeraren"	f.action SDtHotkey
+	"Strömförsörjning"		f.action SDTpowermgr
+	"Utskriftshanterare"		f.action DtPrintManager
+	"Skrivaradministratör"		f.action PrinterAdministratorDtspcd
+	"Processhanterare"		f.action SDtProcess
+
+    	"Smartkort"			f.action SDTscgui
+
+    "Solaris Management Console" f.action smc
+    	"Terminal"			f.action Terminal
+	"Visa fel"			f.action DttermErrorlog
+	"Indatametodsinställningar"			f.action IIIM-Properties
+}
+
+###
+#
+# Designer Desktop Customization: $HOME/.dt/wsmenu.dtwmrc (if it exists)
+# User Customization: $HOME/.dt/user.dtwmrc (if it exists)
+#
+###
+
+INCLUDE
+{
+    $HOME/.dt/$LANG/wsmenu.dtwmrc
+    $HOME/.dt/user.dtwmrc
+}
+
+#################  End of the dtwmrc file   #####################

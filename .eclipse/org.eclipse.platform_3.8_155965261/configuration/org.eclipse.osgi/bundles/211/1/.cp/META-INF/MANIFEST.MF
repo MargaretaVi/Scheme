@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Require-Bundle: org.eclipse.mylyn.wikitext.core;bundle-version="[1.3.0
+ ,2.0.0)";resolution:=optional,org.eclipse.mylyn.wikitext.mediawiki.co
+ re;bundle-version="[1.3.0,2.0.0)";resolution:=optional,org.eclipse.ui
+ .cheatsheets;bundle-version="[3.3.0,4.0.0)"
+Bundle-Vendor: %Bundle-Vendor
+Bundle-Version: 3.3.1.201403241930-r
+Bundle-Localization: plugin
+Bundle-Name: %Bundle-Name
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.eclipse.egit.doc;singleton:=true
+

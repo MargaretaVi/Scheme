@@ -1,0 +1,214 @@
+<TOPIC charset ISO-8859-1><TITLE><TYPE serif><WEIGHT bold><SIZE 14>Common Desktop Environment</SIZE></WEIGHT></TYPE></TITLE><PARAGRAPH before 1 first 1 left 1>Översikt och grundläggande skrivbords färdigheter * Använda Hjälp * Adresshanteraren * Progambyggaren * Programhanteraren * Ljud * Kalkylator * Kalender * Skapa åtgärd * Filhanteraren * File Types Editor * Sök fil * Teckensnitts administration * Frampanel * Graphical Workspace Manager * Kortkommandoredigeraren * Ikonredigerare * Bildvisaren * Inloggningshanteraren och miljövariabler * Mailer * Prestandamätare * Utskriftshanterare * Processhanteraren * Egenskaper * Hanteraren för flyttbara media * Sessionshanteraren * Knapplägeshanterare * Terminalemulatorn * Redigeringsprogram * Fönsterlistan * Workspace Manager 
+</P>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Intromgr.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Introduktion till skrivbordet</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>I den här hjälpvolymen beskrivs skrivbordets funktioner och de grundläggande kunskaper som krävs för att använda dem.
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Help4Help.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Skrivbordets hjälpsystem</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Hjälp för användning av Common Desktop Environment Help System
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Addressmgr.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälpen till Adresshanteraren</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Working with Electronic Addresses * Performing Actions on Cards * Performing Actions on Aliases * Performing Actions on Hosts * Address Manager Reference
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "AppBuilder.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Application Builder Help</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>This help volume describes Application Builder and explains how to use it to create a graphical user interface.
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Appmanager.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för programhanteraren</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Använda programhanteraren * Referens för programhanteraren
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Sdtaudio.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för Ljudverktyg</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Den här hjälpvolymen innehåller information om hur du använder Ljudverktyg för att spela upp, spela in eller spara ljudfiler.
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Calculator.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för Kalkylatorn</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Använda Kalkylatorn
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Calendar.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för Kalendern</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Denna hjälpvolym ger information om hur du använder Kalendern för att schemalägga (boka) möten, göra komihåg-listor, skapa påminnelser, boka gruppmöten samt visa och skriva ut din kalender.
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "CreatAct.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för programmet Skapa funktion</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Använda programmet Skapa funktion för att skapa funktioner och datatyper
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Filemgr.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälpen till Filhanteraren</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Grundläggande kunskaper för filhantering * Använda skrivbordet * Använda papperskorgen * Lokalisera filer * Filhanterarens referenser
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Sdtfprop.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för Egenskaper</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>I det här hjälpavsnittet får du information om hur du använder dialogrutan Egenskaper i Filhanteraren när du vill visa och ändra grundbehörigheter och ACL för filer eller mappar och om hur du visar annan information om en fil eller mapp.
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Sdttypes.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>CDE typredigerare</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Använda Fönsterhanterarens förbättringar * Referens för Fönsterhanterarens förbättringar
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "FindFile.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälpen till Sök fil</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Öppna dialogrutan Sök fil * Söka filer eller mappar efter namn * Söka filer eller mappar efter innehåll * Söka med hjälp av andra sökkriterier
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Sdtfontadm.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Font Administrator Help</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>This is the online help for Font Administrator.
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "FPanel.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälpen till frampanelen</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Använda frampanelen * Anpassa frampanelen * Frampanelens referenser
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Sdtgwm.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Graphical Workspace Manager Help</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Using the Window Manager Ehancements * Window Manager Enhancements Reference
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "HotkeyEdtr.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för Kortkommandoredigeraren</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Använda Kortkommandoredigeraren * Anpassa Kortkommandoredigeraren * Referens för Kortkommandoredigeraren
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Iconed.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för ikonredigeraren</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Skapa och redigera ikoner * Hur du anger antal färger i ikoner * Hur du hittar ikoner * Referens för ikonredigeraren
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Sdtimage.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för Bildverktyget</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Denna hjälpvolym ger information om hur du använder Bildverktyget för att visa, redigera, skriva ut och översätta filformaten hos monokroma bilder och färgbilder samt flersidiga dokument såsom PostScript-filer.
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Loginmgr.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för Inloggningshanteraren</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>* Starta och avsluta skrivbordssessioner * Anpassa egenskaper i Inloggningshanteraren * Referens för Inloggningshanteraren
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Mailer.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för Postverktyget</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Denna hjälp ger dig information om hur du använder Postverktyget för att skicka, ta emot och spara meddelanden och hur du anpassar Postverktyget efter dina behov.
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Perfmeter.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för Prestandamätare</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Övervaka systemets prestanda * Inställningsparametrar * Visa prestandadiagram
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Printmgr.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Information om utskrifter</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Skriva ut * Avbryta utskriftsjobb * Hitta utskriftsjobb * Referens för Utskriftshanteraren
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Processmgr.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälpen till Processhanteraren</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1></P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Sdtfprop.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för Egenskaper</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>I det här hjälpavsnittet får du information om hur du använder dialogrutan Egenskaper i Filhanteraren när du vill visa och ändra grundbehörigheter och ACL för filer eller mappar och om hur du visar annan information om en fil eller mapp.
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "RemMedia.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för flyttbara media</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Arbeta med flyttbara media * Formatera media * Arbeta med skydd
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Sesmgr.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Sessionshanteraren</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Hur Sessionshanteraren fungerar Anpassa standardsessionen Exekvera kommandon vid sessionsstart Använda en annan fönsterhanterare Skapa skärmberoende sessioner Anpassa kommandoradssessionen
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Stylemgr.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Information om Inställningar</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Ändra färger * Skapa anpassade paletter * Ändra arbetsytans bakgrund * Välja teckensnittets storlek, snittvariant och teckenuppsättning * Anpassa systeminställningar (tangentbord, mus, ljud) * Ändra fönsterinställningar * Referens för Inställningar
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Terminal.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för terminalemulering</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Använda terminalemulatorer * Konfigurera terminalemulatorer * dtterm 1x man-sida * Esc-sekvenser för terminaler
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Textedit.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för Textredigeraren</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Starting Text Editor * Opening and Saving Documents * Creating and Editing Documents * Formatting and Printing Documents * Text Editor Reference
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Sdtwinlst.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för Fönsterlistan</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Använda Fönsterlistahanteraren
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Sdtwsm.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Hjälp för Arbetsytehanteraren</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Visa arbetsyteväxlaren i huvudgruppen * Ändra antalet arbetsytor * Återställ Arbetsytehanteraren till dess standardvärden
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+</PARAGRAPH>
+</TOPIC>
+<TOPIC charset iso8859-1><TITLE><TYPE serif><WEIGHT bold><SIZE 14>Översikt och grundläggande skrivbordsfärdigheter</SIZE></WEIGHT></TYPE></TITLE><PARAGRAPH before 1 first 1 left 1>Översikt och grundläggande skrivbordsfärdigheter för                 Common Desktop Environment.
+</P>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "Intromgr.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Introduktion till skrivbordet</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>I den här hjälpvolymen beskrivs skrivbordets funktioner och de grundläggande kunskaper som krävs för att använda dem.
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+</PARAGRAPH>
+</TOPIC>
+<TOPIC charset ISO-8859-1><TITLE><TYPE serif><WEIGHT bold><SIZE 14>The Solaris Trusted Extensions Desktop </SIZE></WEIGHT></TYPE></TITLE><PARAGRAPH before 1 first 1 left 1>Labels, Applications, and Appearance                 on a Trusted Extensions Desktop 
+</P>
+<CHARACTERSET C.ISO-8859-1><LINK 0 "SdtTrust.sdl _hometopic">
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Solaris Trusted Extensions Help</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1><CHARACTERSET C.ISO-8859-1>Using Solaris Trusted Extensions Software in CDE * What is Trusted Extensions Software? * Trusted Extensions Changes to CDE
+</CHARACTERSET>
+</P>
+</CHARACTERSET>
+</PARAGRAPH>
+</TOPIC>

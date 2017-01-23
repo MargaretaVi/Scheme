@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///home/marvi154/TDDC74/lab00/lab0" added="2017-01-16T11:19:07Z" modified="2017-01-16T11:19:07Z" visited="2017-01-16T11:19:07Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="drracket" exec="&apos;drracket %u&apos;" modified="2017-01-16T11:19:07Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/marvi154/TDDC74/lab00/tools.rkt" added="2017-01-16T11:40:47Z" modified="2017-01-16T11:45:47Z" visited="2017-01-16T11:40:48Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="drracket" exec="&apos;drracket %u&apos;" modified="2017-01-16T11:45:47Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/marvi154/kurs/tddc74/lab0/test.rtk" added="2017-01-16T11:49:04Z" modified="2017-01-16T11:49:04Z" visited="2017-01-16T11:49:04Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="drracket" exec="&apos;drracket %u&apos;" modified="2017-01-16T11:49:04Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/marvi154/kurs/tddc74/lab0/la00.rtk" added="2017-01-19T15:31:42Z" modified="2017-01-19T15:31:42Z" visited="2017-01-19T15:31:43Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="drracket" exec="&apos;drracket %u&apos;" modified="2017-01-19T15:31:42Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/marvi154/kurs/tddc74/lab0/tools.rtk" added="2017-01-19T15:40:32Z" modified="2017-01-19T15:40:32Z" visited="2017-01-19T15:40:32Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="drracket" exec="&apos;drracket %u&apos;" modified="2017-01-19T15:40:32Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/marvi154/kurs/tddc74/lab0/test.rkt" added="2017-01-19T15:41:49Z" modified="2017-01-19T15:41:49Z" visited="2017-01-19T15:41:50Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="drracket" exec="&apos;drracket %u&apos;" modified="2017-01-19T15:41:49Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/marvi154/kurs/tddc74/lab2/la02.rkt" added="2017-01-19T15:55:56Z" modified="2017-01-19T15:55:56Z" visited="2017-01-19T15:55:56Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="drracket" exec="&apos;drracket %u&apos;" modified="2017-01-19T15:55:56Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/marvi154/Downloads/la01.rkt" added="2017-01-23T10:24:35Z" modified="2017-01-23T10:24:35Z" visited="2017-01-23T10:24:35.661997Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2017-01-23T10:24:35Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>

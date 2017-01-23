@@ -1,0 +1,136 @@
+####################################################################
+#
+#
+#    Resursbeskrivningsfilen för CDE-fönsterhanterarens dtwm
+#
+#    (c) Copyright 1993, 1998 Sun Microsystems, Inc.
+#
+####################################################################
+
+###
+#
+#  Redigera inte den här filen. Den skapas automatiskt
+#
+###
+
+###
+#
+# Anpassad Arbetsyta-meny
+#
+###
+
+
+
+Menu FilerMenyn
+{
+    "Filer"		f.title
+
+    "Egenskaper..."		f.action FileProperties
+    "Filhanterare"		f.action Dtfile
+    "Sök fil"		f.action SDtFind
+}
+
+Menu HjälpMenyn
+{
+    "Hjälp"		f.title
+
+    "AnswerBook2"		f.action SDTab2
+    "Hjälpfönster"		f.action Dthelpview
+    "Info om frontpanelen"		f.action FPHelp
+    "Introduktion - skrivbordet"		f.action OpenDtIntro
+    "My Oracle Support"		f.action Open "/usr/dt/config/C/wsmenu/Help/My_Oracle_Support"
+    "Oracle Solaris Documentation"		f.action Open "/usr/dt/config/C/wsmenu/Help/Oracle_Solaris_Documentation"
+}
+
+Menu KortMenyn
+{
+    "Kort"		f.title
+
+    "Adresshanterare"		f.action SDtName
+}
+
+Menu LänkarMenyn
+{
+    "Länkar"		f.title
+
+    "Sök webbsida"		f.action Open "/usr/dt/config/C/wsmenu/Links/Find_Web_Page"
+    "Webbläsare"		f.action WebBrowser
+}
+
+Menu MapparMenyn
+{
+    "Mappar"		f.title
+
+    "Filhanterare - Hem"		f.action DtfileHome
+    "Hanteraren för flyttbara media"		f.action Dtmediamgr
+    "Papperskorg"		f.action Dttrash
+    "Töm papperskorgen"		f.action DtEmptyTrash
+}
+
+Menu PostMenyn
+{
+    "Post"		f.title
+
+    "E-post"		f.action Dtmail
+}
+
+Menu ProgramMenyn
+{
+    "Program"		f.title
+
+    "Acroread"		f.action Acroread
+    "Bildverktyg"		f.action SDTimage
+    "Emacs"		f.action Emacs
+    "Firefox"		f.action Firefox
+    "Ikonredigerare"		f.action Dticon
+    "Kalender"		f.action Dtcm
+    "Kalkylator"		f.action Dtcalc
+    "Kamera"		f.action SDTsnapshot
+    "Ljud och video"		f.action SDTjmplay
+    "Ljudkontroll"		f.action SDtAudioControl
+    "OpenOffice"		f.action OpenOffice
+    "Programhanterare"		f.action Dtappmgr
+    "Röstanteckning"		f.action Record
+    "Textanteckning"		f.action Note
+    "Textredigerare"		f.action TextEditor
+    "Thunderbird"		f.action Thunderbird
+    "no-label"		f.separator
+    "Frame"		f.menu FrameMenyn
+}
+
+Menu FrameMenyn
+{
+    "Frame"		f.title
+
+    "Frame English"		f.action FrameEnglish
+    "Frame Svenska"		f.action FrameSvenska
+    "Frame default language"		f.action Frame
+}
+
+Menu VerktygMenyn
+{
+    "Verktyg"		f.title
+
+    "Kortkommandoredigeraren"		f.action SDtHotkey
+    "Processhanterare"		f.action SDtProcess
+    "Skapa funktion"		f.action Dtcreate
+    "Skrivaradministratör"		f.action PrinterAdministratorDtspcd
+    "Skrivbordsinställningar"		f.action DtControls
+    "Smart Card"		f.action SDTscgui
+    "Strömförsörjning"		f.action SDTpowermgr
+    "Terminal"		f.action Terminal
+    "Utskriftshanterare"		f.action DtPrintManager
+    "Visa fel"		f.action DttermErrorlog
+}
+
+Menu VärdarMenyn
+{
+    "Värdar"		f.title
+
+    "Denna värd"		f.action Terminal "/usr/dt/config/C/wsmenu/Hosts/This_Host"
+    "Prestandamätare"		f.action SDtPerfmeter
+    "Systeminformation"		f.action SDtWsinfo
+    "Sök värd ..."		f.action HOST_Find
+    "Terminalkonsol"		f.action DttermConsole
+}
+

@@ -1,0 +1,8 @@
+dtsmcmd -hints "-geometry 1x1+0+0 -state NormalState -cmd \"dtfile -session dtoGa4Iu \"" -screen 0 -cmd "dtfile -session dtoGa4Iu"
+
+dtsmcmd -hints "-geometry 493x626+30+30 -state NormalState -workspaces \"ws0 \" -cmd \"/usr/dt/bin/dthelpview -helpVolume Intromgr -xrm *iconX:2 -xrm *iconY:2 \"" -screen 0 -cmd "/usr/dt/bin/dthelpview -helpVolume Intromgr -xrm *iconX:2 -xrm *iconY:2"
+
+dtsmcmd -hints "-geometry 10x10+10+10 -state NormalState -cmd \"firefox \"" -screen 0 -cmd "firefox"
+
+dtsmcmd -screen 0 -cmd "/usr/dt/bin/sdtperfmeter -f -H -t cpu -t disk -s 1 -name fpperfmeter"
+

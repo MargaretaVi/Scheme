@@ -1,0 +1,65 @@
+!# Last modification time stamp per directory
+*./home/marvi154/.dt/help/marvi154-zaza10.ida.liu.se-16.timeStamp:   1358338621
+*./home/marvi154/.dt/help.timeStamp:   1358338621
+*./usr/local/lib/X11/appconfig/help/sv_SE.ISO8859-1.timeStamp:   0
+*./usr/local/lib/X11/appconfig/help/C.timeStamp:   1262870258
+*./usr/dt/appconfig/help/sv_SE.ISO8859-1.timeStamp:   1342597786
+*./usr/dt/appconfig/help/C.timeStamp:   1342597107
+*./home/marvi154/.dt/help/marvi154-zaza10.ida.liu.se-16.timeStamp:   1358338621
+*./home/marvi154/.dt/help.timeStamp:   1358338621
+*./usr/local/lib/X11/appconfig/help/sv_SE.ISO8859-1.timeStamp:   0
+*./usr/local/lib/X11/appconfig/help/C.timeStamp:   1262870258
+*./usr/dt/appconfig/help/sv_SE.ISO8859-1.timeStamp:   1342597786
+*./usr/dt/appconfig/help/C.timeStamp:   1342597107
+*.charSet:	sv_SE.ISO-8859-1
+
+!# Topic filenames and offsets
+*.FAMILY0.filepos: 0
+*.FAMILY0.filename: browser01.ht
+*.FAMILY1.filepos: 12647
+*.FAMILY1.filename: browser01.ht
+*.FAMILY2.filepos: 13327
+*.FAMILY2.filename: browser01.ht
+
+
+!# Top (or home) topic filename and offset
+*._HOMETOPIC.filepos:   0
+*._HOMETOPIC.filename:  browser00.ht
+
+
+!# Volume Title
+*.title:     Hjälp - Toppnivå
+
+
+!# Topic Home Location
+*.topTopic:  _HOMETOPIC
+
+
+!# Topic Heirarchy
+*._HOMETOPIC.parent:  
+*.FAMILY0.parent: _HOMETOPIC
+*.FAMILY1.parent: _HOMETOPIC
+*.FAMILY2.parent: _HOMETOPIC
+
+
+!# Topic List
+*.topicList: _HOMETOPIC \
+	FAMILY0 \
+	FAMILY1 \
+	FAMILY2
+
+
+!# Paths Searched
+*.dirList:  \
+	/home/marvi154/.dt/help/marvi154-zaza10.ida.liu.se-16 \
+	/home/marvi154/.dt/help \
+	/usr/local/lib/X11/appconfig/help/sv_SE.ISO8859-1 \
+	/usr/local/lib/X11/appconfig/help/C \
+	/usr/dt/appconfig/help/sv_SE.ISO8859-1 \
+	/usr/dt/appconfig/help/C \
+	/home/marvi154/.dt/help/marvi154-zaza10.ida.liu.se-16 \
+	/home/marvi154/.dt/help \
+	/usr/local/lib/X11/appconfig/help/sv_SE.ISO8859-1 \
+	/usr/local/lib/X11/appconfig/help/C \
+	/usr/dt/appconfig/help/sv_SE.ISO8859-1 \
+	/usr/dt/appconfig/help/C

@@ -1,0 +1,69 @@
+/*
+ * Laboration 3 Expression.h
+ * Gustav Nordh och Joel Martinsson
+ * Gusno089         Joema115
+ *
+ * Funktionsdeklarationer för klassen Expression. 
+ */
+#ifndef EXPRESSION_H
+#define EXPRESSION_H
+#include <iosfwd>
+#include <stdexcept>
+#include <string>
+#include <stack>
+#include "Expression_Tree.h"
+
+/**
+ * expression_error: undantag som kastas om ett fel inträffar i en Expression-
+ * operation, ett diagnostiskt meddelande ska skickas med.
+ */
+
+
+class Expression_Error  : public std::logic_error
+{
+ public:
+  explicit Expression_Error(const std::string& what_arg) noexcept
+    : std::logic_error(what_arg)
+  {
+  }
+};
+
+
+/**
+ * Expression: Klass för att representera ett enkelt aritmetiskt uttryck.
+ */
+class Expression
+{
+public:
+
+  // -- Konstruktorer --
+  Expression(Expression_Tree* objkt = nullptr);
+  Expression(const Expression&);
+  Expression(Expression&&);
+  ~Expression();
+
+  // -- Operatorer --
+  void operator=(const Expression&);
+  void operator=(Expression&&);
+
+  // -- Funktioner -- 
+   double evaluate() const;
+   bool empty() const;
+   void print_tree(std::ostream&) const;
+   void swap(Expression&);
+
+   void clear();
+   std::string get_postfix() const;
+   std::string get_infix();
+
+ private:
+   std::string str_clean(std::string);
+   Expression_Tree* Node = nullptr;
+};
+
+// -- Funktioner för make_expression och minneshantering.
+void clean(std::stack<Expression_Tree*>&);
+void swap(Expression&, Expression&);
+Expression make_expression(const std::string& infix,Variable_Table*&);
+
+#endif

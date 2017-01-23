@@ -1,0 +1,24 @@
+package tddc17;
+import java.util.*;
+public class Queue {
+	Vector <Integer> commandQueue;
+	
+	Queue(){
+		commandQueue=new Vector<Integer>();
+	}
+	
+	private Boolean hasNext(){
+		return !commandQueue.isEmpty();
+	}
+	
+	private int getNext(){
+		int fetchTmp = commandQueue.firstElement();
+		commandQueue.remove(0);
+		return fetchTmp;
+		}
+	private void addCommandSequence(int[] seq){
+		for(int i=0; i<seq.length;i++){
+			commandQueue.add(0, seq[i]);
+		}
+	}
+}

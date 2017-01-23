@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<gconf>
+        <entry name="object_id_list_jds" mtime="1359560024" schema="/schemas/apps/panel/general/object_id_list_jds" type="list" ltype="string">
+        <li type="string">
+                <stringvalue>main_menu</stringvalue>
+        </li>
+        </entry>
+        <entry name="applet_id_list_jds" mtime="1359560024" schema="/schemas/apps/panel/general/applet_id_list_jds" type="list" ltype="string">
+        <li type="string">
+                <stringvalue>show_desktop_button</stringvalue>
+        </li>
+        <li type="string">
+                <stringvalue>clock</stringvalue>
+        </li>
+        <li type="string">
+                <stringvalue>window_list</stringvalue>
+        </li>
+        <li type="string">
+                <stringvalue>system_tray</stringvalue>
+        </li>
+        <li type="string">
+                <stringvalue>workspace_switcher</stringvalue>
+        </li>
+        <li type="string">
+                <stringvalue>volume_control</stringvalue>
+        </li>
+        <li type="string">
+                <stringvalue>network_monitor</stringvalue>
+        </li>
+        </entry>
+        <entry name="show_program_list" mtime="1359560024" schema="/schemas/apps/panel/general/show_program_list"/>
+        <entry name="toplevel_id_list_jds" mtime="1359560024" schema="/schemas/apps/panel/general/toplevel_id_list_jds" type="list" ltype="string">
+        <li type="string">
+                <stringvalue>bottom_panel</stringvalue>
+        </li>
+        </entry>
+        <entry name="enable_program_list" mtime="1359560024" schema="/schemas/apps/panel/general/enable_program_list"/>
+</gconf>

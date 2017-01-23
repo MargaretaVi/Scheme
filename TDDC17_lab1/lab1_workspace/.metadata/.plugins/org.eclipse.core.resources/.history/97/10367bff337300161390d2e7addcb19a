@@ -1,0 +1,40 @@
+package tddc17;
+
+import java.util.*;
+
+public class DecisionMaker {
+	private int [] surroundings;
+	private int[][] map;
+	private final int ACTION_NONE 			= 0;
+	private final int ACTION_MOVE_FORWARD 	= 1;
+	private final int ACTION_TURN_RIGHT 	= 2;
+	private final int ACTION_TURN_LEFT 		= 3;
+	private final int ACTION_SUCK	 		= 4;
+	private final int [] dodgeObstacle = new int[] {ACTION_TURN_RIGHT,ACTION_MOVE_FORWARD,ACTION_TURN_LEFT};
+	private final int [] uTurn = new int[] {ACTION_TURN_RIGHT,ACTION_TURN_RIGHT};
+	private final int[] turnLeft= new int[] {ACTION_TURN_LEFT,ACTION_MOVE_FORWARD};
+	private final int[] goForward= new int[] {ACTION_MOVE_FORWARD};
+	
+	
+	DecisionMaker(){
+		this.surroundings = new int [] {0,0,0,0};
+	}
+	public void updateSurroundings(int[] surroundings,int[][] map){
+		this.surroundings = surroundings;
+		this.map=map;
+	}
+	public int [] getDecision(){
+		int[] decision;
+		if(surroundings[3]==0){
+			return turnLeft;
+		}
+		else if(surroundings[0]==0){
+			
+		}
+		return decision;
+	}
+	private Boolean
+	
+	
+	
+}

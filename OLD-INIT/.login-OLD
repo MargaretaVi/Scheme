@@ -1,0 +1,37 @@
+#--|---------------------------------------------------------------------------
+#--| @(#)login  3.0.0   950327  tao@ida, pjn@ida, bkn@ida
+#--|
+#--| Initfile for login shell (C Shell).
+#--|
+#--| The file .login is read after the file .cshrc in a login shell.
+#--| It is primarily used to set up the environment that will be inherited
+#--| to all others shell started as children of the login shell.
+#--| It will start a window system if specified.
+#--|
+#--|---------------------------------------------------------------------------
+
+#--| Add the default environment
+#--| Next line will be modified by the 'module initadd/initrm' comands
+
+module add  default
+
+#--| Place your own special startup stuff here, but check first if
+#--| there is a module that will fix it, and if not consider writing
+#--| your own module and put it in $HOME/.modulefiles
+#--| Place modem login stuff last in this file.
+
+#--| Examples:
+# setenv OW_WINDOW_MANAGER mywm
+# setenv START_WS_CMD "openwin -dev /dev/cgsix0 -dev /dev/cgsix1"
+
+#--| Do some standard login stuff; possibly start windowsystem...
+#--| Do not change this unless you really have to!
+
+source /sw/defaults/lib/$shell:t/login-include
+
+if ( ! $?DT ) then
+  #--| Place special things for terminal or remote login here
+  #--| - this part is only reached when no window system is started
+
+
+endif

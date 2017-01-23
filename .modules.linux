@@ -1,0 +1,15 @@
+### NOTE:
+### It is strongly recommended to only use the commands
+###    'module initadd' and 'module initrm'
+### to modify this file.
+###
+### If you still insist on modifying it manually, keep all modules on one line.
+###
+### For more information about the module system see:
+###    'man module', 'module --help' and 'module avail'
+###
+### To check the contents of this file for problems, do this:
+###    Start a new shell
+###    from that shell: source .modules.linux
+
+module add def

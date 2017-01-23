@@ -1,0 +1,24 @@
+#lang racket
+(provide square double)
+;; uppgift 5
+(define myname "<Margareta>")
+(printf "Hej ~a" myname)
+
+;; uppgift 6
+(- 9 (+ 2 (* -3 4)))
+
+;; uppgift 7
+; 2/3
+; 0.666..7 <-- flyttal
+;; 1
+; 0.333... <- flyttal
+
+; uppgift 8
+(define square
+(lambda (n)
+;; Return n^2.
+(* n n)))
+
+(define double
+  (lambda n
+    (* 2 n)))

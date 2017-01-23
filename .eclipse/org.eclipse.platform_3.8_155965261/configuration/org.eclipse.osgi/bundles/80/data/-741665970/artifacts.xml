@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='/usr/share/eclipse/dropins/egit' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+  <properties size='1'>
+    <property name='p2.timestamp' value='1475841294351'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='8'>
+    <artifact classifier='osgi.bundle' id='org.eclipse.egit' version='3.3.1.201403241930-r'>
+      <properties size='2'>
+        <property name='artifact.size' value='3702'/>
+        <property name='download.size' value='3702'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/egit/eclipse/plugins/org.eclipse.egit_3.3.1.201403241930-r.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/egit/eclipse/plugins/org.eclipse.egit_3.3.1.201403241930-r.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.egit' version='3.3.1.201403241930-r'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/egit/eclipse/features/org.eclipse.egit_3.3.1.201403241930-r/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/egit/eclipse/features/org.eclipse.egit_3.3.1.201403241930-r'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.googlecode.javaewah.JavaEWAH' version='0.6.12'>
+      <properties size='2'>
+        <property name='artifact.size' value='58979'/>
+        <property name='download.size' value='58979'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/egit/eclipse/plugins/com.googlecode.javaewah.JavaEWAH_0.6.12.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/egit/eclipse/plugins/com.googlecode.javaewah.JavaEWAH_0.6.12.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.egit.ui' version='3.3.1.201403241930-r'>
+      <properties size='2'>
+        <property name='artifact.size' value='2436754'/>
+        <property name='download.size' value='2436754'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/egit/eclipse/plugins/org.eclipse.egit.ui_3.3.1.201403241930-r.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/egit/eclipse/plugins/org.eclipse.egit.ui_3.3.1.201403241930-r.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.jgit' version='3.3.1.201403241930-r'>
+      <properties size='2'>
+        <property name='artifact.size' value='1795845'/>
+        <property name='download.size' value='1795845'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/egit/eclipse/plugins/org.eclipse.jgit_3.3.1.201403241930-r.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/egit/eclipse/plugins/org.eclipse.jgit_3.3.1.201403241930-r.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.egit.core' version='3.3.1.201403241930-r'>
+      <properties size='2'>
+        <property name='artifact.size' value='357117'/>
+        <property name='download.size' value='357117'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/egit/eclipse/plugins/org.eclipse.egit.core_3.3.1.201403241930-r.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/egit/eclipse/plugins/org.eclipse.egit.core_3.3.1.201403241930-r.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.jgit.java7' version='3.3.1.201403241930-r'>
+      <properties size='2'>
+        <property name='artifact.size' value='14443'/>
+        <property name='download.size' value='14443'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/egit/eclipse/plugins/org.eclipse.jgit.java7_3.3.1.201403241930-r.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/egit/eclipse/plugins/org.eclipse.jgit.java7_3.3.1.201403241930-r.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.egit.doc' version='3.3.1.201403241930-r'>
+      <properties size='2'>
+        <property name='artifact.size' value='4359830'/>
+        <property name='download.size' value='4359830'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/egit/eclipse/plugins/org.eclipse.egit.doc_3.3.1.201403241930-r.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/egit/eclipse/plugins/org.eclipse.egit.doc_3.3.1.201403241930-r.jar'/>
+      </repositoryProperties>
+    </artifact>
+  </artifacts>
+</repository>

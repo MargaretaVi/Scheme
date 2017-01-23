@@ -1,0 +1,600 @@
+#+1411628231
+module add prog/gcc/4.8.1
+#+1411628235
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib Monetary.cc
+#+1411628246
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411628256
+g++ --version
+#+1411628263
+module list
+#+1411628275
+module rm prog/gcc/4.9.1
+#+1411628290
+module rm prog/gcc/3.46
+#+1411628291
+module rm prog/gcc/3.4.6
+#+1411628293
+module list
+#+1411628301
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411628307
+module rm prog/gcc/4.8.1
+#+1411628311
+module add prog/gcc/4.8.1
+#+1411628313
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411979321
+emacs Monetary2.o.h Monetary2.0.cc &
+#+1411979359
+emacs &
+#+1411979395
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary2.0.cc
+#+1411979537
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411979581
+emacs &
+#+1411980269
+emacs &
+#+1411980671
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411980676
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411980711
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411980715
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411980760
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411980800
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411980822
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411980833
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411980905
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411980936
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411980966
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411981012
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411981042
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411981066
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411981309
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411981342
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411981470
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411981495
+a.out
+#+1411981627
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411981630
+a.out
+#+1411981645
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411981672
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411981682
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411981763
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411981798
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411981822
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411981827
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411981831
+a.out
+#+1411981943
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411982008
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411982011
+a.out
+#+1411982029
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411982032
+a.out
+#+1411983146
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411983217
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411983227
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411983275
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411983278
+A
+#+1411983279
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411983302
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411983331
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411983396
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411983401
+a.out
+#+1411983412
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411983415
+a.out
+#+1411983442
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411983445
+a.out
+#+1411983461
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411983464
+a.out
+#+1411983731
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411983770
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411983861
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411983890
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411984282
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411984374
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411984393
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411984400
+a.out
+#+1411984411
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411984413
+a.out
+#+1411984469
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411984487
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411984490
+a.out
+#+1411984506
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411984508
+a.out
+#+1411984859
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411984861
+a.out
+#+1411984922
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411984930
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ Monetary.cc
+#+1411984932
+a.out
+#+1412243849
+~/TDDC76/send_file
+#+1412243857
+~home/TDDC76/send_file
+#+1412946962
+matlab &
+#+1412946966
+matlab
+#+1413287703
+ls
+#+1413287709
+cd TDDC76
+#+1413287710
+ls
+#+1413287715
+cd Lab3
+#+1413287715
+ls
+#+1413287720
+cd Lab3
+#+1413287721
+ls
+#+1413287725
+cd Expression/
+#+1413287748
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413287771
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413287820
+'
+#+1413287826
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413288181
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413288207
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413288264
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413288306
+'
+#+1413288307
+'
+#+1413288309
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413288332
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413289369
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413289399
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413289426
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413289487
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413289722
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413289737
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413290110
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413290235
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413290256
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413290470
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413290502
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413290619
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413290733
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413290771
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413290977
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413291095
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413291200
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413291238
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413291579
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413291625
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413291642
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413291766
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413291782
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413291803
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413292085
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413292138
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413292259
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413292261
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413292357
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree2.cc
+#+1413292361
+cd ..
+#+1413292362
+ls
+#+1413292368
+cd Expression/
+#+1413292369
+ls
+#+1413292382
+cd ..
+#+1413292384
+ls
+#+1413292388
+cd namnlös\ mapp/
+#+1413292391
+ls
+#+1413292394
+cd Lab3
+#+1413292400
+ls
+#+1413292404
+cd Expression/
+#+1413292404
+ls
+#+1413292417
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree2.cc
+#+1413292488
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree2.cc
+#+1413292541
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413292545
+cd ..
+#+1413292549
+cd ..
+#+1413292550
+cd ..
+#+1413292554
+ls
+#+1413292559
+cd Lab3
+#+1413292559
+ls
+#+1413292563
+cd Expression/
+#+1413292564
+ls
+#+1413292570
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413292845
+cd ..
+#+1413292846
+cd ..
+#+1413292847
+cd ..
+#+1413292852
+Lab3/
+#+1413292856
+cd Lab3
+#+1413292856
+ls
+#+1413292862
+cd namnlös\ mapp/
+#+1413292864
+ls
+#+1413292868
+cd Lab3
+#+1413292868
+ls
+#+1413292874
+cd Expression/
+#+1413292875
+ls
+#+1413292885
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree2.cc
+#+1413295889
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree2.cc
+#+1413361071
+ld
+#+1413361072
+ls
+#+1413361081
+cd TDDC76
+#+1413361082
+ls
+#+1413361087
+cd Lab3
+#+1413361088
+ls
+#+1413361092
+cd Lab3
+#+1413361093
+ls
+#+1413361097
+cd Lab3
+#+1413361099
+ls
+#+1413361103
+cd Expression/
+#+1413361104
+ls
+#+1413361543
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413361559
+lab3
+#+1413361900
+lab3
+#+1413361902
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413361905
+lab3
+#+1413363858
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression.cc
+#+1413363864
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression.cc
+#+1413363937
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression.cc
+#+1413364092
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression.cc
+#+1413364326
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression2.cc
+#+1413364329
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_tree.cc
+#+1413364333
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413364378
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413364398
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413364426
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413364430
+lab3
+#+1413364464
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413364467
+lab3
+#+1413364540
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413364558
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413364560
+lab3
+#+1413364582
+lab3
+#+1413364583
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413364840
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413364872
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413382080
+clear
+#+1413382081
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression.cc
+#+1413382604
+clear
+#+1413382605
+clear
+#+1413382615
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression-test.cc
+#+1413382619
+ls
+#+1413382631
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 expression-test.cc
+#+1413383022
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 expression-test.cc
+#+1413383167
+clear clear
+#+1413383169
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 expression-test.cc
+#+1413383345
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 expression-test.cc
+#+1413383678
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 expression-test.cc
+#+1413384144
+clear
+#+1413384145
+clear
+#+1413384146
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 expression-test.cc
+#+1413402961
+â‰ˆxx'
+#+1413402972
+ls
+#+1413402991
+cd TDDC76/Lab3/Lab3
+#+1413402993
+ls
+#+1413403000
+cd Lab3
+#+1413403003
+ls
+#+1413412657
+ls
+#+1413412776
+ls
+#+1413412783
+cd Lab3/
+#+1413412786
+ls
+#+1413412792
+cd Expression/
+#+1413412793
+ls
+#+1413412798
+make
+#+1413442746
+cd TDDC76/Lab3
+#+1413442747
+ls
+#+1413442756
+cd Lab3
+#+1413442757
+ls
+#+1413442761
+cd Expression/
+#+1413442773
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression.cc
+#+1413447538
+ls
+#+1413447543
+cd Lab3_bleh
+#+1413447545
+cd Expression/
+#+1413447546
+l
+#+1413447547
+ls
+#+1413447550
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression.cc
+#+1413482412
+logout
+#+1413482430
+ls
+#+1413482436
+cd Lab3_bleh
+#+1413482437
+ls
+#+1413482439
+cd Expression/
+#+1413482440
+ls
+#+1413482447
+emacs &
+#+1413482469
+gedit &
+#+1413482473
+gedit
+#+1413482476
+emacs &
+#+1413482505
+logout
+#+1413492038
+ls
+#+1413492225
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression.cc Expression_Tree.cc
+#+1413492236
+cd Lab3_bleh/Expression/
+#+1413492237
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression.cc Expression_Tree.cc
+#+1413492315
+emacs Expression.h &
+#+1413492378
+emacs Expression.cc &
+#+1413492424
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression.cc Expression_Tree.cc
+#+1413492434
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413492603
+clear
+#+1413492605
+clear
+#+1413492621
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413492883
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413493220
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 Expression_Tree.cc
+#+1413493572
+emmacs &
+#+1413493579
+emacs &
+#+1413493586
+emacs &
+#+1413493592
+logout
+#+1413493633
+logout
+#+1413618290
+ls
+#+1413618304
+cd TDDC76/Lab3//Lab3/Expression/
+#+1413618333
+emacs Expression.cc Expression.h Expression_Tree.cc Expression_Tree.h &
+#+1413618838
+emacs Expression_Tree.h
+#+1413618849
+emacs Expression_Tree.h &
+#+1413618857
+emacs Expression.cc &
+#+1413618867
+emacs Expression.h &
+#+1413618896
+ls
+#+1413618925
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 expression-test.cc Expression.cc Expression_Tree.cc
+#+1413618947
+emacs expression-test.cc
+#+1413618955
+emacs expression-test.cc &
+#+1413619288
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 expression-test.cc Expression.cc Expression_Tree.cc
+#+1413619299
+clear
+#+1413619299
+clear
+#+1413619324
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 expression-test.cc Expression.cc Expression_Tree.cc
+#+1413619391
+g++ -std=c++11 -Wpedantic -Wall -Wextra -Werror -L/sw/gcc-${GCC4_V}/lib -static-libstdc++ -o lab3 expression-test.cc Expression.cc Expression_Tree.cc

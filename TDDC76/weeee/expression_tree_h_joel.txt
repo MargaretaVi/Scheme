@@ -1,0 +1,232 @@
+/*
+ * Laboration 3 Expression_Tree.h
+ * Gustav Nordh och Joel Martinsson
+ * Gusno089         Joema115
+ *
+ * Funktionsdeklarationer för klassen Expression_Tree och dess subklasser.
+ */
+
+#ifndef EXPRESSIONTREE_H
+#define EXPRESSIONTREE_H
+#include <iosfwd>
+#include <string>
+#include <stdexcept>
+#include <iostream>
+#include "Variable_Table.h"
+
+/*
+ * expression_tree_error: Kastas om fel uppstår i en Expression_Tree-operation.
+ * Ett diagnostiskt meddelande ska skickas med.
+ */
+
+class Expression_Tree_Error  : public std::logic_error
+{
+ public:
+  explicit Expression_Tree_Error(const std::string& what_arg) noexcept
+    : std::logic_error(what_arg)
+    {
+    }
+};
+
+// Expression_Tree: Abstrakt, polymorf basklass för alla trädnodklasser.
+class Expression_Tree
+{
+ public:
+  // Destruktor
+  virtual ~Expression_Tree() {}
+
+  // Funktioner
+  virtual double           evaluate() const = 0;
+  virtual std::string      get_postfix() const = 0;
+  virtual std::string      get_infix() const = 0;
+  virtual std::string      str() const = 0;
+  virtual void             print(std::ostream&,int depth = 1) const = 0;
+  virtual Expression_Tree* clone() = 0;
+};
+
+// Binary_Operator: Abstrakt, polymorf basklass för alla operatorer (+,-,*,/,^,=).
+class Binary_Operator : public Expression_Tree
+{
+ public:
+  // Konstruktor
+  Binary_Operator(Expression_Tree*, Expression_Tree*, std::string);
+
+  // Destruktor
+  virtual ~Binary_Operator() override;
+
+  // Variabler
+  Expression_Tree* Left_node = nullptr;
+  Expression_Tree* Right_node = nullptr;
+  std::string str_opr;
+     
+  // Funktioner 
+  virtual std::string get_postfix() const override;  
+  virtual std::string get_infix()  const override;
+  virtual std::string str() const override;
+  virtual void print(std::ostream&,int depth = 1) const override;
+
+  std::string str_clean(std::string) const;
+};
+
+// Operand: Abstrakt, polymorf basklass för alla operander (real,int,variable).
+class Operand : public Expression_Tree
+{
+ public: 
+  // Konstruktor
+  Operand() {}
+
+  // Destruktor
+  virtual ~Operand() = default;
+
+  // Funktioner 
+  virtual std::string get_postfix() const override;  
+  virtual std::string get_infix() const override;
+  virtual void print(std::ostream&,int depth = 1) const override;
+  
+};
+
+// Operator Assign (=)
+class Assign : public Binary_Operator
+{
+ public:
+  // Konstruktor
+  Assign() = delete;
+  Assign(Expression_Tree*,Expression_Tree*);
+
+  // Funktioner
+  virtual double evaluate() const override;
+  virtual Expression_Tree* clone() override;
+ private:
+ 
+};
+
+// Operator Plus (+) 
+class Plus : public Binary_Operator
+{
+  
+ public:
+
+  // Konstruktor 
+  Plus() = delete;
+  Plus(Expression_Tree*,Expression_Tree*);
+
+  // Funktioner
+  virtual double evaluate() const override;
+  virtual Expression_Tree* clone() override;
+
+};
+
+// Operator Minus (-) 
+class Minus : public Binary_Operator
+{
+ public:
+  // Konstruktor 
+  Minus() =delete;
+  Minus(Expression_Tree*,Expression_Tree*);
+  
+  // Funktioner
+  virtual double evaluate() const override;
+  virtual Expression_Tree* clone() override;
+  
+};
+
+// Operator Times (*)
+class Times : public Binary_Operator
+{
+ public:
+  
+  // Konstruktor 
+  Times() =delete;
+  Times(Expression_Tree*,Expression_Tree*);
+ 
+  // Funktioner 
+  virtual double evaluate() const override;
+  virtual Expression_Tree* clone() override;
+  
+};
+
+// Operator Divide (/)
+class Divide : public Binary_Operator
+{
+ public:
+  
+  // Konstruktor 
+  Divide() =delete;
+  Divide(Expression_Tree*,Expression_Tree*);
+
+  // Funktioner
+  virtual double evaluate() const override;
+  virtual Expression_Tree* clone() override;
+  
+};
+
+// Operator Power (^)
+class Power: public Binary_Operator
+{
+ public:
+  
+  // Konstruktor 
+  Power() = delete;
+  Power(Expression_Tree*,Expression_Tree*);
+
+  // Funktioner
+  virtual double evaluate() const override;
+  virtual Expression_Tree* clone() override;
+  
+};
+
+// Operand Int
+class Integer : public Operand
+{
+  //Variable 
+  int value;
+ public:
+  // Konstruktorer
+  Integer() = delete;
+  Integer(int);
+
+  // Funktion
+  virtual double evaluate() const override;
+  virtual std::string str() const override;
+  virtual Expression_Tree* clone() override;
+   
+};
+
+// Operand Real 
+class Real : public Operand
+{
+  double value;
+ public:
+  // Konstruktorer
+  Real() = delete;
+  Real(double);
+
+  // Funktioner
+  virtual double evaluate() const override;
+  virtual std::string str() const override;
+  virtual Expression_Tree* clone() override;
+   
+};
+// Operand Variabel
+class Variable : public Operand
+{
+  // Variabler
+  double value;
+  std::string variable_name;
+ public:
+  // Konstruktorer
+  Variable() = delete;
+  Variable(std::string,Variable_Table*&,double init_value = 0);
+
+  // Funktioner
+  virtual double evaluate() const override;
+  virtual std::string str() const override;
+  virtual Expression_Tree* clone() override;   
+  void set_value(double);
+  double get_value() const;
+
+  // Variabel
+  Variable_Table* variable_table;
+};
+
+#endif

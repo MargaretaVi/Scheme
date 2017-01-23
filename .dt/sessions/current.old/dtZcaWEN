@@ -1,0 +1,129 @@
+*Dtfile*view_count:	2
+#
+*Dtfile*showFilesystem:	True
+#
+*Dtfile*restrictMode:	False
+#
+*Dtfile*openFolder:	CURRENT
+#
+*Dtfile.0.screen:    0
+*Dtfile.0.iconify:   False
+*Dtfile.0.workspace: ws0
+*Dtfile.0.FileMgr.displayed:	True
+*Dtfile.0.FileMgr.x:	700
+*Dtfile.0.FileMgr.y:	0
+*Dtfile.0.FileMgr.width:	555
+*Dtfile.0.FileMgr.height:	400
+*Dtfile.0.FileMgr.show_type:	single_directory
+*Dtfile.0.FileMgr.tree_files:	never
+*Dtfile.0.FileMgr.view_single:	by_name_and_icon
+*Dtfile.0.FileMgr.view_tree:	by_name_and_small_icon
+*Dtfile.0.FileMgr.order:	order_by_alphabetical
+*Dtfile.0.FileMgr.direction:	direction_ascending
+*Dtfile.0.FileMgr.positionEnabled:	random_off
+*Dtfile.0.FileMgr.host:	zaza9.ida.liu.se
+*Dtfile.0.FileMgr.current_directory:	/home/marvi154
+*Dtfile.0.FileMgr.branch_list:	4:/home/marvi154
+*Dtfile.0.FileMgr.helpVol:	Filemgr
+*Dtfile.0.FileMgr.selection_list:	
+*Dtfile.0.FileMgr.show_iconic_path:	True
+*Dtfile.0.FileMgr.show_current_directory:	True
+*Dtfile.0.FileMgr.show_status_line:	True
+*Dtfile.0.FileMgr.fast_cd_enabled:	False
+*Dtfile.0.FileMgr.toolbox:	False
+*Dtfile.0.FileMgr.media:	False
+*Dtfile.0.FileMgr.show_hid_enabled:	False
+*Dtfile.0.FileMgr.secondaryHelpDialogCount:	0
+*Dtfile.0.FileMgr.trashcan:	False
+*Dtfile.0.FileMgr.screen:	0
+*Dtfile.0.FileMgr.num_positions:   0
+#
+*Dtfile.0.ChangeDirectory.visibleCount:	8
+*Dtfile.0.ChangeDirectory.listCount:	0
+*Dtfile.0.Preferences.showType:	single_directory
+*Dtfile.0.Preferences.treeFiles:	never
+*Dtfile.0.Preferences.view_single:	by_name_and_icon
+*Dtfile.0.Preferences.view_tree:	by_name_and_small_icon
+*Dtfile.0.Preferences.order:	order_by_alphabetical
+*Dtfile.0.Preferences.direction:	direction_ascending
+*Dtfile.0.Preferences.positionEnabled:	random_off
+*Dtfile.0.filter_edit.FileFilter.matchFilter:	True
+*Dtfile.0.filter_edit.FileFilter.name:	.*
+*Dtfile.0.filter_edit.FileFilter.showHidden:	False
+*Dtfile.0.filter_edit.FileFilter.filetypesFilteredCount:	5
+*Dtfile.0.filter_edit.FileFilter.filetypesFiltered:	DOT_FILE,DOT_FOLDER,CURRENT_FOLDER,DOT_FOLDER_LOCK,NON_WRITABLE_DOT_FOLDER
+*Dtfile.0.filter_edit.FileFilter.media:	False
+*Dtfile.0.filter_active.FileFilter.matchFilter:	True
+*Dtfile.0.filter_active.FileFilter.name:	.*
+*Dtfile.0.filter_active.FileFilter.showHidden:	False
+*Dtfile.0.filter_active.FileFilter.filetypesFilteredCount:	5
+*Dtfile.0.filter_active.FileFilter.filetypesFiltered:	DOT_FILE,DOT_FOLDER,CURRENT_FOLDER,DOT_FOLDER_LOCK,NON_WRITABLE_DOT_FOLDER
+*Dtfile.0.filter_active.FileFilter.media:	False
+#
+*Dtfile.1.screen:    0
+*Dtfile.1.iconify:   False
+*Dtfile.1.workspace: ws0
+*Dtfile.1.FileMgr.displayed:	True
+*Dtfile.1.FileMgr.x:	84
+*Dtfile.1.FileMgr.y:	60
+*Dtfile.1.FileMgr.width:	700
+*Dtfile.1.FileMgr.height:	250
+*Dtfile.1.FileMgr.show_type:	single_directory
+*Dtfile.1.FileMgr.tree_files:	never
+*Dtfile.1.FileMgr.view_single:	by_name_and_icon
+*Dtfile.1.FileMgr.view_tree:	by_name_and_small_icon
+*Dtfile.1.FileMgr.order:	order_by_alphabetical
+*Dtfile.1.FileMgr.direction:	direction_ascending
+*Dtfile.1.FileMgr.positionEnabled:	random_off
+*Dtfile.1.FileMgr.host:	/usr/dt/appconfig/appmanager/C/Desktop_Controls
+*Dtfile.1.FileMgr.current_directory:	/usr/dt/appconfig/appmanager/C/Desktop_Controls
+*Dtfile.1.FileMgr.branch_list:	4:/usr/dt/appconfig/appmanager/C/Desktop_Controls
+*Dtfile.1.FileMgr.restricted_directory:	/usr/dt/appconfig/appmanager/C/Desktop_Controls
+*Dtfile.1.FileMgr.helpVol:	Appmanager
+*Dtfile.1.FileMgr.selection_list:	
+*Dtfile.1.FileMgr.show_iconic_path:	False
+*Dtfile.1.FileMgr.show_current_directory:	False
+*Dtfile.1.FileMgr.show_status_line:	True
+*Dtfile.1.FileMgr.fast_cd_enabled:	False
+*Dtfile.1.FileMgr.toolbox:	True
+*Dtfile.1.FileMgr.media:	False
+*Dtfile.1.FileMgr.show_hid_enabled:	False
+*Dtfile.1.FileMgr.secondaryHelpDialogCount:	0
+*Dtfile.1.FileMgr.trashcan:	False
+*Dtfile.1.FileMgr.screen:	0
+*Dtfile.1.FileMgr.num_positions:   0
+#
+*Dtfile.1.ChangeDirectory.visibleCount:	8
+*Dtfile.1.ChangeDirectory.listCount:	0
+*Dtfile.1.Preferences.showType:	single_directory
+*Dtfile.1.Preferences.treeFiles:	never
+*Dtfile.1.Preferences.view_single:	by_name_and_icon
+*Dtfile.1.Preferences.view_tree:	by_name_and_small_icon
+*Dtfile.1.Preferences.order:	order_by_alphabetical
+*Dtfile.1.Preferences.direction:	direction_ascending
+*Dtfile.1.Preferences.positionEnabled:	random_off
+*Dtfile.1.filter_edit.FileFilter.matchFilter:	True
+*Dtfile.1.filter_edit.FileFilter.name:	.*
+*Dtfile.1.filter_edit.FileFilter.showHidden:	False
+*Dtfile.1.filter_edit.FileFilter.filetypesFilteredCount:	5
+*Dtfile.1.filter_edit.FileFilter.filetypesFiltered:	DOT_FILE,DOT_FOLDER,CURRENT_FOLDER,DOT_FOLDER_LOCK,NON_WRITABLE_DOT_FOLDER
+*Dtfile.1.filter_edit.FileFilter.media:	False
+*Dtfile.1.filter_active.FileFilter.matchFilter:	True
+*Dtfile.1.filter_active.FileFilter.name:	.*
+*Dtfile.1.filter_active.FileFilter.showHidden:	False
+*Dtfile.1.filter_active.FileFilter.filetypesFilteredCount:	5
+*Dtfile.1.filter_active.FileFilter.filetypesFiltered:	DOT_FILE,DOT_FOLDER,CURRENT_FOLDER,DOT_FOLDER_LOCK,NON_WRITABLE_DOT_FOLDER
+*Dtfile.1.filter_active.FileFilter.media:	False
+#
+*Dtfile.Workspace.0.secondaryHelpDialogCount: 0
+#
+#
+*Dtfile.Workspace.1.secondaryHelpDialogCount: 0
+#
+#
+*Dtfile.Workspace.2.secondaryHelpDialogCount: 0
+#
+#
+*Dtfile.Workspace.3.secondaryHelpDialogCount: 0
+#
+#

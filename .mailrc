@@ -1,0 +1,4 @@
+# Properties for mail and mailtool
+# Get Ida defaults
+source /sw/defaults/lib/mail/mailrc-include
+# Put your own special stuff between this and mailtool prop sheet

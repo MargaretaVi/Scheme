@@ -1,0 +1,37 @@
+# GTK+ Input Method Modules file
+# Automatically generated file, do not edit
+# Created by /sw/firefox-19.0/depend/bin/gtk-query-immodules-2.0 from gtk+-2.14.5
+#
+"/sw/firefox-19.0/depend/lib/gtk-2.0/2.10.0/immodules/im-am-et.so" 
+"am_et" "Amharic (EZ+)" "gtk20" "${prefix}/share/locale" "am" 
+
+"/sw/firefox-19.0/depend/lib/gtk-2.0/2.10.0/immodules/im-cedilla.so" 
+"cedilla" "Cedilla" "gtk20" "${prefix}/share/locale" "az:ca:co:fr:gv:oc:pt:sq:tr:wa" 
+
+"/sw/firefox-19.0/depend/lib/gtk-2.0/2.10.0/immodules/im-cyrillic-translit.so" 
+"cyrillic_translit" "Cyrillic (Transliterated)" "gtk20" "${prefix}/share/locale" "" 
+
+"/sw/firefox-19.0/depend/lib/gtk-2.0/2.10.0/immodules/im-inuktitut.so" 
+"inuktitut" "Inuktitut (Transliterated)" "gtk20" "${prefix}/share/locale" "iu" 
+
+"/sw/firefox-19.0/depend/lib/gtk-2.0/2.10.0/immodules/im-ipa.so" 
+"ipa" "IPA" "gtk20" "${prefix}/share/locale" "" 
+
+"/sw/firefox-19.0/depend/lib/gtk-2.0/2.10.0/immodules/im-multipress.so" 
+"multipress" "Multipress" "gtk20" "" "" 
+
+"/sw/firefox-19.0/depend/lib/gtk-2.0/2.10.0/immodules/im-thai.so" 
+"thai" "Thai-Lao" "gtk20" "${prefix}/share/locale" "lo:th" 
+
+"/sw/firefox-19.0/depend/lib/gtk-2.0/2.10.0/immodules/im-ti-er.so" 
+"ti_er" "Tigrigna-Eritrean (EZ+)" "gtk20" "${prefix}/share/locale" "ti" 
+
+"/sw/firefox-19.0/depend/lib/gtk-2.0/2.10.0/immodules/im-ti-et.so" 
+"ti_et" "Tigrigna-Ethiopian (EZ+)" "gtk20" "${prefix}/share/locale" "ti" 
+
+"/sw/firefox-19.0/depend/lib/gtk-2.0/2.10.0/immodules/im-viqr.so" 
+"viqr" "Vietnamese (VIQR)" "gtk20" "${prefix}/share/locale" "vi" 
+
+"/sw/firefox-19.0/depend/lib/gtk-2.0/2.10.0/immodules/im-xim.so" 
+"xim" "X Input Method" "gtk20" "${prefix}/share/locale" "*" 
+

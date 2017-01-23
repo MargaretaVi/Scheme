@@ -1,0 +1,19 @@
+<TOPIC charset sv_SE.ISO-8859-1><TITLE><TYPE serif><WEIGHT bold><SIZE 14>Välkommen till Hjälphanteraren</SIZE></WEIGHT></TYPE></TITLE><ABBREV>Välkommen till Hjälphanteraren</ABBREV>                          <PARAGRAPH>Var och en av titlarna här nedan representerar en
+           <ANGLE italic> produktfamilj</>
+                                      vars direkthjälp har installerats och registrerats. Varje titel
+        (och ikon) är en hyperlänk till familjens tillgängliga hjälp.</>        <PARAGRAPH after 0 first 1 left 3 label "<CHAR C.DT-SYMBOL-1><0xB7></>"> Genom att välja en titel (understruken text) eller ikon kommer all hjälp
+ som finns tillgänglig för den produktfamiljen att visas. </PARAGRAPH>   <PARAGRAPH after 0 first 1 left 3 label "<CHAR C.DT-SYMBOL-1><0xB7></>"> För att sedan få fram önskad hjälp markeras titeln inom
+         familjen.</PARAGRAPH>                                            <PARAGRAPH first 1 left 3 label "<CHAR C.DT-SYMBOL-1><0xB7></>">        Du kan få hjälp medan ett hjälpfönster används genom att trycka på F1.</PARAGRAPH>
+<CHARACTERSET ISO-8859-1><LINK 0 FAMILY0>
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Common Desktop Environment</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1 graphic /usr/dt/appconfig/help/C/cdelogo.pm glink FAMILY0 gtypelink 0>Översikt och grundläggande skrivbords färdigheter * Använda Hjälp * Adresshanteraren * Progambyggaren * Programhanteraren * Ljud * Kalkylator * Kalender * Skapa åtgärd * Filhanteraren * File Types Editor * Sök fil * Teckensnitts administration * Frampanel * Graphical Workspace Manager * Kortkommandoredigeraren * Ikonredigerare * Bildvisaren * Inloggningshanteraren och miljövariabler * Mailer * Prestandamätare * Utskriftshanterare * Processhanteraren * Egenskaper * Hanteraren för flyttbara media * Sessionshanteraren * Knapplägeshanterare * Terminalemulatorn * Redigeringsprogram * Fönsterlistan * Workspace Manager 
+</P></CHARACTERSET>
+<CHARACTERSET iso8859-1><LINK 0 FAMILY1>
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>Översikt och grundläggande skrivbordsfärdigheter</></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1 graphic /usr/dt/appconfig/help/C/cdelogo.pm glink FAMILY1 gtypelink 0>Översikt och grundläggande skrivbordsfärdigheter för                 Common Desktop Environment.
+</P></CHARACTERSET>
+<CHARACTERSET ISO-8859-1><LINK 0 FAMILY2>
+<TYPE serif><WEIGHT bold><SIZE 12><ANGLE italic>The Solaris Trusted Extensions Desktop </></></></></LINK>
+<PARAGRAPH before 1 first 1 left 1 graphic /usr/dt/appconfig/help/C/cdelogo.pm glink FAMILY2 gtypelink 0>Labels, Applications, and Appearance                 on a Trusted Extensions Desktop 
+</P></CHARACTERSET>
+</TOPIC>
