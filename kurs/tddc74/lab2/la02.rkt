@@ -1,7 +1,7 @@
 #lang racket
 ;; laboration 2
 ;; uppgift 1
-
+(require racket/trace)
 
 (define foo (cons 2 3))
 (define bar (list 2 3))
@@ -15,9 +15,7 @@
 ;; kollar om ett invärde är ett atomiskt värde
 (define atom?
   (lambda (input)
-    (if (or (pair? input) (null? input))
-         #f
-         #t)))
+    (and (not (pair? input)) (not (null? input)))))
 
 ;; uppgift 3
 
@@ -60,9 +58,7 @@
   (lambda (pred lst)
     (define own (keep-if pred lst))
     (define pre-build (filter pred lst))
-    (if (comp-elem own pre-build)
-        #t
-        #f)))
+    (comp-elem own pre-build)))
  
 (define comp-elem
   (lambda (lst1 lst2)
@@ -93,9 +89,7 @@
   (lambda (n lst)
     (define own (first-n n lst))
     (define pre-build (take lst n))
-    (if (comp-elem own pre-build)
-        #t
-        #f)))
+    (comp-elem own pre-build)))
 
 ;; TEZTEXEMPLES!!!
 
@@ -111,13 +105,26 @@
 
 ;;uppgift 7
 
-;;retunerar en lista i omvändordning
+;;returnerar en lista i omvändordning
 (define reverse-order-rek
   (lambda (lst)
-    (append-elem lst)))
+    (if (null? lst)
+        lst
+        (append-elem (car lst) (reverse-order-rek (cdr lst))))))
 
 (define append-elem
+  (lambda (elem lst)
+    (if (null? lst)
+        (cons elem lst)
+        (cons (car lst) (append-elem elem (cdr lst) )))))
+;(trace reverse-order-rek)
+
+(define reverse-order-iter
   (lambda (lst)
-    (if (null? (cdr lst))
+    (if (null? lst)
         lst
-        (list (append-elem (cdr lst)) (car lst)))))
+        (help-iter lst))))
+
+(define help-iter
+  (lambda (lst)
+    (+ 0)))
