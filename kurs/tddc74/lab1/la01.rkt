@@ -11,7 +11,8 @@
 
 ;; foobar --> "procedure:foobar"  den är definierad som en procedur
 
-;; (foo) --> ger felmeddelande, eftersom den inte är en procedur
+;; (foo) --> ger felmeddelande, eftersom den inte är en procedur 
+;; och () anropar en procedur
 
 ;; (foobar) --> 24. Kallelse på procedur
 #|(foobar)
@@ -21,25 +22,24 @@
 
 ;;uppgift 2
 
-;; linjärrekursiv funktion  som summerar alla positiva tal upp till det givna
+;; linjärrekursiv funktion som summerar alla (>= 0) tal upp till det givna
 (define sum-rec
   (lambda (n)
-    (if (= n 1)
-        1
+    (if (= n 0)
+        0
         (+ n (sum-rec (- n 1 ))))))
 
-;;  iterativt rekursiv  som summerar alla positiva tal upp till det givna
-
+;;  iterativt rekursiv  som summerar alla tal (>= 0) upp till det givna
 (define sum-iter
   (lambda (n)
-    (iter n 1)))
+    (iter n 0)))
 
 ;; hjälpfunktion till sum-iter
 (define iter
   (lambda (a count)
-    (if (= a 1)
-        count
-        (iter (- a 1) (+ a count)))))
+    (if (= a 0)
+     0
+     (+ a (iter (- a 1) (+ a count))))))
 
 ;; uppgift 3
 
@@ -47,15 +47,16 @@
   (lambda (expt)
 (expt 2 expt)))|#
 
-#|scheme syntax är prefix, alltså operationen först och sedan operanderna. I kroppen för lambda funktionen så har
-labbassen skrivit expt som en operation, men när den i själva verket är en parameter. Därför fungerar inte koden|#
+#|scheme syntax är prefix, alltså operationen först och sedan operanderna.
+I kroppen för lambda funktionen så har labbassen skrivit expt som en operation,
+men när den i själva verket är en parameter. Därför fungerar inte koden|#
 
 ; egen definierade två-upphöjt till
-(define own-power-of-two
+(define powers-of-two
   (lambda (exp)
     (if (= exp 0)
         1
-        (* 2 (own-power-of-two (- exp 1))))))
+        (* 2 (powers-of-two (- exp 1))))))
 
 ;; uppgift 4
 ;; en funktion som ger ut elementet i pascals triangel givet rad och kolumn
@@ -105,7 +106,9 @@ labbassen skrivit expt som en operation, men när den i själva verket är en pa
         count
         (counter (but-last-digit n) (+ count 1)))))
      
-;; kontrollerar om talet är dividerbar
+;; kontrollerar om talet är dividerbart med en dividerare, 
+;; alltså om div är en multipel av n
+
 (define divisible?
   (lambda (n div)
     (if (= (remainder n div) 0)
@@ -150,7 +153,8 @@ labbassen skrivit expt som en operation, men när den i själva verket är en pa
     (if (= (number-of-digits num) 1)
         count
         (if (and (even? (number-of-digits num)) (>= (last-digit num) 5))
-            (weights (but-last-digit num) (+ count (+ (* 2 (last-digit num)) 1)))
+            (weights (but-last-digit num) 
+                     (+ count (+ (* 2 (last-digit num)) 1)))
             (if (and (even? (number-of-digits num)) (< (last-digit num )5))
                 (weights (but-last-digit num) (+ count (* 2 (last-digit num))))
                 (weights (but-last-digit num) (+ count (last-digit num))))))))
@@ -172,15 +176,15 @@ labbassen skrivit expt som en operation, men när den i själva verket är en pa
  
 
 ;; uppgift 9b
+
+;; omdefinerade funktioner mha sum-and-apply-to-digits
 (define number-of-digits-high-order
   (lambda (number)
     (sum-and-apply-to-digits number (lambda (number pos) 1))))
                              
-
 (define sum-of-digits-high-order
   (lambda (number)
     (sum-and-apply-to-digits number (lambda (number pos) number))))
-(trace sum-of-digits-high-order)
 
 (define make-cc-sv-num-high-order
   (lambda ()
@@ -198,11 +202,15 @@ labbassen skrivit expt som en operation, men när den i själva verket är en pa
 
 
 ;; uppgift 10
+
+;;kontrollerar om ett personer är ett gilltigt personnummer
 (define person-number?
   (lambda (num)
     (divisible? (+ (last-digit num)
-                   (sum-and-apply-to-digits (but-last-digit num) controll-num)) 10)))
+                   (sum-and-apply-to-digits (but-last-digit num) controll-num))
+                10)))
 
+;; kontrollerar om nummret är gilltigt
 (define controll-num
   (lambda (digit pos)
     (cond
