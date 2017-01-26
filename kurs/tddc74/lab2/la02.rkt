@@ -146,8 +146,21 @@
 ;; sorterar en lista i stigande ordning
 (define insert-sort
   (lambda (lst)
-   (+0) ))
+   (help-insert-sort '() lst )))
 
 
-    
-     
+(define help-insert-sort
+  (lambda (sorted-lst unsorted-lst)
+    (if (null? unsorted-lst)
+        sorted-lst
+        (help-insert-sort (insert-at-asc-place (car unsorted-lst) sorted-lst) (cdr unsorted-lst)))))
+
+;; uppgift 10
+
+;;funktionen ska räkna alla element i listan, även de i underlistor
+(define count-all
+  (lambda (lst)
+    (cond
+      ((null? lst) 0)
+      ((pair? lst) (+ (count-all (car lst)) (count-all (cdr lst))))
+      (else 1))))
