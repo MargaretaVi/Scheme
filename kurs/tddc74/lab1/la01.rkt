@@ -30,16 +30,20 @@
         (+ n (sum-rec (- n 1 ))))))
 
 ;;  iterativt rekursiv  som summerar alla tal (>= 0) upp till det givna
+
+;;FIXA!!!!!!!!!!
 (define sum-iter
   (lambda (n)
-    (iter n 0)))
+    (if (= n 0)
+        0
+    (iter n 1 2))))
 
 ;; hjälpfunktion till sum-iter
 (define iter
-  (lambda (a count)
-    (if (= a 0)
-     0
-     (+ a (iter (- a 1) (+ a count))))))
+  (lambda (a count it)
+    (if (= a (- it 1 ))
+     count
+     (iter a (+ count it) (+ it 1)))))
 
 ;; uppgift 3
 
@@ -98,44 +102,41 @@ men när den i själva verket är en parameter. Därför fungerar inte koden|#
 ;; Räknar antalet siffor i talet
 (define number-of-digits
   (lambda (n)
-    (counter n 1)))
+    (number-of-digits-help n 1)))
 
-(define counter
+(define number-of-digits-help
   (lambda (n count)
     (if (= (but-last-digit n) 0)
         count
-        (counter (but-last-digit n) (+ count 1)))))
+        (number-of-digits-help (but-last-digit n) (+ count 1)))))
      
 ;; kontrollerar om talet är dividerbart med en dividerare, 
 ;; alltså om div är en multipel av n
 
 (define divisible?
   (lambda (n div)
-    (if (= (remainder n div) 0)
-        #t
-        #f)))
+    (= (remainder n div) 0)))
 
 ;; ger ut ett slumpmässigt tal ifrån givet intervall
 (define random-from-to
   (lambda (from to)
-    (define rand (random (+ 1 to)))
+    (let ((rand (random (+ 1 to))))
     (if (< rand from)
-        (+ rand (- from rand))
-        rand)))
+        (random-from-to from to)
+        rand))))
 
 ;; uppgift 7
 ;; kollar om ett tal är dividerbar med en annan
 (define simple-sv-num?
   (lambda (int div)
-    (if (divisible? (sum-of-digits int) div)
-        #t
-        #f)))
+    (divisible? (sum-of-digits int) div)))
 
-;; skapar ett 6-siffrigt tal som är jämtdelbart med en delare
+;; skapar ett 6-siffrigt tal som är jämt delbart med en delare
 (define make-simple-sv-num
   (lambda (div)
     (let ((six-digit (random-from-to 100000 999999)))
-      (if (simple-sv-num? six-digit div)  six-digit
+      (if (simple-sv-num? six-digit div)
+          six-digit
           (make-simple-sv-num div)))))
 
 ;; uppgift 8
@@ -148,23 +149,25 @@ men när den i själva verket är en parameter. Därför fungerar inte koden|#
           num
           (make-cc-sv-num)))))
 
+
 (define weights
   (lambda (num count)
-    (if (= (number-of-digits num) 1)
-        count
-        (if (and (even? (number-of-digits num)) (>= (last-digit num) 5))
-            (weights (but-last-digit num) 
-                     (+ count (+ (* 2 (last-digit num)) 1)))
-            (if (and (even? (number-of-digits num)) (< (last-digit num )5))
-                (weights (but-last-digit num) (+ count (* 2 (last-digit num))))
-                (weights (but-last-digit num) (+ count (last-digit num))))))))
+    (cond
+      ((= (number-of-digits num) 1) (+ count num))
+      
+      ((and (even? (number-of-digits num)) (>= (last-digit num) 5))
+       (weights (but-last-digit num) (+ count (+ 1 (* 2 (last-digit num))))))
+      
+      ((and (even? (number-of-digits num)) (< (last-digit num ) 5))
+       (weights (but-last-digit num) (+ count (* 2 (last-digit num)))))
+      
+      (else (weights (but-last-digit num) (+ count (last-digit num)))))))
 
 ;; uppgift 9a
 ;; Denna funktion tar in en process och ett tal och behandlar talet med processen
 (define sum-and-apply-to-digits
   (lambda (num proc)
-    (define len (number-of-digits num))
-    (help-sum num proc len)))
+    (help-sum num proc (number-of-digits num))))
             
 
 (define help-sum
@@ -194,9 +197,10 @@ men när den i själva verket är en parameter. Därför fungerar inte koden|#
                                     (lambda (num pos)
                                       (let ((pos (number-of-digits num)))
                                         (cond
-                                          ((odd? pos) num)
-                                          ((< pos 5) (* 2 num))
-                                          (else (+ (* 2 num) 1))))) ) 10)
+                                          ((odd? pos) (last-digit num))
+                                          ((>= (last-digit num) 5) (+ (* 2 (last-digit num)) 1))
+                                          (else (* 2 (last-digit num)))))))
+          10)
           num
           (make-cc-sv-num-high-order)))))
 
