@@ -2,6 +2,7 @@
 ;; laboration 2
 ;; uppgift 1
 (require racket/trace)
+(provide (all-defined-out))
 
 (define foo (cons 2 3))
 (define bar (list 2 3))
@@ -34,9 +35,7 @@
         
 (define count-list-correct?
   (lambda (lst)
-    (if (= (count-list lst) (length lst))
-        #t
-        #f)))
+    (= (count-list lst) (length lst))))
 
 
 ;; LÄGG TILL EXEMPLAR!
@@ -56,10 +55,8 @@
 ;;Jämför om min funktion returnerar samma sak som fnk filter           
 (define keep-if-correct?
   (lambda (pred lst)
-    (define own (keep-if pred lst))
-    (define pre-build (filter pred lst))
-    (comp-elem own pre-build)))
- 
+    (comp-elem (keep-if pred lst) (filter pred lst))))
+
 (define comp-elem
   (lambda (lst1 lst2)
     (if (and (null? lst1) (null? lst2))
@@ -67,16 +64,14 @@
         (if (equal? (car lst1) (car lst2))
             (comp-elem (cdr lst1) (cdr lst2))
             #f))))
-                   
+
 ;uppgift 5
 ;; Funktionen plockar ut de n första elementen ifrån en lista om n < längden av listan
 (define first-n
   (lambda (n lst)
-    (let ((num-elem (count-list lst)))
-      (if (> n num-elem)
-          lst
-          (extract-from-list n lst num-elem)))))
-
+    (if (> n (count-list lst))
+        lst
+        (extract-from-list n lst (count-list lst)))))
 
 (define extract-from-list
   (lambda (n lst num-elem)
@@ -87,9 +82,7 @@
 ;; kontrollerar om first-n och take skiljer sig åt
 (define first-n-correct?
   (lambda (n lst)
-    (define own (first-n n lst))
-    (define pre-build (take lst n))
-    (comp-elem own pre-build)))
+    (comp-elem (first-n n lst) (take lst n))))
 
 ;; TEZTEXEMPLES!!!
 
@@ -102,10 +95,9 @@
         '()
         (cons from (enumerate (+ from step) to step)))))
 
-
 ;;uppgift 7
 
-;;returnerar en lista i omvändordning
+;;returnerar en lista i omvändordning, rekursive process
 (define reverse-order-rek
   (lambda (lst)
     (if (null? lst)
@@ -117,8 +109,10 @@
     (if (null? lst)
         (cons elem lst)
         (cons (car lst) (append-elem elem (cdr lst) )))))
-;(trace reverse-order-rek)
 
+;; EJ KLAR!!!
+
+;iterative version av reverse-order
 (define reverse-order-iter
   (lambda (lst)
     (if (null? lst)
@@ -128,3 +122,32 @@
 (define help-iter
   (lambda (lst)
     (+ 0)))
+
+;; uppgift 8
+
+;; mappar varje element i listan till funktionen och retunerar en ny lista
+(define map-to-each
+  (lambda (fn lst)
+    (if (null? lst)
+        lst
+        (cons (fn (car lst)) (map-to-each fn (cdr lst))))))
+
+
+;;uppgift 9
+
+
+;; Sätter in ett värde på rätt position i en sorterad lista
+(define insert-at-asc-place
+  (lambda (num lst)
+    (cond
+     ((or (null? lst) (<= num (car lst))) (cons num lst))
+     (else (cons (car lst) (insert-at-asc-place num (cdr lst)))))))
+         
+;; sorterar en lista i stigande ordning
+(define insert-sort
+  (lambda (lst)
+   (+0) ))
+
+
+    
+     
