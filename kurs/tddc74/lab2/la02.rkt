@@ -166,13 +166,41 @@
   (lambda (elem lst)
     (cond
       ((null? lst) #f)
+      ;((atom? lst) (eq? elem lst))
+      ((if (pair? lst) 
+          (if (atom? (car lst))
+              (if (eq? elem (car lst))
+                  #t
+                  (occurs? elem (cdr lst)))
+              (if (occurs? elem (car lst))
+                  #t
+                  (occurs? elem (cdr lst))))
+          (eq? elem lst))))))
+
+
+(define occurs2?
+  (lambda (elem lst)
+    (cond
+      ((null? lst) #f)
       ((atom? lst) (eq? elem lst))
-      ((pair? lst)
-       (if (atom? (car lst))
-           (eq? elem (car lst))
-           (occurs? elem (cdr lst)))))))
-                 
+      ((if (list? lst)
+          (if (occurs-healp? elem lst)
+              #t
+              #f)
+          (eq? elem lst)))
+       )))
+       
+(define occurs-healp?
+  (lambda (elem lst)
+    (if (pair? lst)
+        (if (occurs-healp? elem (car lst))
+            #t
+            (occurs-healp? elem (cdr lst)))
+        (eq? elem lst))))
+
+  
+  
       
-(trace occurs?)
+(trace occurs-healp?)
 
 ;; Likheten mellan de är att att conden är den samma, bortsett ifrån vad man ska göra iaf villkoret är falskt
