@@ -177,7 +177,6 @@ men när den i själva verket är en parameter. Därför fungerar inte koden|#
         (+ (proc (last-digit num) len)
            (help-sum (but-last-digit num) proc (- len 1))))))
  
-
 ;; uppgift 9b
 
 ;; omdefinerade funktioner mha sum-and-apply-to-digits

@@ -12,14 +12,12 @@
 ;; se inlämnat papper
 
 ;; uppgift 2
-
 ;; kollar om ett invärde är ett atomiskt värde
 (define atom?
   (lambda (input)
     (and (not (pair? input)) (not (null? input)))))
 
 ;; uppgift 3
-
 ;;Räknar totala antalet element som finns i listan
 (define count-list
   (lambda (lst)
@@ -50,7 +48,6 @@
         (if (pred (car lst))
             (cons (car lst) (keep-if pred (cdr lst)))
             (keep-if pred (cdr lst))))))
-
 
 ;;Jämför om min funktion returnerar samma sak som fnk filter           
 (define keep-if-correct?
@@ -87,7 +84,6 @@
 ;; TEZTEXEMPLES!!!
 
 ;;uppgift 6
-
 ;;skapar en lista med element ifrån ett visst interval med steg som väljas av användaren
 (define enumerate
   (lambda (from to step)
@@ -96,7 +92,6 @@
         (cons from (enumerate (+ from step) to step)))))
 
 ;;uppgift 7
-
 ;;returnerar en lista i omvändordning, rekursive process
 (define reverse-order-rek
   (lambda (lst)
@@ -134,8 +129,6 @@
 
 
 ;;uppgift 9
-
-
 ;; Sätter in ett värde på rätt position i en sorterad lista
 (define insert-at-asc-place
   (lambda (num lst)
@@ -148,7 +141,6 @@
   (lambda (lst)
    (help-insert-sort '() lst )))
 
-
 (define help-insert-sort
   (lambda (sorted-lst unsorted-lst)
     (if (null? unsorted-lst)
@@ -156,11 +148,31 @@
         (help-insert-sort (insert-at-asc-place (car unsorted-lst) sorted-lst) (cdr unsorted-lst)))))
 
 ;; uppgift 10
-
 ;;funktionen ska räkna alla element i listan, även de i underlistor
 (define count-all
   (lambda (lst)
     (cond
       ((null? lst) 0)
       ((pair? lst) (+ (count-all (car lst)) (count-all (cdr lst))))
+      ;; atom? isf addera 1
       (else 1))))
+
+;; Specialfall som kan inträffa är om listan är tom eller om den består endast en atom
+
+;; uppgift 11
+;; Ett predikat som kollar om det första argumentet finns i en lista
+
+(define occurs?
+  (lambda (elem lst)
+    (cond
+      ((null? lst) #f)
+      ((atom? lst) (eq? elem lst))
+      ((pair? lst)
+       (if (atom? (car lst))
+           (eq? elem (car lst))
+           (occurs? elem (cdr lst)))))))
+                 
+      
+(trace occurs?)
+
+;; Likheten mellan de är att att conden är den samma, bortsett ifrån vad man ska göra iaf villkoret är falskt
