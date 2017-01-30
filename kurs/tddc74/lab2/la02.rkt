@@ -175,26 +175,41 @@
 
 (define subst-all
   (lambda (elem subst lst)
-    (subst-help elem subst lst '())))
+    (cond
+      ((null? lst) '())
+      ((pair? (car lst))
+       (cons (subst-all elem subst (car lst)) (subst-all elem subst (cdr lst))))
+      ((eq? (car lst) elem)
+       (cons subst (subst-all elem subst (cdr lst))))
+      (else
+       (cons (car lst) (subst-all elem subst (cdr lst)))))))
 
-(define subst-help
-  (lambda (elem subst lst lst2)
-    (cond 
-      ((null? lst) lst2)
-      ((if (pair? lst)
-           (if (pair? (car lst))
-               (subst-help elem subst (cdr lst) (replace-help elem subst (car lst) lst2))
-               (replace-help elem subst lst lst2))
-           (replace-help elem subst lst lst2))))))
+;; uppgift 13
+;; Skapa en ny lista med de atomer som uppfyller predikatet
 
-;; Går igenom ETT lager av en lista och substituterar värden
-(define replace-help
-  (lambda (elem subst lst lst2)
-    (if (null? lst)
-        lst2
-        (if (eq? elem (car lst))
-            (replace-help elem subst (cdr lst) (cons subst lst2))
-            (replace-help elem subst (cdr lst) (cons (car lst) lst2 ))))))
+(define keep-if-all
+  (lambda (pred lst)
+    (cond
+      ((null? lst) '())
+      ((atom? lst) (if (pred lst)
+                       lst
+                       '()))
+      ((pair? (car lst))
+       (cons (keep-if-all pred (car lst)) (keep-if-all pred (cdr lst))))
+      ((pred (car lst))
+       (cons (car lst) (keep-if-all pred (cdr lst))))
+      (else (keep-if-all pred (cdr lst))))))
+            
+    
+(define (not-num? o)
+  (not (number? o)))
+
+;; Uppgift 14
+;;Predikat som jämför två listor, 
+(define list-equal?
+  (lambda (lst1 lst2)
+    
 
 
-(trace replace-help)
+
+(provide (all-defined-out))
