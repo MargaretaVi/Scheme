@@ -76,7 +76,7 @@
         (cons (car lst) (extract-from-list (- n 1) (cdr lst) num-elem))
         '())))
 
-;; kontrollerar om first-n och take skiljer sig åt
+;;Kontrollerar om first-n och take skiljer sig åt
 (define first-n-correct?
   (lambda (n lst)
     (comp-elem (first-n n lst) (take lst n))))
@@ -106,7 +106,6 @@
         (cons (car lst) (append-elem elem (cdr lst) )))))
 
 ;; EJ KLAR!!!
-
 ;iterative version av reverse-order
 (define reverse-order-iter
   (lambda (lst)
@@ -151,56 +150,51 @@
 ;;funktionen ska räkna alla element i listan, även de i underlistor
 (define count-all
   (lambda (lst)
-    (cond
-      ((null? lst) 0)
-      ((pair? lst) (+ (count-all (car lst)) (count-all (cdr lst))))
-      ;; atom? isf addera 1
-      (else 1))))
+    (if (pair? lst)
+        (+ (count-all (car lst)) (count-all (cdr lst)))
+        ;; atom? isf addera 1
+        1)))
 
 ;; Specialfall som kan inträffa är om listan är tom eller om den består endast en atom
 
 ;; uppgift 11
-;; Ett predikat som kollar om det första argumentet finns i en lista
-
+;; Ett predikat som kollar om det första argumentet finns i en lista  
 (define occurs?
   (lambda (elem lst)
-    (cond
-      ((null? lst) #f)
-      ;((atom? lst) (eq? elem lst))
-      ((if (pair? lst) 
-          (if (atom? (car lst))
-              (if (eq? elem (car lst))
-                  #t
-                  (occurs? elem (cdr lst)))
-              (if (occurs? elem (car lst))
-                  #t
-                  (occurs? elem (cdr lst))))
-          (eq? elem lst))))))
-
-
-(define occurs2?
-  (lambda (elem lst)
-    (cond
-      ((null? lst) #f)
-      ((atom? lst) (eq? elem lst))
-      ((if (list? lst)
-          (if (occurs-healp? elem lst)
-              #t
-              #f)
-          (eq? elem lst)))
-       )))
-       
-(define occurs-healp?
-  (lambda (elem lst)
     (if (pair? lst)
-        (if (occurs-healp? elem (car lst))
+        (if (occurs? elem (car lst))
             #t
-            (occurs-healp? elem (cdr lst)))
+            (occurs? elem (cdr lst)))
+        ;; atom? jämför direkt
         (eq? elem lst))))
 
-  
-  
-      
-(trace occurs-healp?)
+;; Det som skiljer sig åt mellan min count-all och min occurs? är vad som görs i if-satserna samt att det finns en extra if-sats i occurs?
 
-;; Likheten mellan de är att att conden är den samma, bortsett ifrån vad man ska göra iaf villkoret är falskt
+;; Uppgift 12
+;; Funktionen ska kunna gå igenom en lista och byta ut ett element mot ett annat
+
+(define subst-all
+  (lambda (elem subst lst)
+    (subst-help elem subst lst '())))
+
+(define subst-help
+  (lambda (elem subst lst lst2)
+    (cond 
+      ((null? lst) lst2)
+      ((if (pair? lst)
+           (if (pair? (car lst))
+               (subst-help elem subst (cdr lst) (replace-help elem subst (car lst) lst2))
+               (replace-help elem subst lst lst2))
+           (replace-help elem subst lst lst2))))))
+
+;; Går igenom ETT lager av en lista och substituterar värden
+(define replace-help
+  (lambda (elem subst lst lst2)
+    (if (null? lst)
+        lst2
+        (if (eq? elem (car lst))
+            (replace-help elem subst (cdr lst) (cons subst lst2))
+            (replace-help elem subst (cdr lst) (cons (car lst) lst2 ))))))
+
+
+(trace replace-help)
