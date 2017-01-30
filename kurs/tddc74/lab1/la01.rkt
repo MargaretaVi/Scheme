@@ -21,8 +21,8 @@
 |#
 
 ;;uppgift 2
-
 ;; linjärrekursiv funktion som summerar alla (>= 0) tal upp till det givna
+
 (define sum-rec
   (lambda (n)
     (if (= n 0)
@@ -30,20 +30,19 @@
         (+ n (sum-rec (- n 1 ))))))
 
 ;;  iterativt rekursiv  som summerar alla tal (>= 0) upp till det givna
-
-;;FIXA!!!!!!!!!!
 (define sum-iter
   (lambda (n)
     (if (= n 0)
         0
-    (iter n 1 2))))
+    (sum-iter-help n 1 2))))
 
 ;; hjälpfunktion till sum-iter
-(define iter
+(define sum-iter-help
   (lambda (a count it)
     (if (= a (- it 1 ))
      count
-     (iter a (+ count it) (+ it 1)))))
+     (sum-iter-help a (+ count it) (+ it 1)))))
+
 
 ;; uppgift 3
 
@@ -64,6 +63,7 @@ men när den i själva verket är en parameter. Därför fungerar inte koden|#
 
 ;; uppgift 4
 ;; en funktion som ger ut elementet i pascals triangel givet rad och kolumn
+
 (define pascal
   (lambda (row col)
     (if (or (= row col) (= col 0))
@@ -82,17 +82,19 @@ men när den i själva verket är en parameter. Därför fungerar inte koden|#
 4 |#
 
 ;; uppgift 6
-;; tar ut den sista siffran i strängen
+;; Tar ut den sista siffran i strängen
+
 (define last-digit
   (lambda (n)
     (remainder n 10)))
 
-;; ger ut alla siffror utom den sista som en sträng
+;; Ger ut alla siffror utom den sista som en sträng
+
 (define but-last-digit
   (lambda (n)
     (quotient n 10)))
 
-;; retunerar siffersumman
+;; Returnerar siffersumman
 (define sum-of-digits
   (lambda (n)
     (if (= (but-last-digit n) 0)
@@ -118,6 +120,7 @@ men när den i själva verket är en parameter. Därför fungerar inte koden|#
     (= (remainder n div) 0)))
 
 ;; ger ut ett slumpmässigt tal ifrån givet intervall
+
 (define random-from-to
   (lambda (from to)
     (let ((rand (random (+ 1 to))))
@@ -127,11 +130,13 @@ men när den i själva verket är en parameter. Därför fungerar inte koden|#
 
 ;; uppgift 7
 ;; kollar om ett tal är dividerbar med en annan
+
 (define simple-sv-num?
   (lambda (int div)
     (divisible? (sum-of-digits int) div)))
 
 ;; skapar ett 6-siffrigt tal som är jämt delbart med en delare
+
 (define make-simple-sv-num
   (lambda (div)
     (let ((six-digit (random-from-to 100000 999999)))
@@ -169,7 +174,6 @@ men när den i själva verket är en parameter. Därför fungerar inte koden|#
   (lambda (num proc)
     (help-sum num proc (number-of-digits num))))
             
-
 (define help-sum
   (lambda (num proc len)
     (if (= len 1)
@@ -179,7 +183,7 @@ men när den i själva verket är en parameter. Därför fungerar inte koden|#
  
 ;; uppgift 9b
 
-;; omdefinerade funktioner mha sum-and-apply-to-digits
+;; Omdefinerade funktioner mha sum-and-apply-to-digits
 (define number-of-digits-high-order
   (lambda (number)
     (sum-and-apply-to-digits number (lambda (number pos) 1))))
@@ -210,11 +214,10 @@ men när den i själva verket är en parameter. Därför fungerar inte koden|#
 (define person-number?
   (lambda (num)
     (divisible? (+ (last-digit num)
-                   (sum-and-apply-to-digits (but-last-digit num) controll-num))
+                   (sum-and-apply-to-digits (but-last-digit num) help-controll-num))
                 10)))
 
-;; kontrollerar om nummret är gilltigt
-(define controll-num
+(define help-controll-num
   (lambda (digit pos)
     (cond
       ((and (odd? pos) (>= (* 2 digit) 10))
