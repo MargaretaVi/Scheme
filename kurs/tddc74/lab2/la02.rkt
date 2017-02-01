@@ -1,6 +1,6 @@
 #lang racket
 ;; laboration 2
-;; uppgift 1
+;; Task 1
 (require racket/trace)
 (provide (all-defined-out))
 
@@ -12,35 +12,35 @@
 ;; se inlämnat papper
 
 ;; uppgift 2
-;; kollar om ett invärde är ett atomiskt värde
+;; Predicate, check if the input is an atom
 (define atom?
   (lambda (input)
     (and (not (pair? input)) (not (null? input)))))
 
 ;; uppgift 3
-;;Räknar totala antalet element som finns i listan
+;; Counts the number of elements in a list, (not sublists)
 (define count-list
   (lambda (lst)
     (if (atom? lst)
         1
         (count-elements lst 0))))
 
+;; Help function for count-list
 (define count-elements
   (lambda (lst count)
     (if (null? lst)
         0
         (+ 1 (count-elements (cdr lst) count)))))
-        
+
+;; Check if count-list returns the same value as length
 (define count-list-correct?
   (lambda (lst)
     (= (count-list lst) (length lst))))
 
-
 ;; LÄGG TILL EXEMPLAR!
 
-;; uppgift 4
-;; Sparar undan ett element om predicatet stämmer 
-;; antar att man inte skickar in en tom lista
+;; Task 3
+;; Return a list with elements that fullfills the predicate
 (define keep-if
   (lambda (pred lst)
     (if (null? lst)
@@ -49,10 +49,13 @@
             (cons (car lst) (keep-if pred (cdr lst)))
             (keep-if pred (cdr lst))))))
 
-;;Jämför om min funktion returnerar samma sak som fnk filter           
+;; Check if the output from keep-if is the same as filter    
 (define keep-if-correct?
   (lambda (pred lst)
     (comp-elem (keep-if pred lst) (filter pred lst))))
+
+;; help function for keep-if-correct,
+;; compare each element in two list and see if they are equal
 
 (define comp-elem
   (lambda (lst1 lst2)
@@ -62,37 +65,39 @@
             (comp-elem (cdr lst1) (cdr lst2))
             #f))))
 
-;uppgift 5
-;; Funktionen plockar ut de n första elementen ifrån en lista om n < längden av listan
+;; Task 5
+;; Extracts the n first elements from a list
 (define first-n
   (lambda (n lst)
     (if (> n (count-list lst))
         lst
         (extract-from-list n lst (count-list lst)))))
 
+;; help function to first-n
 (define extract-from-list
   (lambda (n lst num-elem)
     (if (> n 0)   
         (cons (car lst) (extract-from-list (- n 1) (cdr lst) num-elem))
         '())))
 
-;;Kontrollerar om first-n och take skiljer sig åt
+;; Check if first-n and take returns the same list,
+;; uses the comp-elem written before
 (define first-n-correct?
   (lambda (n lst)
     (comp-elem (first-n n lst) (take lst n))))
 
 ;; TEZTEXEMPLES!!!
 
-;;uppgift 6
-;;skapar en lista med element ifrån ett visst interval med steg som väljas av användaren
+;; Task 6
+;; Returns a list with elements from a specific interval and steps
 (define enumerate
   (lambda (from to step)
     (if (> from to)
         '()
         (cons from (enumerate (+ from step) to step)))))
 
-;;uppgift 7
-;;returnerar en lista i omvändordning, rekursive process
+;; Task 7
+;; Returns a list in reverse order, recursive process
 (define reverse-order-rek
   (lambda (lst)
     (if (null? lst)
@@ -106,7 +111,7 @@
         (cons (car lst) (append-elem elem (cdr lst) )))))
 
 ;; EJ KLAR!!!
-;iterative version av reverse-order
+;iterative version of reverse-order
 (define reverse-order-iter
   (lambda (lst)
     (if (null? lst)
@@ -117,9 +122,10 @@
   (lambda (lst)
     (+ 0)))
 
-;; uppgift 8
+;; Task 8
+;; Maps each element in list to a function and returns a new list with each
+;; function applied to the elements
 
-;; mappar varje element i listan till funktionen och retunerar en ny lista
 (define map-to-each
   (lambda (fn lst)
     (if (null? lst)
@@ -127,15 +133,15 @@
         (cons (fn (car lst)) (map-to-each fn (cdr lst))))))
 
 
-;;uppgift 9
-;; Sätter in ett värde på rätt position i en sorterad lista
+;; Task 9
+;; Inserts element at correct position in a sorted list
 (define insert-at-asc-place
   (lambda (num lst)
     (cond
      ((or (null? lst) (<= num (car lst))) (cons num lst))
      (else (cons (car lst) (insert-at-asc-place num (cdr lst)))))))
          
-;; sorterar en lista i stigande ordning
+;; Sort a list in accending order
 (define insert-sort
   (lambda (lst)
    (help-insert-sort '() lst )))
@@ -146,32 +152,33 @@
         sorted-lst
         (help-insert-sort (insert-at-asc-place (car unsorted-lst) sorted-lst) (cdr unsorted-lst)))))
 
-;; uppgift 10
-;;funktionen ska räkna alla element i listan, även de i underlistor
+;; Task 10
+;; Count ALL elements in list, even though in sublists
 (define count-all
   (lambda (lst)
     (if (pair? lst)
         (+ (count-all (car lst)) (count-all (cdr lst)))
-        ;; atom? isf addera 1
+        ;; atom? then add 1
         1)))
 
-;; Specialfall som kan inträffa är om listan är tom eller om den består endast en atom
+;; Special cases are for example is list is null
 
-;; uppgift 11
-;; Ett predikat som kollar om det första argumentet finns i en lista  
+;; Task 11
+;; Predicat that checks if an element exist in a list
 (define occurs?
   (lambda (elem lst)
     (if (pair? lst)
         (if (occurs? elem (car lst))
             #t
             (occurs? elem (cdr lst)))
-        ;; atom? jämför direkt
+        ;; atom? compare elem with list
         (eq? elem lst))))
 
-;; Det som skiljer sig åt mellan min count-all och min occurs? är vad som görs i if-satserna samt att det finns en extra if-sats i occurs?
+;; The difference between count-all and occurs? are what is done in the if-cases
+;; othervise the skeleton looks the same
 
-;; Uppgift 12
-;; Funktionen ska kunna gå igenom en lista och byta ut ett element mot ett annat
+;; Task 12
+;; Go through list and seek for elem in list and substitute it with subst
 
 (define subst-all
   (lambda (elem subst lst)
@@ -184,8 +191,8 @@
       (else
        (cons (car lst) (subst-all elem subst (cdr lst)))))))
 
-;; uppgift 13
-;; Skapa en ny lista med de atomer som uppfyller predikatet
+;; Task 13
+;; Returns a list with elements fullfilling the predicate
 
 (define keep-if-all
   (lambda (pred lst)
@@ -200,16 +207,28 @@
        (cons (car lst) (keep-if-all pred (cdr lst))))
       (else (keep-if-all pred (cdr lst))))))
             
-    
 (define (not-num? o)
   (not (number? o)))
 
-;; Uppgift 14
-;;Predikat som jämför två listor, 
+;; Task 14
+;; Predicate,  compares two lists
 (define list-equal?
   (lambda (lst1 lst2)
-    
+    (cond
+      ((if(null? lst1)
+          (null? lst2)
+          #f))
+      ((if(null? lst2)
+          (null? lst1)
+          #f))
+      ((if (and (pair? lst1) (pair? lst2))
+           (if (list-equal? (car lst1) (car lst2))
+               (list-equal? (cdr lst1) (cdr lst2))
+               #f)
+           (eqv? lst1 lst2))))))
 
+             
+(trace list-equal?)
 
 
 (provide (all-defined-out))
