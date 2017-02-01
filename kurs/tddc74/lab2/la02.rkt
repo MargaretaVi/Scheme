@@ -9,15 +9,15 @@
 (define forex (cons 2 (cons 3 4)))
 (define tesco (list 2 bar))
 
-;; se inlämnat papper
+;; Pratat med Andres, se webreg
 
-;; uppgift 2
+;; Task 2
 ;; Predicate, check if the input is an atom
 (define atom?
   (lambda (input)
     (and (not (pair? input)) (not (null? input)))))
 
-;; uppgift 3
+;; Task 3
 ;; Counts the number of elements in a list, (not sublists)
 (define count-list
   (lambda (lst)
@@ -37,9 +37,14 @@
   (lambda (lst)
     (= (count-list lst) (length lst))))
 
-;; LÄGG TILL EXEMPLAR!
+;; EXAMPLES
 
-;; Task 3
+;(count-list-correct? '(1 4 (3 7))) -> #t
+;(count-list-correct? '(two zero one seven feb first)) -> #t
+;(count-list-correct? '()) -> #t
+
+
+;; Task 4
 ;; Return a list with elements that fullfills the predicate
 (define keep-if
   (lambda (pred lst)
@@ -82,11 +87,22 @@
 
 ;; Check if first-n and take returns the same list,
 ;; uses the comp-elem written before
+
+;;OBS! 'Take' can not take n higher than the length of the list
 (define first-n-correct?
   (lambda (n lst)
-    (comp-elem (first-n n lst) (take lst n))))
+    (let* [(first-lst (first-n n lst))
+          (len-small (count-list first-lst))]
+      (if (> n len-small)  
+          (comp-elem first-lst (take lst len-small))
+          (comp-elem first-lst (take lst n))))))
 
-;; TEZTEXEMPLES!!!
+;; EXAMPLES
+;(first-n-correct? 2 '(1 (4 6 one 9) 76 0)) -> #t
+
+;(first-n-correct? 8  '(two (zero (one seven)) fourteen twentynine)) ->#t
+;(first-n-correct? 0 '(1 (4 6 one 9) 76 0)) -> #t
+
 
 ;; Task 6
 ;; Returns a list with elements from a specific interval and steps
@@ -110,17 +126,16 @@
         (cons elem lst)
         (cons (car lst) (append-elem elem (cdr lst) )))))
 
-;; EJ KLAR!!!
 ;iterative version of reverse-order
 (define reverse-order-iter
   (lambda (lst)
-    (if (null? lst)
-        lst
-        (help-iter lst))))
+    (help-iter lst '())))
 
 (define help-iter
-  (lambda (lst)
-    (+ 0)))
+  (lambda (lst1 lst2)
+    (if (null? lst1)
+        lst2
+        (help-iter (cdr lst1) (cons (car lst1) lst2)))))
 
 ;; Task 8
 ;; Maps each element in list to a function and returns a new list with each
@@ -131,7 +146,6 @@
     (if (null? lst)
         lst
         (cons (fn (car lst)) (map-to-each fn (cdr lst))))))
-
 
 ;; Task 9
 ;; Inserts element at correct position in a sorted list
@@ -150,18 +164,22 @@
   (lambda (sorted-lst unsorted-lst)
     (if (null? unsorted-lst)
         sorted-lst
-        (help-insert-sort (insert-at-asc-place (car unsorted-lst) sorted-lst) (cdr unsorted-lst)))))
+        (help-insert-sort
+         (insert-at-asc-place (car unsorted-lst) sorted-lst)
+         (cdr unsorted-lst)))))
 
 ;; Task 10
-;; Count ALL elements in list, even though in sublists
+;; Count ALL elements in list, including sublists
 (define count-all
   (lambda (lst)
-    (if (pair? lst)
-        (+ (count-all (car lst)) (count-all (cdr lst)))
-        ;; atom? then add 1
-        1)))
+    (cond
+      ((null? lst) 0)
+      ((atom? lst) 1)
+      ((if (pair? lst)
+           (+ (count-all (car lst)) (count-all (cdr lst)))
+           (+ 1 (count-all (cdr lst))))))))
 
-;; Special cases are for example is list is null
+;; Special cases are for example is list is null or if list is an atom
 
 ;; Task 11
 ;; Predicat that checks if an element exist in a list
@@ -171,11 +189,8 @@
         (if (occurs? elem (car lst))
             #t
             (occurs? elem (cdr lst)))
-        ;; atom? compare elem with list
         (eq? elem lst))))
-
-;; The difference between count-all and occurs? are what is done in the if-cases
-;; othervise the skeleton looks the same
+;; There are not so much similarity between my count-all and occurs?
 
 ;; Task 12
 ;; Go through list and seek for elem in list and substitute it with subst
@@ -207,28 +222,22 @@
        (cons (car lst) (keep-if-all pred (cdr lst))))
       (else (keep-if-all pred (cdr lst))))))
             
-(define (not-num? o)
-  (not (number? o)))
+;(define (not-num? o)
+;  (not (number? o)))
 
 ;; Task 14
-;; Predicate,  compares two lists
+;; Predicate, compares two lists
 (define list-equal?
   (lambda (lst1 lst2)
     (cond
-      ((if(null? lst1)
-          (null? lst2)
-          #f))
-      ((if(null? lst2)
-          (null? lst1)
-          #f))
       ((if (and (pair? lst1) (pair? lst2))
-           (if (list-equal? (car lst1) (car lst2))
-               (list-equal? (cdr lst1) (cdr lst2))
-               #f)
-           (eqv? lst1 lst2))))))
-
+          (if (list-equal? (car lst1) (car lst2))
+              (list-equal? (cdr lst1) (cdr lst2))
+              #f)
+          (eqv? lst1 lst2)))
+      (else (eqv? lst1 lst2)))))
              
-(trace list-equal?)
+;(trace list-equal?)
 
-
+           
 (provide (all-defined-out))
