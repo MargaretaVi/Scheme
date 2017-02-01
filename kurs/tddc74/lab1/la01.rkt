@@ -120,13 +120,9 @@ men när den i själva verket är en parameter. Därför fungerar inte koden|#
     (= (remainder n div) 0)))
 
 ;; ger ut ett slumpmässigt tal ifrån givet intervall
-
 (define random-from-to
   (lambda (from to)
-    (let ((rand (random (+ 1 to))))
-    (if (< rand from)
-        (random-from-to from to)
-        rand))))
+    (+ (random (- to (- from 1))) from)))
 
 ;; uppgift 7
 ;; kollar om ett tal är dividerbar med en annan
