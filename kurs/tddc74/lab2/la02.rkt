@@ -88,7 +88,7 @@
 ;; Check if first-n and take returns the same list,
 ;; uses the comp-elem written before
 
-;;OBS! 'Take' can not take n higher than the length of the list
+;;OBS! 'Take' cannot take n higher than the length of the input list
 (define first-n-correct?
   (lambda (n lst)
     (let* [(first-lst (first-n n lst))
@@ -191,9 +191,10 @@
             (occurs? elem (cdr lst)))
         (eq? elem lst))))
 ;; There are not so much similarity between my count-all and occurs?
+;; exept that both checks if lst is a pair, recursive
 
 ;; Task 12
-;; Go through list and seek for elem in list and substitute it with subst
+;; Go through list and seek for elem in list and changes it to another value
 
 (define subst-all
   (lambda (elem subst lst)
@@ -221,9 +222,6 @@
       ((pred (car lst))
        (cons (car lst) (keep-if-all pred (cdr lst))))
       (else (keep-if-all pred (cdr lst))))))
-            
-;(define (not-num? o)
-;  (not (number? o)))
 
 ;; Task 14
 ;; Predicate, compares two lists
@@ -236,8 +234,5 @@
               #f)
           (eqv? lst1 lst2)))
       (else (eqv? lst1 lst2)))))
-             
-;(trace list-equal?)
-
-           
+                        
 (provide (all-defined-out))
