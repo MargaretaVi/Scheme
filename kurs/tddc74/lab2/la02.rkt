@@ -29,8 +29,8 @@
 (define count-elements
   (lambda (lst count)
     (if (null? lst)
-        0
-        (+ 1 (count-elements (cdr lst) count)))))
+        count
+        (count-elements (cdr lst) (+ count 1)))))
 
 ;; Check if count-list returns the same value as length
 (define count-list-correct?
@@ -59,7 +59,7 @@
   (lambda (pred lst)
     (comp-elem (keep-if pred lst) (filter pred lst))))
 
-;; help function for keep-if-correct,
+;; Help function for keep-if-correct,
 ;; compare each element in two list and see if they are equal
 
 (define comp-elem
@@ -74,17 +74,12 @@
 ;; Extracts the n first elements from a list
 (define first-n
   (lambda (n lst)
-    (if (> n (count-list lst))
-        lst
-        (extract-from-list n lst (count-list lst)))))
-
-;; help function to first-n
-(define extract-from-list
-  (lambda (n lst num-elem)
-    (if (> n 0)   
-        (cons (car lst) (extract-from-list (- n 1) (cdr lst) num-elem))
-        '())))
-
+    (cond
+      ((> n (count-list lst)) lst)
+      ((> n 0)
+       (cons (car lst) (first-n (- n 1) (cdr lst))))
+      (else '()))))
+ 
 ;; Check if first-n and take returns the same list,
 ;; uses the comp-elem written before
 
@@ -99,7 +94,6 @@
 
 ;; EXAMPLES
 ;(first-n-correct? 2 '(1 (4 6 one 9) 76 0)) -> #t
-
 ;(first-n-correct? 8  '(two (zero (one seven)) fourteen twentynine)) ->#t
 ;(first-n-correct? 0 '(1 (4 6 one 9) 76 0)) -> #t
 
@@ -118,13 +112,13 @@
   (lambda (lst)
     (if (null? lst)
         lst
-        (append-elem (car lst) (reverse-order-rek (cdr lst))))))
+        (help-rek (car lst) (reverse-order-rek (cdr lst))))))
 
-(define append-elem
+(define help-rek
   (lambda (elem lst)
     (if (null? lst)
         (cons elem lst)
-        (cons (car lst) (append-elem elem (cdr lst) )))))
+        (cons (car lst) (help-rek elem (cdr lst) )))))
 
 ;iterative version of reverse-order
 (define reverse-order-iter
@@ -175,9 +169,10 @@
     (cond
       ((null? lst) 0)
       ((atom? lst) 1)
-      ((if (pair? lst)
-           (+ (count-all (car lst)) (count-all (cdr lst)))
-           (+ 1 (count-all (cdr lst))))))))
+      ((pair? (car lst)) (+ (count-all (car lst)) (count-all (cdr lst))))
+      (else (+ 1 (count-all (cdr lst)))))))
+
+(define test-ls (list 1 2 (cons null 5) 'symbol (list 1 2) (list 'x 6 null) 7 8 (list 4 5)))
 
 ;; Special cases are for example is list is null or if list is an atom
 
@@ -200,13 +195,16 @@
   (lambda (elem subst lst)
     (cond
       ((null? lst) '())
-      ((pair? (car lst))
+      ((atom? lst)
+       (if (eq? lst elem)
+           subst
+           lst))
+      ((list? (car lst))
        (cons (subst-all elem subst (car lst)) (subst-all elem subst (cdr lst))))
       ((eq? (car lst) elem)
        (cons subst (subst-all elem subst (cdr lst))))
       (else
        (cons (car lst) (subst-all elem subst (cdr lst)))))))
-
 ;; Task 13
 ;; Returns a list with elements fullfilling the predicate
 
@@ -228,11 +226,8 @@
 (define list-equal?
   (lambda (lst1 lst2)
     (cond
-      ((if (and (pair? lst1) (pair? lst2))
-          (if (list-equal? (car lst1) (car lst2))
-              (list-equal? (cdr lst1) (cdr lst2))
-              #f)
-          (eqv? lst1 lst2)))
+      ((and (pair? lst1) (pair? lst2)) (and (list-equal? (car lst1) (car lst2))
+                                            (list-equal? (cdr lst1) (cdr lst2))))
       (else (eqv? lst1 lst2)))))
                         
 (provide (all-defined-out))
