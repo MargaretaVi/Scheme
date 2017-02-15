@@ -75,11 +75,11 @@
 (define first-n
   (lambda (n lst)
     (cond
-      ((> n (count-list lst)) lst)
+      ((null? lst) lst)
       ((> n 0)
        (cons (car lst) (first-n (- n 1) (cdr lst))))
       (else '()))))
- 
+
 ;; Check if first-n and take returns the same list,
 ;; uses the comp-elem written before
 
@@ -171,8 +171,6 @@
       ((atom? lst) 1)
       ((pair? (car lst)) (+ (count-all (car lst)) (count-all (cdr lst))))
       (else (+ 1 (count-all (cdr lst)))))))
-
-(define test-ls (list 1 2 (cons null 5) 'symbol (list 1 2) (list 'x 6 null) 7 8 (list 4 5)))
 
 ;; Special cases are for example is list is null or if list is an atom
 
