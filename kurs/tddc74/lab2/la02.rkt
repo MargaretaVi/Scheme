@@ -72,6 +72,7 @@
 
 ;; Task 5
 ;; Extracts the n first elements from a list
+#|
 (define first-n
   (lambda (n lst)
     (cond
@@ -79,6 +80,12 @@
       ((> n 0)
        (cons (car lst) (first-n (- n 1) (cdr lst))))
       (else '()))))
+|#
+(define first-n
+  (lambda (n lst)
+    (if (or (= n 0) (null? lst))
+        '()
+        (cons (car lst) (first-n (- n 1) (cdr lst))))))
 
 ;; Check if first-n and take returns the same list,
 ;; uses the comp-elem written before
@@ -87,7 +94,7 @@
 (define first-n-correct?
   (lambda (n lst)
     (let* [(first-lst (first-n n lst))
-          (len-small (count-list first-lst))]
+           (len-small (count-list first-lst))]
       (if (> n len-small)  
           (comp-elem first-lst (take lst len-small))
           (comp-elem first-lst (take lst n))))))
@@ -112,13 +119,15 @@
   (lambda (lst)
     (if (null? lst)
         lst
-        (help-rek (car lst) (reverse-order-rek (cdr lst))))))
+        (add-to-back (car lst) (reverse-order-rek (cdr lst))))))
 
-(define help-rek
+;;Creates a new list
+;;in which elements are added to the back, like append
+(define add-to-back
   (lambda (elem lst)
     (if (null? lst)
         (cons elem lst)
-        (cons (car lst) (help-rek elem (cdr lst) )))))
+        (cons (car lst) (add-to-back elem (cdr lst))))))
 
 ;iterative version of reverse-order
 (define reverse-order-iter
@@ -146,13 +155,13 @@
 (define insert-at-asc-place
   (lambda (num lst)
     (cond
-     ((or (null? lst) (<= num (car lst))) (cons num lst))
-     (else (cons (car lst) (insert-at-asc-place num (cdr lst)))))))
-         
+      ((or (null? lst) (<= num (car lst))) (cons num lst))
+      (else (cons (car lst) (insert-at-asc-place num (cdr lst)))))))
+
 ;; Sort a list in accending order
 (define insert-sort
   (lambda (lst)
-   (help-insert-sort '() lst )))
+    (help-insert-sort '() lst )))
 
 (define help-insert-sort
   (lambda (sorted-lst unsorted-lst)
@@ -184,28 +193,26 @@
             (occurs? elem (cdr lst)))
         (eq? elem lst))))
 ;; There are not so much similarity between my count-all and occurs?
-;; exept that both checks if lst is a pair, recursive
+;; both are recursive
 
 ;; Task 12
 ;; Go through list and seek for elem in list and changes it to another value
-
 (define subst-all
   (lambda (elem subst lst)
     (cond
       ((null? lst) '())
-      ((atom? lst)
-       (if (eq? lst elem)
-           subst
-           lst))
-      ((list? (car lst))
+      ((atom? lst) (if (eq? lst elem)
+                       subst
+                       lst))
+      ((pair? (car lst))
        (cons (subst-all elem subst (car lst)) (subst-all elem subst (cdr lst))))
       ((eq? (car lst) elem)
        (cons subst (subst-all elem subst (cdr lst))))
       (else
        (cons (car lst) (subst-all elem subst (cdr lst)))))))
+
 ;; Task 13
 ;; Returns a list with elements fullfilling the predicate
-
 (define keep-if-all
   (lambda (pred lst)
     (cond
@@ -223,9 +230,9 @@
 ;; Predicate, compares two lists
 (define list-equal?
   (lambda (lst1 lst2)
-    (cond
-      ((and (pair? lst1) (pair? lst2)) (and (list-equal? (car lst1) (car lst2))
-                                            (list-equal? (cdr lst1) (cdr lst2))))
-      (else (eqv? lst1 lst2)))))
-                        
+    (if (and (pair? lst1) (pair? lst2)) 
+        (and (list-equal? (car lst1) (car lst2))
+             (list-equal? (cdr lst1) (cdr lst2)))
+        (eqv? lst1 lst2))))
+
 (provide (all-defined-out))
