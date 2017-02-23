@@ -32,7 +32,7 @@
         (list (list 'direct-flights direct-flights-db ) (list 'connecting connecting-flights-db))
         (let ((top-flight (first-flight flight-db)))
           (if (direct? top-flight from to)
-              (go-through-db from to (rest-of-flights flight-db) (add-to-db flights direct-flights-db) connecting-flights-db)
+              (go-through-db from to (rest-of-flights flight-db) (add-to-db top-flight direct-flights-db) connecting-flights-db)
               (connecting top-flight from to flight-db
                           direct-flights-db connecting-flights-db))))))
 
@@ -49,9 +49,9 @@
     (let ((origin2 (flight-origin flight)))
       (if (direct? flight origin2 to)
           ; connecting flights exists
-          (cons flight (go-through-db from to (rest-of-flights flight-db)
+          (go-through-db from to (rest-of-flights flight-db)
                          direct-flights-db
-                         (add-to-db flight connecting-flights-db)))
+                         (add-to-db flight connecting-flights-db))
           (go-through-db from to (rest-of-flights flight-db)
                          direct-flights-db connecting-flights-db)))))
 
