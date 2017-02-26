@@ -1,5 +1,5 @@
 #lang racket
-(require "flight_class.rkt")
+;(require "flight_class.rkt")
 (provide  
  make-flight flight-origin flight-destination flight-departure flight-arrival
  flight-airline flight-number 
@@ -20,34 +20,60 @@
 ;; series (possibly project). 
 
 
-#|
-
 ;; ---------------- Your implementation goes here
 ;; Uncomment this, and remove/comment out the require line above, so you use
 ;; your definitions rather than the ones in flight_class.rkt.
 
+(define flight%
+  (class object%
+    (init-field company
+                origin
+                destination
+                flight-number
+                departure
+                arrival)
+    (define/public (get-airline)
+      company)
+    (define/public (get-origin)
+      origin)
+    (define/public (get-destination)
+      destination)
+    (define/public (get-flight-number)
+      flight-number)
+    (define/public (get-departure)
+      departure)
+    (define/public (get-arrival)
+      arrival)
+    (super-new)))
+
 ;Problem 3
-(define (make-flight airline origin destination flight# departure arrival)
-  'your-code-goes-here)
+(define (make-flight company from to flight-number departure arrival)
+  (new flight%
+       [company company]
+       [origin from]
+       [destination to]
+       [flight-number flight-number]
+       [departure departure]
+       [arrival arrival]))
 
 ;Problem 4
 (define (flight-airline flight)
-  'to-implement)
+  (send flight get-airline))
 
 (define (flight-origin flight)
-  'to-implement)
+  (send flight get-origin))
 
 (define (flight-destination flight)
-  'to-implement)
+  (send flight get-destination ))
 
 (define (flight-number flight)
-  'to-implement)
+  (send flight get-flight-number ))
 
 (define (flight-departure flight)
-  'to-implement)
+  (send flight get-departure ))
 
 (define (flight-arrival flight)
-  'to-implement)
+  (send flight get-arrival ) )
 
 ;Problem 5
 (define (add-to-db item database)
@@ -64,4 +90,3 @@
 
 (define (rest-of-flights database)
   'to-implement)
-|#
