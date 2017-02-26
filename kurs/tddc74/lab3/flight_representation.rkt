@@ -24,27 +24,31 @@
 ;; Uncomment this, and remove/comment out the require line above, so you use
 ;; your definitions rather than the ones in flight_class.rkt.
 
-(define flight%
-  (class object%
-    (init-field company
-                origin
-                destination
-                flight-number
-                departure
-                arrival)
-    (define/public (get-airline)
-      company)
-    (define/public (get-origin)
-      origin)
-    (define/public (get-destination)
-      destination)
-    (define/public (get-flight-number)
-      flight-number)
-    (define/public (get-departure)
-      departure)
-    (define/public (get-arrival)
-      arrival)
-    (super-new)))
+(define-serializable-class flight% object%
+    (init-field [company ""]
+     [origin ""]
+     [destination ""]
+     [flight-number 0]
+     [departure 0]
+     [arrival 0])
+  
+    (define/public (get-airline) company)
+    (define/public (get-origin) origin)
+    (define/public (get-destination) destination)
+    (define/public (get-flight-number) flight-number)
+    (define/public (get-departure) departure)
+    (define/public (get-arrival) arrival)
+    (super-new))
+
+(define-serializable-class database% object%
+    (init-field [database '()])
+    (define/public (empty?) (null? database))
+    (define/public (add-flight item) (new database%
+                                        [database (cons item database)]))
+    (define/public (get-first) (car database))
+    (define/public (get-rest) (new database% [database (cdr database)]))
+    (super-new))
+    
 
 ;Problem 3
 (define (make-flight company from to flight-number departure arrival)
@@ -64,29 +68,29 @@
   (send flight get-origin))
 
 (define (flight-destination flight)
-  (send flight get-destination ))
+  (send flight get-destination))
 
 (define (flight-number flight)
-  (send flight get-flight-number ))
+  (send flight get-flight-number))
 
 (define (flight-departure flight)
-  (send flight get-departure ))
+  (send flight get-departure))
 
 (define (flight-arrival flight)
-  (send flight get-arrival ) )
+  (send flight get-arrival))
 
 ;Problem 5
 (define (add-to-db item database)
-  'to-implement)
+  (send database add-flight item))
 
 (define (create-empty-database)
-  'to-implement)
+  (new database%))
 
 (define (empty-database? database)
-  'to-implement)
+  (send database empty?))
 
 (define (first-flight database)
-  'to-implement)
+  (send database get-first))
 
 (define (rest-of-flights database)
-  'to-implement)
+  (send database get-rest))

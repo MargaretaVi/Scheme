@@ -82,7 +82,6 @@
     (and (equal? from (flight-origin flight))
          (equal? to (flight-destination flight)))))
 
-
 (define connecting
   (lambda (flight from to
                   flight-db
