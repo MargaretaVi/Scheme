@@ -24,8 +24,7 @@
 ;; Uncomment this, and remove/comment out the require line above, so you use
 ;; your definitions rather than the ones in flight_class.rkt.
 
-(define flight%
-  (class object%
+(define-serializable-class flight% object%
     (init-field company
                 origin
                 destination
@@ -44,7 +43,20 @@
       departure)
     (define/public (get-arrival)
       arrival)
-    (super-new)))
+    (super-new))
+
+(define-serializable-class database% object%
+  (init-field [database'()])
+  (define/public (empty?)
+    (null? database))
+  (define/public (add-flight item)
+    (new database% [database (cons item database)]))
+  (define/public (get-first-flight)
+    (car database))
+  (define/public (get-rest-database)
+    (new database% [database (cdr database)]))
+  
+  (super-new))
 
 ;Problem 3
 (define (make-flight company from to flight-number departure arrival)
@@ -77,16 +89,16 @@
 
 ;Problem 5
 (define (add-to-db item database)
-  'to-implement)
+  (send database add-flight item))
 
 (define (create-empty-database)
-  'to-implement)
+  (new database%))
 
 (define (empty-database? database)
-  'to-implement)
+  (send database empty?))
 
 (define (first-flight database)
-  'to-implement)
+  (send database get-first-flight))
 
 (define (rest-of-flights database)
-  'to-implement)
+  (send database get-rest-database))
