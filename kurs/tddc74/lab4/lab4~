@@ -1,0 +1,7 @@
+#lang racket
+;; uppgift 1
+(define (foo bar)
+  bar)
+
+(define (bar foo)
+  (display foo))

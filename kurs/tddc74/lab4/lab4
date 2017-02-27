@@ -1,0 +1,16 @@
+#lang racket
+(require racket/trace)
+;; uppgift 1
+(define (foo bar)
+  bar)
+
+(define (bar foo)
+  (display foo))
+
+;; uppgift 2
+
+(define for-each-element
+  (lambda (proc lst)
+    (if (null? (cdr lst))
+        (proc (car lst))
+        (for-each-element proc (cdr lst)))))
