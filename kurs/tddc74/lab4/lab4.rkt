@@ -29,5 +29,30 @@
         ((equal? (car ...) 'reset)
          (set! count 0))))))
 
+(define count-calls2
+  (lambda ...
+    ((lambda (count)
+       (cond
+        ((null? ...)
+         (set! count (+ count 1)))
+        ((equal? (car ...) 'how-many-calls) count)
+        ((equal? (car ...) 'reset)
+         (set! count 0))))
+     0)))
 
 ;; Task 6
+; Enviroment diagram for task 5
+(define lets
+  (lambda (x)
+    (let ((a 10)
+          (b 20))
+      (+ x a b))))
+
+(define lets-lambda
+  (lambda (x)
+    ((lambda (a)
+       ((lambda (b)
+          (+ x a b))
+        20))
+     10)))
+
