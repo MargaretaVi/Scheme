@@ -26,7 +26,7 @@
         ((null? ...)
          (set! count (+ count 1)))
         ((equal? (car ...) 'how-many-calls) count)
-        ((equal? (car ...) 'reset)
+        (else (equal? (car ...) 'reset)
          (set! count 0))))))
 
 (define count-calls2
@@ -56,3 +56,16 @@
         20))
      10)))
 
+;; Task 7
+;Function created a new function with internal counter
+(define make-monitored
+  (lambda (fn)
+    (let ((count 0))
+      (lambda ...
+        (cond
+          ((equal? (car ...) 'how-many-calls) count)
+          ((equal? (car ...) 'reset) (set! count 0))
+          (else (begin
+                  (set! count (+ count 1))
+                  (apply fn ... ))))))))
+  
