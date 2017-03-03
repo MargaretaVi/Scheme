@@ -10,11 +10,22 @@
 ;; Task 2
 ;; Function which applies a procedure to each element in list
 ;; and returns them as a new list
+
 (define for-each-element
-  (lambda (proc lst)
-    (if (null? (cdr lst))
-        (proc (car lst))
-        (for-each-element proc (cdr lst)))))
+  (lambda (proc lst)    
+    (let loop ((rest lst))
+      (unless (null? rest)
+        (proc (car rest))
+        (loop (cdr rest))))))
+              
+(define (for-each2 func lst)
+  (let loop ((rest lst))
+    (unless (null? rest)
+      (func (car rest))
+      (loop (cdr rest)))))
+(trace for-each-element)
+;; Task 3 & 4
+;; Pratat med Anders
 
 ;; Task 5
 ;;Fucntion which count how many times it has been called, can be reseted
@@ -29,32 +40,19 @@
         (else (equal? (car ...) 'reset)
          (set! count 0))))))
 
+; This version of count-calls is so that I can easier see how the let converts to a lambda
 (define count-calls2
-  (lambda ...
-    ((lambda (count)
+  ((lambda (count)
+     (lambda ...
        (cond
-        ((null? ...)
-         (set! count (+ count 1)))
-        ((equal? (car ...) 'how-many-calls) count)
-        ((equal? (car ...) 'reset)
-         (set! count 0))))
-     0)))
+         ((null? ...) (set! count (+ count 1)))
+         ((equal? (car ...) 'how-many-calls) count)
+         (else (equal? (car ...) 'reset) (set! count 0)))))
+     0))
 
 ;; Task 6
 ; Enviroment diagram for task 5
-(define lets
-  (lambda (x)
-    (let ((a 10)
-          (b 20))
-      (+ x a b))))
 
-(define lets-lambda
-  (lambda (x)
-    ((lambda (a)
-       ((lambda (b)
-          (+ x a b))
-        20))
-     10)))
 
 ;; Task 7
 ;Function created a new function with internal counter
@@ -68,4 +66,46 @@
           (else (begin
                   (set! count (+ count 1))
                   (apply fn ... ))))))))
-  
+
+(define make-monitored2
+  (lambda (fn)
+    ((lambda (count)
+      (lambda ...
+        (cond
+          ((equal? (car ...) 'how-many-calls) count)
+          ((equal? (car ...) 'reset) (set! count 0))
+          (else (begin
+                  (set! count (+ count 1))
+                  (apply fn ...))))))
+      0)))
+
+;; Task 8
+; Enviroment diagram
+
+; Task 9
+;Iterative function that reverses a list
+(define (rev lst)
+  ;local variable 
+  (let ((res '()))
+    (define loop
+      (lambda ()
+        (cond
+          [(null? lst) res]
+          [else (begin
+                  (set! res (cons (car lst) res))
+                  (set! lst (cdr lst)))   
+                (loop)])))
+    (loop)))
+
+#|
+; Task 10
+
+(define writer
+  (lambda (line file)
+    (if (file-exist? file)
+        (let ((tmp-file (open-input-file file)))
+
+        (let ((tmp-file (open-output-file file)))
+          
+|#      
+      
