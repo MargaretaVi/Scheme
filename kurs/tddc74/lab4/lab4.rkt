@@ -23,7 +23,7 @@
 ;; Pratat med Anders
 
 ;; Task 5
-;;Fucntion which count how many times it has been called, can be reseted
+;; Function which count how many times it has been called, can be reseted
 
 (define count-calls
   (let ((count 0))
@@ -62,6 +62,7 @@
           (else (begin
                   (set! count (+ count 1))
                   (apply fn ... ))))))))
+
 #| Just for easiter to draw the environment diagram
 (define make-monitored2
   (lambda (fn)
@@ -94,15 +95,28 @@
                 (loop)])))
     (loop)))
 
-#|
 ; Task 10
-
 (define writer
-  (lambda (line file)
-    (if (file-exist? file)
-        (let ((tmp-file (open-input-file file)))
+  (lambda (line filename [op -])
+  (if (file-exists? filename)
+       (if (equal? op +)
+           (append-file line filename)
+           (create-file line filename))
+       (create-file line filename))))
 
-        (let ((tmp-file (open-output-file file)))
-          
-|#      
-      
+;Function creates/overwrite an existing file                                  
+(define create-file
+  (lambda (line file)
+    (let ((tmp-file (open-output-file file #:exists 'replace)))
+      (write line tmp-file)
+      (newline tmp-file)
+      (close-output-port tmp-file))))
+    
+; Function appends information to the end of an existing file                
+(define append-file
+  (lambda (line file)
+    (let ((tmp-file (open-output-file file #:exists 'append)))
+      (write line tmp-file)
+      (newline tmp-file)
+      (close-output-port tmp-file))))
+
