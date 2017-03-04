@@ -75,12 +75,11 @@
                   (set! count (+ count 1))
                   (apply fn ...))))))
       0)))
-|#
-;; Task 8
-;; Enviroment diagram
 
-;; Task 9
-;; Iterative function that reverses a list
+;; Task 8
+; Enviroment diagram
+
+; Task 9
 
 (define (rev lst)
   ;local variable 
