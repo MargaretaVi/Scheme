@@ -62,7 +62,7 @@
           (else (begin
                   (set! count (+ count 1))
                   (apply fn ... ))))))))
-#|
+#| Just for easiter to draw the environment diagram
 (define make-monitored2
   (lambda (fn)
     ((lambda (count)
@@ -76,10 +76,11 @@
       0)))
 |#
 ;; Task 8
-; Enviroment diagram
+;; Enviroment diagram
 
-; Task 9
-;Iterative function that reverses a list
+;; Task 9
+;; Iterative function that reverses a list
+
 (define (rev lst)
   ;local variable 
   (let ((res '()))
