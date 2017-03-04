@@ -8,22 +8,17 @@
   (display foo))
 
 ;; Task 2
-;; Function which applies a procedure to each element in list
-;; and returns them as a new list
+;; Taskes a function and a list as inparameters and returns nothing but applies
+;; the function on each element in the list
 
 (define for-each-element
-  (lambda (proc lst)    
-    (let loop ((rest lst))
-      (unless (null? rest)
-        (proc (car rest))
-        (loop (cdr rest))))))
+  (lambda (proc lst)
+    (if (null? (cdr lst))
+        (void (proc (car lst)))
+        (begin
+          (void (proc (car lst)))
+          (for-each-element proc (cdr lst))))))
               
-(define (for-each2 func lst)
-  (let loop ((rest lst))
-    (unless (null? rest)
-      (func (car rest))
-      (loop (cdr rest)))))
-(trace for-each-element)
 ;; Task 3 & 4
 ;; Pratat med Anders
 
@@ -40,6 +35,7 @@
         (else (equal? (car ...) 'reset)
          (set! count 0))))))
 
+#|
 ; This version of count-calls is so that I can easier see how the let converts to a lambda
 (define count-calls2
   ((lambda (count)
@@ -49,7 +45,7 @@
          ((equal? (car ...) 'how-many-calls) count)
          (else (equal? (car ...) 'reset) (set! count 0)))))
      0))
-
+|#
 ;; Task 6
 ; Enviroment diagram for task 5
 
@@ -66,7 +62,7 @@
           (else (begin
                   (set! count (+ count 1))
                   (apply fn ... ))))))))
-
+#|
 (define make-monitored2
   (lambda (fn)
     ((lambda (count)
@@ -78,7 +74,7 @@
                   (set! count (+ count 1))
                   (apply fn ...))))))
       0)))
-
+|#
 ;; Task 8
 ; Enviroment diagram
 
