@@ -23,20 +23,18 @@
 ;; Pratat med Anders
 
 ;; Task 5
-;; Function which count how many times it has been called, can be reseted
+;; Counts how many times it has been called, can be reseted
 
 (define count-calls
   (let ((count 0))
-    (lambda ...
+    (lambda args
        (cond
-        ((null? ...)
-         (set! count (+ count 1)))
-        ((equal? (car ...) 'how-many-calls) count)
-        (else (equal? (car ...) 'reset)
-         (set! count 0))))))
+        ((null? args) (set! count (+ count 1)))
+        ((equal? (car args) 'how-many-calls) count)
+        (else (equal? (car args) 'reset) (set! count 0))))))
 
 #|
-; This version of count-calls is so that I can easier see how the let converts to a lambda
+; This version of count-calls is for the environment diagram, let converted to lambda
 (define count-calls2
   ((lambda (count)
      (lambda ...
@@ -46,24 +44,26 @@
          (else (equal? (car ...) 'reset) (set! count 0)))))
      0))
 |#
+
 ;; Task 6
 ; Enviroment diagram for task 5
 
 
 ;; Task 7
-;Function created a new function with internal counter
-#|(define make-monitored
+;Function which creates a new function with internal counter
+
+(define make-monitored
   (lambda (fn)
     (let ((count 0))
-      (lambda ...
+      (lambda args
         (cond
-          ((equal? (car ...) 'how-many-calls) count)
-          ((equal? (car ...) 'reset) (set! count 0))
+          ((equal? (car args) 'how-many-calls) count)
+          ((equal? (car args) 'reset) (set! count 0))
           (else (begin
                   (set! count (+ count 1))
-                  (apply fn ... ))))))))
-|#
+                  (apply fn args ))))))))
 
+#|
 ; For environment diagram
 (define make-monitored
   (lambda (fn)
@@ -77,11 +77,12 @@
                   (set! count (+ count 1))
                   (apply fn ...))))))
       0)))
-
+|#
 ;; Task 8
 ; Enviroment diagram
 
 ; Task 9
+; Function reverts a list
 
 (define (rev lst)
   ;local variable 
@@ -97,6 +98,8 @@
     (loop)))
 
 ; Task 10
+;Function which writes to file
+
 (define writer
   (lambda (line filename [op -])
   (if (file-exists? filename)
@@ -105,7 +108,8 @@
            (create-file line filename))
        (create-file line filename))))
 
-;Function creates/overwrite an existing file                                  
+;Creates/overwrites an existing file
+
 (define create-file
   (lambda (line file)
     (let ((tmp-file (open-output-file file #:exists 'replace)))
@@ -113,7 +117,8 @@
       (newline tmp-file)
       (close-output-port tmp-file))))
     
-; Function appends information to the end of an existing file                
+;Appends information to the end of an existing file
+
 (define append-file
   (lambda (line file)
     (let ((tmp-file (open-output-file file #:exists 'append)))
@@ -123,21 +128,24 @@
 
 ;; Task 11
 
+;Function which reads from file
+
 (define reader
   (lambda (filename func)
     (let ((tmp-file (open-input-file filename)))
       (for-each-line func tmp-file))))
 
+; Goes though each line in file
+
 (define for-each-line
   (lambda (func file)
     (let ((current-line (read-line file)))
-      (if (not (eof-object? current-line))
+      (unless (eof-object? current-line)
           (begin
             (func current-line)
             (for-each-line func file))
           (close-input-port file)))))
 
-
 (provide (all-defined-out))
-(trace make-monitored)
+
 
