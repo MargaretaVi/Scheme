@@ -1,5 +1,5 @@
 #lang racket
-(require "la04-sol.rkt")
+(require "lab4.rkt")
 (require rackunit)
 ;; (require rackunit/gui)
 (require rackunit/text-ui)

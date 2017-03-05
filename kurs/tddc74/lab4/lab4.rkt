@@ -52,7 +52,7 @@
 
 ;; Task 7
 ;Function created a new function with internal counter
-(define make-monitored
+#|(define make-monitored
   (lambda (fn)
     (let ((count 0))
       (lambda ...
@@ -62,21 +62,22 @@
           (else (begin
                   (set! count (+ count 1))
                   (apply fn ... ))))))))
+|#
 
-#|
-Just for easiter to draw the environment diagram
-(define make-monitored2
+; For environment diagram
+(define make-monitored
   (lambda (fn)
     ((lambda (count)
       (lambda ...
         (cond
+          ((null? ...)(set! count (+ count 1)))
           ((equal? (car ...) 'how-many-calls) count)
           ((equal? (car ...) 'reset) (set! count 0))
           (else (begin
                   (set! count (+ count 1))
                   (apply fn ...))))))
       0)))
-|#
+
 ;; Task 8
 ; Enviroment diagram
 
@@ -135,3 +136,8 @@ Just for easiter to draw the environment diagram
             (func current-line)
             (for-each-line func file))
           (close-input-port file)))))
+
+
+(provide (all-defined-out))
+(trace make-monitored)
+
