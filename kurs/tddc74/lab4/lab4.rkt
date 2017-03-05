@@ -63,7 +63,8 @@
                   (set! count (+ count 1))
                   (apply fn ... ))))))))
 
-#| Just for easiter to draw the environment diagram
+#|
+Just for easiter to draw the environment diagram
 (define make-monitored2
   (lambda (fn)
     ((lambda (count)
@@ -75,7 +76,7 @@
                   (set! count (+ count 1))
                   (apply fn ...))))))
       0)))
-
+|#
 ;; Task 8
 ; Enviroment diagram
 
@@ -107,7 +108,7 @@
 (define create-file
   (lambda (line file)
     (let ((tmp-file (open-output-file file #:exists 'replace)))
-      (write line tmp-file)
+      (display line tmp-file )
       (newline tmp-file)
       (close-output-port tmp-file))))
     
@@ -115,7 +116,22 @@
 (define append-file
   (lambda (line file)
     (let ((tmp-file (open-output-file file #:exists 'append)))
-      (write line tmp-file)
+      (display line tmp-file)
       (newline tmp-file)
       (close-output-port tmp-file))))
 
+;; Task 11
+
+(define reader
+  (lambda (filename func)
+    (let ((tmp-file (open-input-file filename)))
+      (for-each-line func tmp-file))))
+
+(define for-each-line
+  (lambda (func file)
+    (let ((current-line (read-line file)))
+      (if (not (eof-object? current-line))
+          (begin
+            (func current-line)
+            (for-each-line func file))
+          (close-input-port file)))))

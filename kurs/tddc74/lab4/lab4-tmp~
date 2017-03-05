@@ -1,5 +1,0 @@
-#lang racket
-define (foo bar)
-bar)
-(define (bar foo)
-(display foo))
