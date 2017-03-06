@@ -24,61 +24,65 @@
     (let* ((direct-flights-db (create-empty-database))
            (connecting-flights-db (create-empty-database))
            (list-connecting-flights '()))
-      (go-through-db from to flight-db direct-flights-db
+      (create-databases from to flight-db direct-flights-db
                      connecting-flights-db list-connecting-flights))))
 
 
-(define go-through-db
+(define create-databases
   (lambda (from to flight-db direct-flights-db connecting-flights-db
                 list-connecting-flights)
     (if (empty-database? flight-db)
         (list (list 'direct-flights direct-flights-db)
               (cons 'connecting list-connecting-flights))
-        ;list-connecting-flights
         (let ((top-flight (first-flight flight-db)))
           (if (eqv? from (flight-origin top-flight))
               ;flight goes from the correct airport
               (if (eqv? to (flight-destination top-flight))
-                  (go-through-db from to (rest-of-flights flight-db)
-                                 (add-to-db top-flight direct-flights-db)
-                                 connecting-flights-db list-connecting-flights)
+                  (create-databases from to (rest-of-flights flight-db)
+                                    (add-to-db top-flight direct-flights-db)
+                                    connecting-flights-db list-connecting-flights)
                   ;possible connecting airport
-                  (if (not (empty-database? (connecting top-flight
-                                             (flight-destination top-flight)
-                                             to flight-db
-                                             (create-empty-database))))
-                      (go-through-db from to (rest-of-flights flight-db)
-                                     direct-flights-db connecting-flights-db
-                                     (cons (list top-flight 
-                                                   (connecting top-flight 
-                                                    (flight-destination top-flight)
-                                                    to flight-db
-                                                    (create-empty-database))) 
-                                                  list-connecting-flights))
-                      (go-through-db from to (rest-of-flights flight-db)
-                                     direct-flights-db connecting-flights-db
-                                     list-connecting-flights)))   
-              (go-through-db from to (rest-of-flights flight-db)
-                             direct-flights-db connecting-flights-db
-                             list-connecting-flights))))))
+                  (check-connecting-flights
+                   from to flight-db direct-flights-db connecting-flights-db
+                   list-connecting-flights))
+              (create-databases from to (rest-of-flights flight-db)
+                                    direct-flights-db connecting-flights-db
+                                    list-connecting-flights))))))
 
 
+;This function check if there are any connecting flights for any legit flights
+;if so then it will create that list ((flight + db) (flight + db)...)
+(define check-connecting-flights
+  (lambda (from to flight-db direct-flights-db connecting-flights-db
+                list-connecting-flights)
+    (let* ((top-flight (first-flight flight-db))
+            (conn-tmp-db (connecting top-flight
+                                      (flight-destination top-flight)
+                                      to flight-db (create-empty-database)))
+            (rest-of-db (rest-of-flights flight-db)))
+      (if (not (empty-database? conn-tmp-db))
+          ;connecting flights
+          (create-databases from to rest-of-db direct-flights-db
+                            connecting-flights-db
+                            (cons (list top-flight conn-tmp-db)
+                               list-connecting-flights))
+          (create-databases from to rest-of-db
+                         direct-flights-db connecting-flights-db
+                         list-connecting-flights)))))   
+     
 ;Function which creates a connecting database for a particular flight, if existing
 (define connecting
   (lambda (flight from to flight-db connecting-flights-db)
-    ;(flight-destination flight) = orign of flight2
-    (if (empty-database? (rest-of-flights flight-db))
-        (if (direct? flight from to)
-            (add-to-db flight connecting-flights-db)
-            connecting-flights-db)
-        (if (direct? flight from to)
-            (connecting (first-flight (rest-of-flights flight-db)) from to
-                        (rest-of-flights flight-db)
-                        (add-to-db flight connecting-flights-db))
-            (connecting (first-flight (rest-of-flights flight-db)) from to
-                        (rest-of-flights flight-db)
-                        connecting-flights-db)))))
-
+    (let* ((rest-of-db (rest-of-flights flight-db)))
+      (if (empty-database? rest-of-db)
+          (if (direct? flight from to)
+              (add-to-db flight connecting-flights-db)
+              connecting-flights-db)
+          (if (direct? flight from to)
+              (connecting (first-flight rest-of-db) from to
+                          rest-of-db (add-to-db flight connecting-flights-db))
+              (connecting (first-flight rest-of-db) from to
+                          rest-of-db connecting-flights-db))))))
 
 ;; predicate, is the flight is a direct flight?
 (define direct?
