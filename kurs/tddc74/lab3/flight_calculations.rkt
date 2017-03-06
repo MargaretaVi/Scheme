@@ -5,7 +5,7 @@
 (require "prettyprinter.rkt")
 (require "flight_representation.rkt")
 
-(write-and-create 1000 "test-1000.db")
+;(write-and-create 1000 "test-1000.db")
 (define flights
   ;; The database imported is called "test-1000.db".
   ;; If you have another database file to import, change this here!
@@ -33,12 +33,12 @@
                 list-connecting-flights)
     (if (empty-database? flight-db)
         (list (list 'direct-flights direct-flights-db)
-              (add-to-list 'connecting list-connecting-flights))
+              (cons 'connecting list-connecting-flights))
         ;list-connecting-flights
         (let ((top-flight (first-flight flight-db)))
-          (if (equal? from (flight-origin top-flight))
+          (if (eqv? from (flight-origin top-flight))
               ;flight goes from the correct airport
-              (if (equal? to (flight-destination top-flight))
+              (if (eqv? to (flight-destination top-flight))
                   (go-through-db from to (rest-of-flights flight-db)
                                  (add-to-db top-flight direct-flights-db)
                                  connecting-flights-db list-connecting-flights)
@@ -49,7 +49,7 @@
                                              (create-empty-database))))
                       (go-through-db from to (rest-of-flights flight-db)
                                      direct-flights-db connecting-flights-db
-                                     (add-to-list (list top-flight 
+                                     (cons (list top-flight 
                                                    (connecting top-flight 
                                                     (flight-destination top-flight)
                                                     to flight-db
@@ -62,16 +62,6 @@
                              direct-flights-db connecting-flights-db
                              list-connecting-flights))))))
 
-;Function returns a new listw with new_entry appended to the old list             
-(define add-to-list
-  (lambda (lst new_entry)
-    (cons lst new_entry)))
-
-;; predicate, is the flight is a direct flight?
-(define direct?
-  (lambda (flight from to)
-    (and (equal? from (flight-origin flight))
-         (equal? to (flight-destination flight)))))
 
 ;Function which creates a connecting database for a particular flight, if existing
 (define connecting
@@ -89,3 +79,9 @@
                         (rest-of-flights flight-db)
                         connecting-flights-db)))))
 
+
+;; predicate, is the flight is a direct flight?
+(define direct?
+  (lambda (flight from to)
+    (and (eqv? from (flight-origin flight))
+         (eqv? to (flight-destination flight)))))
