@@ -5,7 +5,7 @@
 (require "prettyprinter.rkt")
 (require "flight_representation.rkt")
 
-;(write-and-create 1000 "test-1000.db")
+(write-and-create 1000 "test-1000.db")
 (define flights
   ;; The database imported is called "test-1000.db".
   ;; If you have another database file to import, change this here!
@@ -27,37 +27,36 @@
       (create-databases from to flight-db direct-flights-db
                      connecting-flights-db list-connecting-flights))))
 
-
+;; Function which creates the two databases, direct flight and connecting flights
 (define create-databases
   (lambda (from to flight-db direct-flights-db connecting-flights-db
                 list-connecting-flights)
     (if (empty-database? flight-db)
         (list (list 'direct-flights direct-flights-db)
               (cons 'connecting list-connecting-flights))
-        (let ((top-flight (first-flight flight-db)))
+        (let* ((top-flight (first-flight flight-db))
+              (rest-of-db (rest-of-flights flight-db)))
           (if (eqv? from (flight-origin top-flight))
               ;flight goes from the correct airport
               (if (eqv? to (flight-destination top-flight))
-                  (create-databases from to (rest-of-flights flight-db)
+                  (create-databases from to rest-of-db
                                     (add-to-db top-flight direct-flights-db)
                                     connecting-flights-db list-connecting-flights)
                   ;possible connecting airport
                   (check-connecting-flights
                    from to flight-db direct-flights-db connecting-flights-db
                    list-connecting-flights))
-              (create-databases from to (rest-of-flights flight-db)
-                                    direct-flights-db connecting-flights-db
-                                    list-connecting-flights))))))
+              (create-databases from to rest-of-db direct-flights-db
+                                connecting-flights-db list-connecting-flights))))))
 
 
-;This function check if there are any connecting flights for any legit flights
-;if so then it will create that list ((flight + db) (flight + db)...)
+;; This function check if there are any connecting flights for any legit flights
+;; if so then it will create that list ((flight + db) (flight + db)...)
 (define check-connecting-flights
   (lambda (from to flight-db direct-flights-db connecting-flights-db
                 list-connecting-flights)
     (let* ((top-flight (first-flight flight-db))
-            (conn-tmp-db (connecting top-flight
-                                      (flight-destination top-flight)
+            (conn-tmp-db (connecting top-flight (flight-destination top-flight)
                                       to flight-db (create-empty-database)))
             (rest-of-db (rest-of-flights flight-db)))
       (if (not (empty-database? conn-tmp-db))
@@ -65,12 +64,11 @@
           (create-databases from to rest-of-db direct-flights-db
                             connecting-flights-db
                             (cons (list top-flight conn-tmp-db)
-                               list-connecting-flights))
-          (create-databases from to rest-of-db
-                         direct-flights-db connecting-flights-db
-                         list-connecting-flights)))))   
+                                  list-connecting-flights))
+          (create-databases from to rest-of-db direct-flights-db
+                            connecting-flights-db list-connecting-flights)))))   
      
-;Function which creates a connecting database for a particular flight, if existing
+;; Function which creates a connecting database for a particular flight, if existing
 (define connecting
   (lambda (flight from to flight-db connecting-flights-db)
     (let* ((rest-of-db (rest-of-flights flight-db)))
@@ -84,7 +82,7 @@
               (connecting (first-flight rest-of-db) from to
                           rest-of-db connecting-flights-db))))))
 
-;; predicate, is the flight is a direct flight?
+;; Predicate, is the flight is a direct flight?
 (define direct?
   (lambda (flight from to)
     (and (eqv? from (flight-origin flight))
