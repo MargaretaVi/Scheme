@@ -57,6 +57,7 @@
     (let ((count 0))
       (lambda args
         (cond
+          ((null? args) (set! count (+ count 1)))
           ((equal? (car args) 'how-many-calls) count)
           ((equal? (car args) 'reset) (set! count 0))
           (else (begin
