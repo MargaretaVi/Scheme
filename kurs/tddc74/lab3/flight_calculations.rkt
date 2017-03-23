@@ -5,7 +5,7 @@
 (require "prettyprinter.rkt")
 (require "flight_representation.rkt")
 
-(write-and-create 1000 "test-1000.db")
+;(write-and-create 1000 "test-1000.db")
 (define flights
   ;; The database imported is called "test-1000.db".
   ;; If you have another database file to import, change this here!
@@ -21,57 +21,45 @@
 
 (define flights-from-to
   (lambda (from to flight-db)
-    (let* ((direct-flights-db (create-empty-database))
-           (connecting-flights-db (create-empty-database))
-           (list-connecting-flights '()))
-      (create-databases from to flight-db direct-flights-db
-                     connecting-flights-db list-connecting-flights))))
+    (let ((direct-db (make-direct-db from to flight-db (create-empty-database)))
+          (connect-lst (make-connect-lst from to flight-db '())))
+      (list (list 'direct-flights direct-db) (cons 'connecting connect-lst)))))
+              
+; Creates the direct-flight-db
+(define make-direct-db
+  (lambda (from to flight-db direct-flights-db)
+    (cond
+      ((empty-database? flight-db) direct-flights-db)
+      ; flight has BOTH the same destination and origin?
+      ((and (eqv? from (flight-origin (first-flight flight-db)))
+            (eqv? to (flight-destination (first-flight flight-db))))
+       (make-direct-db from to (rest-of-flights flight-db)
+                       (add-to-db (first-flight flight-db) direct-flights-db)))
+      ((make-direct-db from to (rest-of-flights flight-db)
+                       direct-flights-db)))))
 
-;; Function which creates the two databases, direct flight and connecting flights
-(define create-databases
-  (lambda (from to flight-db direct-flights-db connecting-flights-db
-                list-connecting-flights)
+; Creates the connecting flights LIST
+(define make-connect-lst
+  (lambda (from to flight-db list-connecting-flights)
     (if (empty-database? flight-db)
-        (list (list 'direct-flights direct-flights-db)
-              (cons 'connecting list-connecting-flights))
+        list-connecting-flights
         (let* ((top-flight (first-flight flight-db))
-              (rest-of-db (rest-of-flights flight-db)))
-          (if (eqv? from (flight-origin top-flight))
-              ;flight goes from the correct airport
-              (if (eqv? to (flight-destination top-flight))
-                  (create-databases from to rest-of-db
-                                    (add-to-db top-flight direct-flights-db)
-                                    connecting-flights-db list-connecting-flights)
-                  ;possible connecting airport
-                  (check-connecting-flights
-                   from to flight-db direct-flights-db connecting-flights-db
-                   list-connecting-flights))
-              (create-databases from to rest-of-db direct-flights-db
-                                connecting-flights-db list-connecting-flights))))))
-
-
-;; This function check if there are any connecting flights for any legit flights
-;; if so then it will create that list ((flight + db) (flight + db)...)
-(define check-connecting-flights
-  (lambda (from to flight-db direct-flights-db connecting-flights-db
-                list-connecting-flights)
-    (let* ((top-flight (first-flight flight-db))
-            (conn-tmp-db (connecting top-flight (flight-destination top-flight)
-                                      to flight-db (create-empty-database)))
-            (rest-of-db (rest-of-flights flight-db)))
-      (if (not (empty-database? conn-tmp-db))
-          ;connecting flights
-          (create-databases from to rest-of-db direct-flights-db
-                            connecting-flights-db
-                            (cons (list top-flight conn-tmp-db)
-                                  list-connecting-flights))
-          (create-databases from to rest-of-db direct-flights-db
-                            connecting-flights-db list-connecting-flights)))))   
-     
+               (rest-db (rest-of-flights flight-db))
+              (conn-tmp-db (connecting top-flight (flight-destination top-flight)
+                                       to flight-db (create-empty-database))))
+          (if (and (eqv? from (flight-origin top-flight))
+                   (not (empty-database? conn-tmp-db)))
+              (make-connect-lst from to rest-db
+                                (cons (list top-flight conn-tmp-db)
+                                      list-connecting-flights))
+              (make-connect-lst from to rest-db
+                                list-connecting-flights))))))
+               
+  
 ;; Function which creates a connecting database for a particular flight, if existing
 (define connecting
   (lambda (flight from to flight-db connecting-flights-db)
-    (let* ((rest-of-db (rest-of-flights flight-db)))
+    (let ((rest-of-db (rest-of-flights flight-db)))
       (if (empty-database? rest-of-db)
           (if (direct? flight from to)
               (add-to-db flight connecting-flights-db)
