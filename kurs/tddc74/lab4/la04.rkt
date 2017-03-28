@@ -13,11 +13,12 @@
 
 (define for-each-element
   (lambda (proc lst)
-    (if (null? (cdr lst))
-        (void (proc (car lst)))
-        (begin
-          (void (proc (car lst)))
-          (for-each-element proc (cdr lst))))))
+    (cond
+      ((null? lst) lst)
+      ((null? (cdr lst)) (void (proc (car lst))))
+      (else (begin
+         (void (proc (car lst)))
+         (for-each-element proc (cdr lst)))))))
               
 ;; Task 3 & 4
 ;; Pratat med Anders
@@ -30,8 +31,8 @@
     (lambda args
        (cond
         ((null? args) (set! count (+ count 1)))
-        ((equal? (car args) 'how-many-calls) count)
-        (else (equal? (car args) 'reset) (set! count 0))))))
+        ((eq? (car args) 'how-many-calls) count)
+        (else (eq? (car args) 'reset) (set! count 0))))))
 
 #|
 ; This version of count-calls is for the environment diagram, let converted to lambda
@@ -40,8 +41,8 @@
      (lambda ...
        (cond
          ((null? ...) (set! count (+ count 1)))
-         ((equal? (car ...) 'how-many-calls) count)
-         (else (equal? (car ...) 'reset) (set! count 0)))))
+         ((eq? (car ...) 'how-many-calls) count)
+         (else (eq? (car ...) 'reset) (set! count 0)))))
      0))
 |#
 
@@ -57,12 +58,17 @@
     (let ((count 0))
       (lambda args
         (cond
-          ((null? args) (set! count (+ count 1)))
-          ((equal? (car args) 'how-many-calls) count)
-          ((equal? (car args) 'reset) (set! count 0))
+          ((null? args) (begin
+                          (set! count (+ count 1))
+                          (apply fn args)))
+          ((eq? (car args) 'how-many-calls) count)
+          ((eq? (car args) 'reset) (set! count 0))
           (else (begin
                   (set! count (+ count 1))
                   (apply fn args ))))))))
+(define (test)
+    (display "test"))
+(define m-test (make-monitored test))
 
 #|
 ; For environment diagram
@@ -72,8 +78,8 @@
       (lambda ...
         (cond
           ((null? ...)(set! count (+ count 1)))
-          ((equal? (car ...) 'how-many-calls) count)
-          ((equal? (car ...) 'reset) (set! count 0))
+          ((eq? (car ...) 'how-many-calls) count)
+          ((eq? (car ...) 'reset) (set! count 0))
           (else (begin
                   (set! count (+ count 1))
                   (apply fn ...))))))
@@ -104,7 +110,7 @@
 (define writer
   (lambda (line filename [op -])
   (if (file-exists? filename)
-       (if (equal? op +)
+       (if (eq? op +)
            (append-file line filename)
            (create-file line filename))
        (create-file line filename))))
