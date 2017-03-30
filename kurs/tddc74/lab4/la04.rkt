@@ -66,9 +66,6 @@
           (else (begin
                   (set! count (+ count 1))
                   (apply fn args ))))))))
-(define (test)
-    (display "test"))
-(define m-test (make-monitored test))
 
 #|
 ; For environment diagram
