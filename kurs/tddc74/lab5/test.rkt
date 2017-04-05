@@ -45,7 +45,7 @@
 
 (define start
   (new place%
-       [name "0"]
+       [name "start"]
        [description "Starting room"]))
 
 
@@ -61,10 +61,12 @@
 (send java-cafe get-character "James-Bond-agent")
 (send james-bond get-place)
 (send java-cafe delete-character! "James-Bond-agent")
+;(send (send james-bond get-place) get-name)
 (send james-bond move-to java-cafe)
 (send james-bond get-place)
 (send java-cafe get-character "James-Bond-agent")
 (send java-cafe characters)
-(send james-bond move-to start)
-(send java-cafe characters)
-(send start characters)
+
+;(send connect-places! java-cafe "north" start "south")
+
+
