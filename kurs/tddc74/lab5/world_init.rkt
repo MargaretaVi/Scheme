@@ -71,35 +71,18 @@
        [description "This is room 9, one of many"]))
 
 ;; Connect the world.
-(connect-places! room1 "west" room2 "east")
-(connect-places! room1 "north" room5 "south")
-(connect-places! room2 "north" room6 "south")
+(connect-places! room1 "east" room2 "west")
+(connect-places! room1 "north" room4 "south")
+(connect-places! room2 "north" room5 "south")
 (connect-places! room2 "east" room3 "west")
 (connect-places! room3 "north" room6 "south")
 (connect-places! room4 "north" room7 "south")
-(connect-places! room4 "east" room4 "west")
+(connect-places! room4 "east" room5 "west")
 (connect-places! room5 "north" room8 "south")
 (connect-places! room5 "east" room6 "west")
 (connect-places! room6 "north" room9 "south")
 (connect-places! room7 "east" room8 "west")
 (connect-places! room8 "east" room9 "west")
-
-
-;; ------------- Characters
-
-(define player
-  (make&add-character
-   "Me"
-   "The coat looked worse for wear. Its wearer even more so."
-   "You again! I have nothing to say to myself."
-   room1))
-
-(define wumpus
-  (make&add-character
-   "Wumpus"
-   "I smell."
-   "Chomp Chomp Chomp"
-   room2))
 
 
 ;; ------------- Items
@@ -109,3 +92,45 @@
        [amount 5]
        [name "Mighty arrow"]
        [description "Silver arrows"]))
+
+(define bucket
+  (new item%
+       [amount 100]
+       [name "bucket"]
+       [description "waterbucket"]))
+           
+
+(define apple
+  (new item%
+       [amount 1]
+       [name "apple"]
+       [description "Om nom nom"]))
+
+(define gold
+  (new item%
+       [amount 500]
+       [name "gold"]
+       [description "So shiny"]))
+
+(send room1 add-item! apple)
+(send room2 add-item! gold)
+             
+;; ------------- Characters
+
+(define player
+  (make&add-character
+   "Me"
+   "The coat looked worse for wear. Its wearer even more so."
+   "You again! I have nothing to say to myself."
+   room1))
+
+;(send player add-item! arrows)
+;(send player add-item! bucket)
+(send player add-item! apple)
+
+(define wumpus
+  (make&add-character
+   "Wumpus"
+   "I smell."
+   "Chomp Chomp Chomp"
+   room2))

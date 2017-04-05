@@ -12,7 +12,6 @@
                 [*exits* (make-hash)]
                 [*items* (make-hash)])
     
-    ;speific for the place-class 
     (define/public (get-name)
       name)
     
@@ -20,23 +19,29 @@
       description)
 
      (define/public (get-neighbour exit-name)
-      (if (hash-has-key? *neighbours* exit-name)
+      (if (exit-exist? exit-name)
           (hash-ref *neighbours* exit-name)
           #f))
     
+    (define/public (neighbour-exist? direction)
+      (hash-has-key? *neighbours* direction))
+    
     (define/public (add-neighbour! exit-name place)
-      (hash-set! *neighbours* place exit-name))
+      (hash-set! *neighbours* exit-name place))
   
     (define/public (remove-neighbour! exit-name)
-      (if (hash-has-key? *neighbours* exit-name)
+      (if (neighbour-exist? exit-name)
           (hash-remove! *neighbours* exit-name)
           #f))
+
+    (define/public (exit-exist? direction)
+      (hash-has-key? *exits* direction))
     
     (define/public (exits)
       (hash-keys *exits*))
 
-    (define/public (set-exit direction place)
-      (hash-set! *exits* direction place))
+    (define/public (add-exit! direction neighbour)
+      (hash-set! *exits* direction neighbour))
                              
     (define/public (neighbours)
       (hash-keys *neighbours*))
@@ -59,7 +64,6 @@
     (define/private (make-pit)
       (set! pit #t))
 
-    ;characters
     (define/public (add-character! character)
       (if (hash-has-key? *characters* character)
           #f
@@ -83,27 +87,34 @@
       (hash-keys *characters*))
 
     (define/public (add-item! item)
-        (if (hash-has-key? *items* item)
+        (if (item-exist? item)
           #f
           (begin
               (hash-set! *items* (send item get-name) item)
               #t)))
 
     (define/public (remove-item! item-name)
-        (if (hash-has-key? *items* item-name)
+        (if (item-exist? item-name)
           (hash-remove! *items* item-name)
           #f))
          
     (define/public (get-item item-name)
-      (if (hash-has-key? *items* item-name)
+      (if (item-exist? item-name)
           (hash-ref *items* item-name)
           #f))
 
+    (define/public (item-exist? item-name)
+      (hash-has-key? *items* item-name))
+    
     (define/public (items)
       (hash-keys *items*))
     
     (super-new)))
 
+
+; ---------- public functions
 (define (connect-places! place1 exit1 place2 exit2)
   (send place1 add-neighbour! exit1 place2)
-  (send place2 add-neighbour! exit2 place1))
+  (send place2 add-neighbour! exit2 place1)
+  (send place1 add-exit! exit1 place2)
+  (send place2 add-exit! exit2 place1))

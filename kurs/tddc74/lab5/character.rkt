@@ -32,10 +32,13 @@
             #t)))
     
     (define/public (get-inventory)
-      (hash-keys *inventory*))
+      (hash-values *inventory*))
+
+    (define/public (get-inventory2)
+      *inventory*)
     
     (define/public (get-item item-name)
-      (if (hash-has-key? *inventory* item-name)
+      (if (has-item? item-name)
           (hash-ref *inventory* item-name)
           #f))
     
@@ -48,24 +51,29 @@
     
     (define/public (give item-name recipient)
       (begin
-        (if (hash-has-key? *inventory* item-name)
+        (if (has-item? item-name)
             (begin
               (send recipient pick-up item-name)
               (hash-remove! *inventory* item-name))
             #f)))
 
     (define/public (add-item! item)
-      (if (hash-has-key? *inventory* item)
+      (if (has-item? (send item get-name))
           #f
           (begin
-            (hash-set! *inventory* item item)
+            (hash-set! *inventory* (send item get-name) item)
             #t)))
 
     (define/public (remove-item! item-name)
-      (if (hash-has-key? *inventory* item-name)
+      (if (has-item? item-name)
           (hash-remove! *inventory* item-name)
           #f))
 
+    (define/public (has-item? item-name)
+      (begin
+        (hash-keys *inventory*)
+        (hash-has-key? *inventory* item-name)))
+    
     (define/public (alive?)
       (eqv? living #t))
     
