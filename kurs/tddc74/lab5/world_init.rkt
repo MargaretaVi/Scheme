@@ -5,24 +5,22 @@
 (require "cmd_store.rkt")
 (provide (all-defined-out))
 
-#|
-(define rooms (make-vector 24))
 
-(define make-rooms
-  (for-each
-   (lambda (i)
-     (let ((room-name (string-append "room" (number->string i)))
-            (des (string-append "Current room is: " (number->string i))))
-       (define room-name
-         (new place%
-              [name room-name]
-              [description des]))
-       (display room-name)))
-   '(1 2 3 4)))
-|#
 (define random-from-to
   (lambda (from to)
     (+ (random (- to (- from 1))) from)))
+
+;; Creates and adds a character to a given place. Returns the character.
+(define (make&add-character name_ desc_ talk-line_ place)
+  (let
+      ([new-char
+        (new character%
+             [name name_]
+             [description desc_]
+             [talk-line talk-line_])])
+    (send new-char move-to place)
+    (send place add-character! new-char)
+    new-char))
 
 ;; ------------ Places
 (define room1
@@ -70,6 +68,11 @@
        [name "Room 9"]
        [description "This is room 9, one of many"]))
 
+(define market
+  (new place%
+       [name "market"]
+       [description "Where you can buy stuffs to eat"]))
+
 ;; Connect the world.
 (connect-places! room1 "east" room2 "west")
 (connect-places! room1 "north" room4 "south")
@@ -84,19 +87,23 @@
 (connect-places! room7 "east" room8 "west")
 (connect-places! room8 "east" room9 "west")
 
-
+;; -----------rooom specialities
+(send room5 set-pit)
+(send room7 set-fire)
+(send room9 set-fire)
+(send room3 set-fire)
 ;; ------------- Items
 
 (define arrows
   (new item%
        [amount 5]
-       [name "Mighty arrow"]
+       [name "arrows"]
        [description "Silver arrows"]))
 
-(define bucket
+(define water
   (new item%
        [amount 100]
-       [name "bucket"]
+       [name "water"]
        [description "waterbucket"]))
            
 
@@ -106,14 +113,29 @@
        [name "apple"]
        [description "Om nom nom"]))
 
+(define milk
+  (new item%
+       [amount 1]
+       [name "milk"]
+       [description "Glup"]))
+
 (define gold
   (new item%
        [amount 500]
        [name "gold"]
        [description "So shiny"]))
 
-(send room2 add-item! apple)
-(send room2 add-item! gold)
+(define berries
+  (new item%
+       [amount 20]
+       [name "berries"]
+       [description "So round"]))
+
+(define torches
+  (new item%
+       [amount 20]
+       [name "torches"]
+       [description "Good for fire"]))
              
 ;; ------------- Characters
 
@@ -124,9 +146,8 @@
    "You again! I have nothing to say to myself."
    room1))
 
-;(send player add-item! arrows)
-;(send player add-item! bucket)
-(send player add-item! apple)
+
+;(send player add-item! apple)
 
 (define wumpus
   (make&add-character
@@ -134,3 +155,26 @@
    "I smell."
    "Chomp Chomp Chomp"
    room2))
+
+(define merchant
+  (make&add-character
+   "merchant"
+   "I has apple, ."
+   "kaching!"
+   market))
+
+(define guide
+  (make&add-character
+   "guide"
+   "Helper"
+   "Welcome player, to find the gold you need to kill the wumpus. Trade me some berries and torches and I will give you the weapons. "
+   room1))
+
+
+(send room2 add-item! gold)
+(send room1 add-item! berries)
+(send room1 add-item! torches)
+(send merchant add-item! apple)
+(send merchant add-item! milk)
+(send guide add-item! arrows)
+(send guide add-item! water)

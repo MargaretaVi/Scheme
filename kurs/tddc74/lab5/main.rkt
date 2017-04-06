@@ -12,7 +12,7 @@
      (print-list this-ui (get-valid-commands) )]))
 
 (define welcome-str
-    "Hello! And welcome to the game 'Hunt the Wumpus'. To see user-commands , please write 'help' and press enter. \nYou are currently in room 1 ")
+    "Welcome to the game 'Hunt the Wumpus'. To see user-commands , please write 'help' and press enter. \nYou are currently in room 1 ")
 
 (define GUI
   (new adventure-UI%
@@ -21,22 +21,14 @@
        [width 600]
        [place-name "Dungeoun"]
        [handle-input handle-input_]))
-  
-(define-syntax-rule (own-while condition body ...)
-  (let loop ()
-    (when condition
-      body ...
-      (loop))))
+ 
+
 
 ;level = easy, medium, hard
 (define main
   (begin 
-    (send GUI present welcome-str)))
-    #|(if (not (send wumpus alive?))
-        (send GUI notify "Congratulations, you killed the wumpus. You will be sent to the market")
-        (send GUI notify "Find the wumpus!!"))))
-|#
-
+    (send GUI present welcome-str)
+    (send GUI present "Talk to everyone you see, they might have some useful information")))
 
       
          

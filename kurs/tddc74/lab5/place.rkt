@@ -6,7 +6,8 @@
     (init-field name
                 description
                 [fire #f]
-                [pit #f]       
+                [pit #f]
+                [walkable #t]
                 [*neighbours* (make-hash)]
                 [*characters* (make-hash)]
                 [*exits* (make-hash)]
@@ -46,6 +47,9 @@
     (define/public (neighbours)
       (hash-keys *neighbours*))
 
+    (define/public (walkable?)
+      (eqv? walkable #t))
+    
     (define/private (get-fire)
       fire)
 
@@ -55,14 +59,26 @@
     (define/public (get-pit)
       pit)
     
-    (define/private (make-fire)
-      (set! fire #t))
+    (define/public (set-fire)
+      (begin
+        (set! fire #t)
+        (set! walkable #f)))
     
     (define/public (extinguish-fire)
-      (set! fire #f))
+      (if (eqv? fire #f)
+          #f
+          (begin
+            (set! fire #f)
+            (set! walkable #t))))
+
+    (define/public (pit?)
+      (eqv? pit #t))
     
-    (define/private (make-pit)
-      (set! pit #t))
+    (define/public (set-pit)
+      (begin
+        (set! pit #t)
+        (set! walkable #f)))
+    
 
     (define/public (add-character! character)
       (if (hash-has-key? *characters* character)
@@ -77,14 +93,17 @@
           #f))
     
     (define/public (delete-character! character-name)
-      (if (hash-has-key? *characters* character-name)
+      (if (character-exists? character-name)
           (begin
             (hash-remove! *characters* character-name)
             #t)
           #f))
+
+    (define/public (character-exists? character-name)
+      (hash-has-key? *characters* character-name))
     
     (define/public (characters)
-      (hash-keys *characters*))
+      (hash-values *characters*))
 
     (define/public (add-item! item)
       (if (item-exist? (send item get-name))

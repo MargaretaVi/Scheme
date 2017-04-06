@@ -1,5 +1,5 @@
 #lang racket
-(provide character% make&add-character)
+(provide character%)
 
 (define character%
   (class object%
@@ -13,24 +13,21 @@
      )
     
     (define/public (get-place)
-      place)
-    
+      place) 
     (define/public (get-description)
-      description)
-    
+      description) 
     (define/public (get-name)
-      name)
-    
+      name) 
     (define/public (get-talk-line)
-      talk-line)
-    
+      talk-line) 
+    (define/public (killed)
+      (set! living #f)) 
     (define/public (move-to new-place)
       (if (eqv? place new-place)
           #f
           (begin
             (set! place new-place)          
-            #t)))
-    
+            #t))) 
     (define/public (get-inventory)
       (hash-values *inventory*))
 
@@ -76,14 +73,3 @@
       (eqv? living #t))
     
     (super-new)))
-
-;; Creates and adds a character to a given place. Returns the character.
-(define (make&add-character name_ desc_ talk-line_ place)
-  (let
-      ([new-char
-        (new character%
-             [name name_]
-             [description desc_]
-             [talk-line talk-line_])])
-    (send new-char move-to place)
-    new-char))
