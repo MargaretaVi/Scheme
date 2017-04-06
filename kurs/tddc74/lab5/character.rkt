@@ -68,12 +68,10 @@
       (if (has-item? item-name)
           (hash-remove! *inventory* item-name)
           #f))
-
-    (define/public (has-item? item-name)
-      (begin
-        (hash-keys *inventory*)
-        (hash-has-key? *inventory* item-name)))
     
+    (define/public (has-item? item-name)
+      (hash-has-key? *inventory* item-name))
+
     (define/public (alive?)
       (eqv? living #t))
     

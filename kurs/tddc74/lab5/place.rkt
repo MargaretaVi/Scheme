@@ -87,11 +87,11 @@
       (hash-keys *characters*))
 
     (define/public (add-item! item)
-        (if (item-exist? item)
+      (if (item-exist? (send item get-name))
           #f
           (begin
-              (hash-set! *items* (send item get-name) item)
-              #t)))
+            (hash-set! *items* (send item get-name) item)
+            #t)))
 
     (define/public (remove-item! item-name)
         (if (item-exist? item-name)

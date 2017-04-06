@@ -50,10 +50,11 @@
   (cond
     [(null? arguments) (send this-ui present "Invalid command 'move'. You need to specify where to go i.e move south, north, east, west")]
     [(if (send (send player get-place) exit-exist? (car arguments))
-         (begin
-           (send player move-to (send (send player get-place) get-neighbour (car arguments)))
-           (send this-ui present "You have moved to: ")
-           (send this-ui present (send (send player get-place) get-name)))
+         (if (send player move-to (send (send player get-place) get-neighbour (car arguments)))
+             (begin
+               (send this-ui present "You have moved to: ")
+               (send this-ui present (send (send player get-place) get-name)))
+             (send this-ui present "You are already in that room, did not move"))
          (send this-ui present "You cannot go there, there is not path leading to that place."))]))
 (add-command! "move" move_)
 
@@ -70,9 +71,12 @@
 (define (drop_ this-ui arguments)
   (if (send player has-item? (car arguments))
       (begin
-        (send player remove-item! (car arguments))
-        (send (send player get-place) add-item! (send (send player get-place) get-item (car arguments))))
-      (send this-ui present "You don't have the item, cannot be dropped.")))
+         (send (send player get-place) add-item! (send player get-item (car arguments)))
+         (send player remove-item! (car arguments))
+         (send this-ui present "You have dropped the item: ")
+         (send this-ui present (car arguments)))
+      (send this-ui present "You dont have the item in the inventory, cannot drop item")))
+     
 (add-command! "drop" drop_)
 
 (define (shot_ this-ui arguments)

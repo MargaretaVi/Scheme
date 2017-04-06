@@ -112,7 +112,7 @@
        [name "gold"]
        [description "So shiny"]))
 
-(send room1 add-item! apple)
+(send room2 add-item! apple)
 (send room2 add-item! gold)
              
 ;; ------------- Characters
