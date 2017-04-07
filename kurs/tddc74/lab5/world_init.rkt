@@ -96,7 +96,7 @@
 
 (define arrows
   (new item%
-       [amount 5]
+       [amount 3]
        [name "arrows"]
        [description "Silver arrows"]))
 

@@ -22,9 +22,10 @@
        [place-name "Dungeoun"]
        [handle-input handle-input_]))
 (define story
-  "You are an newbie adventurer wanting to find some loot to trade to the merchant in the market.
+  "You are a newbie adventurer wanting to find some loot to trade to the merchant at the market.
 You have heard that in the dungeoun, there is gold so you headed that way. Without weapons.
-Talk to everyone you see, they might have some useful information.\nYou are currently in room 1 ")
+Talk to everyone you see, they might have some useful information.
+Remember that some weapons can be limited to how many time you can use it, use them wisely.\nYou are currently in room 1 ")
 
 (define main
   (begin 

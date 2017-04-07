@@ -219,7 +219,16 @@ there is not path leading to that place.")))]))
                remove-item! (car (cdr (cdr arguments)))))))
 
 (add-command! "trade" trade_)
-        
+
+(define (amount_ this-ui arguments)
+  (cond
+  [(null? arguments)
+   (send this-ui present "Please specify which item you want to look at")]
+  [(not (send player has-item? (car arguments)))
+   (send this-ui present "Item not in inventory")]
+  (else  
+  (send this-ui present (number->string (send (send player get-item (car arguments)) get-amount))))))
+(add-command! "amount" amount_)
 ; -------- help functions to the player commands
 ; prints out a list to the GUI
 (define (print-list this-ui arguments)
