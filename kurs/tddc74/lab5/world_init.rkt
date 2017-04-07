@@ -136,6 +136,25 @@
        [amount 20]
        [name "torches"]
        [description "Good for fire"]))
+
+(define necklace
+  (new item%
+       [amount 1]
+       [name "necklace"]
+       [description "Pretty"]))
+
+(define ring
+  (new item%
+       [amount 1]
+       [name "ring"]
+       [description "so small"]))
+
+(define shoes
+  (new item%
+       [amount 1]
+       [name "shoes"]
+       [description "heavy"]))
+
              
 ;; ------------- Characters
 
@@ -151,10 +170,11 @@
 
 (define wumpus
   (make&add-character
-   "Wumpus"
+   "wumpus"
    "I smell."
    "Chomp Chomp Chomp"
-   room2))
+   room9))
+(send (send wumpus get-place) make-not-walkable)
 
 (define merchant
   (make&add-character
@@ -171,10 +191,13 @@
    room1))
 
 
-(send room2 add-item! gold)
-(send room1 add-item! berries)
-(send room1 add-item! torches)
-(send merchant add-item! apple)
-(send merchant add-item! milk)
-(send guide add-item! arrows)
-(send guide add-item! water)
+(void (send (send wumpus get-place) add-item! gold))
+(void (send room1 add-item! berries))
+(void (send room1 add-item! torches))
+(void (send room7 add-item! apple))
+(void (send room3 add-item! milk))
+(void (send merchant add-item! necklace))
+(void (send merchant add-item! ring))
+(void (send merchant add-item! shoes))
+(void (send guide add-item! arrows))
+(void (send guide add-item! water))

@@ -50,6 +50,9 @@
     (define/public (walkable?)
       (eqv? walkable #t))
     
+    (define/public (make-not-walkable)
+      (set! walkable #f))
+    
     (define/private (get-fire)
       fire)
 
@@ -62,14 +65,14 @@
     (define/public (set-fire)
       (begin
         (set! fire #t)
-        (set! walkable #f)))
+        (make-not-walkable)))
     
     (define/public (extinguish-fire)
       (if (eqv? fire #f)
           #f
           (begin
             (set! fire #f)
-            (set! walkable #t))))
+            (make-not-walkable))))
 
     (define/public (pit?)
       (eqv? pit #t))
@@ -77,7 +80,7 @@
     (define/public (set-pit)
       (begin
         (set! pit #t)
-        (set! walkable #f)))
+        (make-not-walkable)))
     
 
     (define/public (add-character! character)
