@@ -67,7 +67,8 @@ Here the player commands are defined
 ; moves player to a walkable room that is adjacent to the current room
 (define (move_ this-ui arguments)
   (cond
-    [(null? arguments) (send this-ui present "Invalid command. You need to specify where to go i.e move south, north, east, west")]
+    [(or (null? arguments) (not (eqv? (car arguments) (or "south" "east" "west" "north"))))
+         (send this-ui present "Invalid command. You need to specify where to go i.e move south, north, east, west")]
     [(if (not (send (send (send player get-place) get-neighbour (car arguments)) walkable?))
          (cond
            [(send (send (send player get-place)
@@ -123,29 +124,32 @@ there is not path leading to that place.")))]))
 
 ; functions which are used to kill the wumpus,
 ; after the wumpus is dead player will be teleported to the market.
-(define (shot_ this-ui arguments)
+(define (shoot_ this-ui arguments)
   (cond
-    [(null? arguments) (send this-ui present "You need to specify in which way you want to shot")]
+    [(null? arguments) (send this-ui present "You need to specify in which way you want to shoot")]
     [(if (send player has-item? "arrows")
-         (if (send (send player get-place) exit-exist? (car arguments))
-             (if (eqv? (send (send wumpus get-place) get-name)
-                       (send (send (send player get-place) get-neighbour (car arguments)) get-name))
-                 (begin
-                   (send (send player get-item "arrows") decrease-amount)
-                   (send (send player get-item "arrows") get-amount)
-                   (send this-ui notify "Congratulations, you killed the wumpus! You will be sent to the market")
-                   (send wumpus killed)
-                   (send player move-to market)
-                   (send this-ui present "You have moved to: the market ")
-                   (send player add-item! gold)
-                   (send this-ui present "gold has been added to your inventory")
-                   (send this-ui set-place-name "market")
-                   (send this-ui notify "Now the game is finished but you can still do things in this place."))
-                 (send this-ui present "the wumpus is not in that room"))
-             (send this-ui present "You cannot shot in that direction, the rooms are not linked"))
-         (send this-ui present "You dont have arrows in your inventory "))]))
+         (if (< (send (send player get-item "arrows") get-amount) 1)
+             (send this-ui present "You have not more arrows, impossible to continue. Please restart the game")
+             (begin
+               (send (send player get-item "arrows") decrease-amount)
+               (if (send (send player get-place) exit-exist? (car arguments))
+                   (if (eqv? (send (send wumpus get-place) get-name)
+                             (send (send (send player get-place) get-neighbour (car arguments)) get-name))
+                       (begin
 
-(add-command! "shot" shot_)
+                         (send this-ui notify "Congratulations, you killed the wumpus! You will be sent to the market")
+                         (send wumpus killed)
+                         (send player move-to market)
+                         (send this-ui present "You have moved to: the market ")
+                         (send player add-item! gold)
+                         (send this-ui present "gold has been added to your inventory")
+                         (send this-ui set-place-name "market")
+                         (send this-ui notify "Now the game is finished but you can still do things in this place."))
+                       (send this-ui present "Arrow shot, the wumpus is not in that room"))
+                   (send this-ui present "You cannot shoot in that direction, the rooms are not linked"))))
+             (send this-ui present "You dont have arrows in your inventory "))]))
+
+(add-command! "shoot" shoot_)
 
 ;Puts out the fire in the adjacent room of player
 ;makes that room walkable
@@ -158,7 +162,7 @@ there is not path leading to that place.")))]))
           (send this-ui present "Room was not on fire, now it's wet"))
       (send this-ui present "Water not present in inventory, cannot extinguish fire"))]))
 
-(add-command! "extinguish-fire" pour-water_)
+(add-command! "pour-water" pour-water_)
 
 ;print out the player commands to the GUI
 (define (help_ this-ui arguments)

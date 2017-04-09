@@ -162,7 +162,7 @@
   (make&add-character
    "Me"
    "The coat looked worse for wear. Its wearer even more so."
-   "You again! I have nothing to say to myself."
+   "I am  the best in the world."
    room1))
 
 
@@ -173,7 +173,7 @@
    "wumpus"
    "I smell."
    "Chomp Chomp Chomp"
-   room9))
+   room6))
 (send (send wumpus get-place) make-not-walkable)
 
 (define merchant

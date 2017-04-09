@@ -72,7 +72,7 @@
           #f
           (begin
             (set! fire #f)
-            (make-not-walkable))))
+            (set! walkable #t))))
 
     (define/public (pit?)
       (eqv? pit #t))
