@@ -160,7 +160,7 @@
 
 (define player
   (make&add-character
-   "Me"
+   "me"
    "The coat looked worse for wear. Its wearer even more so."
    "I am  the best in the world."
    room1))

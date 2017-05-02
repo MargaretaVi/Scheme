@@ -21,9 +21,7 @@
       name)
 
     (define/public (move-to! new-place)
-      (if (eqv? place new-place)
-          #f
-          (set! place new-place)))
+      (set! place new-place))
 
     (define/public (decrease-amount)
       (set! amount (- amount 1)))

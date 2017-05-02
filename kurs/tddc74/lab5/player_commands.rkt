@@ -67,7 +67,7 @@ Here the player commands are defined
 ; moves player to a walkable room that is adjacent to the current room
 (define (move_ this-ui arguments)
   (cond
-    [(or (null? arguments) (not (eqv? (car arguments) (or "south" "east" "west" "north"))))
+    [(or (null? arguments) (not (equal? (car arguments) (or "south" "east" "west" "north"))))
          (send this-ui present "Invalid command. You need to specify where to go i.e move south, north, east, west")]
     [(if (not (send (send (send player get-place) get-neighbour (car arguments)) walkable?))
          (cond
@@ -175,8 +175,7 @@ there is not path leading to that place.")))]))
 (define (talk_ this-ui arguments)
   (if (null? arguments)
       (send this-ui present "Please specify whom you want to talk to")
-      (begin
-        (if (send (send player get-place) character-exists? (car arguments))
+      (if (send (send player get-place) character-exists? (car arguments))
             (begin
               (send this-ui present (string-append
                                      (send (send
@@ -188,15 +187,16 @@ there is not path leading to that place.")))]))
                                    (send (send (send player get-place)
                                                get-character (car arguments))
                                          get-inventory) '())))
-            (send this-ui present "Person you want to talk to is not here")))))
+            (send this-ui present "Person you want to talk to is not here"))))
 (add-command! "talk" talk_)
 
 ;adds and remove items from players inventory
 (define (trade_ this-ui arguments)
   (cond
-   [(< (length arguments) 3)
+   [(or (< (length arguments) 3) (null? arguments))
     (send this-ui present "Please tell who you want to trade with,
- what item you give and what item you want, in this order")]
+what item you give and what item you want, in this order")]
+   [(equal? (car arguments) (send player get-name)) (send this-ui present "You cannot trade with yourself")]
    [(not (send (send player get-place) character-exists? (car arguments)))
     (send this-ui present "The person you want to trade with do not exists")]
    [(not (and (send (send (send player get-place) get-character

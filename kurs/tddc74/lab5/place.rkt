@@ -19,10 +19,14 @@
     (define/public (get-description)
       description)
 
-     (define/public (get-neighbour exit-name)
-      (if (exit-exist? exit-name)
-          (hash-ref *neighbours* exit-name)
-          #f))
+    (define/public (get-pit)
+      pit)
+
+    (define/private (get-fire)
+      fire)
+
+    (define/public (get-neighbour exit-name)
+      (hash-ref *neighbours* exit-name))
     
     (define/public (neighbour-exist? direction)
       (hash-has-key? *neighbours* direction))
@@ -31,9 +35,7 @@
       (hash-set! *neighbours* exit-name place))
   
     (define/public (remove-neighbour! exit-name)
-      (if (neighbour-exist? exit-name)
-          (hash-remove! *neighbours* exit-name)
-          #f))
+      (hash-remove! *neighbours* exit-name))
 
     (define/public (exit-exist? direction)
       (hash-has-key? *exits* direction))
@@ -48,19 +50,15 @@
       (hash-keys *neighbours*))
 
     (define/public (walkable?)
-      (eqv? walkable #t))
+      walkable)
     
     (define/public (make-not-walkable)
       (set! walkable #f))
-    
-    (define/private (get-fire)
-      fire)
 
+
+    ;; same as get-fire but is created for easier code reading 
     (define/public (fire?)
-      (eqv? fire #t))
-    
-    (define/public (get-pit)
-      pit)
+      fire)
     
     (define/public (set-fire)
       (begin
@@ -68,39 +66,26 @@
         (make-not-walkable)))
     
     (define/public (extinguish-fire)
-      (if (eqv? fire #f)
-          #f
-          (begin
-            (set! fire #f)
-            (set! walkable #t))))
-
+      (set! fire #f)
+      (set! walkable #t))
+    
+    ;; same as get-pit but is created for easier code reading 
     (define/public (pit?)
-      (eqv? pit #t))
+      pit)
     
     (define/public (set-pit)
       (begin
         (set! pit #t)
         (make-not-walkable)))
     
-
     (define/public (add-character! character)
-      (if (hash-has-key? *characters* character)
-          #f
-          (begin
-              (hash-set! *characters* (send character get-name) character)
-              #t)))
-    
+      (hash-set! *characters* (send character get-name) character))
+
     (define/public (get-character character-name)
-      (if (hash-has-key? *characters* character-name)
-          (hash-ref *characters* character-name)
-          #f))
-    
+      (hash-ref *characters* character-name))
+
     (define/public (delete-character! character-name)
-      (if (character-exists? character-name)
-          (begin
-            (hash-remove! *characters* character-name)
-            #t)
-          #f))
+      (hash-remove! *characters* character-name))
 
     (define/public (character-exists? character-name)
       (hash-has-key? *characters* character-name))
@@ -109,21 +94,13 @@
       (hash-values *characters*))
 
     (define/public (add-item! item)
-      (if (item-exist? (send item get-name))
-          #f
-          (begin
-            (hash-set! *items* (send item get-name) item)
-            #t)))
-
+      (hash-set! *items* (send item get-name) item))
+           
     (define/public (remove-item! item-name)
-        (if (item-exist? item-name)
-          (hash-remove! *items* item-name)
-          #f))
-         
+      (hash-remove! *items* item-name))
+
     (define/public (get-item item-name)
-      (if (item-exist? item-name)
-          (hash-ref *items* item-name)
-          #f))
+      (hash-ref *items* item-name))
 
     (define/public (item-exist? item-name)
       (hash-has-key? *items* item-name))
