@@ -119,14 +119,13 @@ the room is on fire. Put out the fire first")]
 ;i.e dropping items on the floor
 (define (drop_ this-ui arguments)
   (cond
-    [(or (null? arguments) (> (length arguments) 2))
+    [(or (null? arguments) (> (length arguments) 1))
      (send this-ui present "Incorrect input, drop takes ONE argument")]
     [(send player has-item? (car arguments))
       (begin
-        (send (send player get-place) add-item! (send player get-item (car arguments)))
-        (send player remove-item! (car arguments))
+        (send player drop (send player get-item (car arguments)))
         (send this-ui present (string-append "You have dropped the: " (car arguments))))]
-      (else(send this-ui present "You dont have the item in the inventory, cannot drop item"))))
+    [else (send this-ui present "You dont have the item in the inventory, item cannot be dropped.")]))
      
 (add-command! "drop" drop_)
 
@@ -181,21 +180,20 @@ the room is on fire. Put out the fire first")]
 
 ;Player can talk to other NPCs that are located in the same place
 (define (talk_ this-ui arguments)
-  (if (null? arguments)
-      (send this-ui present "Please specify whom you want to talk to")
-      (if (send (send player get-place) character-exists? (car arguments))
-          (begin
+  (cond
+    [(null? arguments) (send this-ui present "Please specify whom you want to talk to")]
+    [(not (send (send player get-place) character-exists? (car arguments)))
+      (send this-ui present "Person you want to talk to is not here")]
+    [else (begin
             (send this-ui present (string-append
-                                   (send (send
-                                          (send player get-place)
-                                          get-character (car arguments))
+                                   (send (send (send player get-place)
+                                               get-character (car arguments))
                                          get-talk-line)
                                    "I have these items in my inventory: "))
-            (print-list this-ui (return-names
-                                 (send (send (send player get-place)
-                                             get-character (car arguments))
-                                       get-inventory) '())))
-          (send this-ui present "Person you want to talk to is not here"))))
+            (print-list this-ui (return-names (send (send (send player get-place)
+                                     get-character (car arguments))
+                                                    get-inventory) '())))]))
+         
 (add-command! "talk" talk_)
 
 ;adds and remove items from players inventory
@@ -229,13 +227,15 @@ what item you give and what item you want, in this order")]
 
 (define (amount_ this-ui arguments)
   (cond
-    [(null? arguments)
+    [(or (> (length arguments) 1) (null? arguments))
      (send this-ui present "Please specify which item you want to look at")]
     [(not (send player has-item? (car arguments)))
      (send this-ui present "Item not in inventory")]
     (else  
      (send this-ui present (number->string (send (send player get-item (car arguments)) get-amount))))))
+
 (add-command! "amount" amount_)
+
 ; -------- help functions to the player commands
 ; prints out a list to the GUI
 (define (print-list this-ui arguments)
@@ -243,7 +243,6 @@ what item you give and what item you want, in this order")]
    (lambda (str)
      (send this-ui present str))
    arguments))
-
 
 ;Returns a list with only names
 ;Input: list of class-objects

@@ -9,7 +9,7 @@
     [(valid-command? command) ((get-procedure command) this-ui arguments) ]
     [else
      (send this-ui present "Invalid command, following commands are allowed: ")
-     (print-list this-ui (get-valid-commands) )]))
+     (print-list this-ui (get-valid-commands))]))
 
 (define welcome-str
     "Welcome to the game 'Hunt the Wumpus'. To see user-commands , please write 'help' and press enter.")
