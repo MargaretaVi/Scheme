@@ -31,9 +31,9 @@ Remember that some weapons can be limited to how many time you can use it, use t
 (define main
   (begin 
     (send GUI present welcome-str)
-    (send GUI present "-------------------------------")
+    (send GUI present "----------------")
     (send GUI present story)
-    (send GUI present "-------------------------------")))
+    (send GUI present "----------------")))
 
       
          

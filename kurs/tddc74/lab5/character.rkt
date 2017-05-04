@@ -49,7 +49,11 @@
 
     (define/public (drop item)
       (send place add-item! item)
-      (hash-remove! _inventory item))
+      (hash-remove! _inventory (send item get-name)))
+
+    (define/public (pick-up item)
+      (add-item! item)
+      (send place remove-item! (send item get-name)))
     
     (define/public (remove-item! item-name)
       (hash-remove! _inventory item-name))
