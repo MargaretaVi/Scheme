@@ -1,2 +1,7 @@
 **/.DS_Store
 **/.rkt~
+*.rkt~
+/compiled
+**/compiled
+**.txt
+**.db
