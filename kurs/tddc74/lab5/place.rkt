@@ -8,10 +8,10 @@
                 [fire #f]
                 [pit #f]
                 [walkable #t]
-                [*neighbours* (make-hash)]
-                [*characters* (make-hash)]
-                [*exits* (make-hash)]
-                [*items* (make-hash)])
+                [_neighbours (make-hash)]
+                [_characters (make-hash)]
+                [_exits (make-hash)]
+                [_items (make-hash)])
     
     (define/public (get-name)
       name)
@@ -26,28 +26,28 @@
       fire)
 
     (define/public (get-neighbour exit-name)
-      (hash-ref *neighbours* exit-name))
+      (hash-ref _neighbours exit-name))
     
     (define/public (neighbour-exist? direction)
-      (hash-has-key? *neighbours* direction))
+      (hash-has-key? _neighbours direction))
     
     (define/public (add-neighbour! exit-name place)
-      (hash-set! *neighbours* exit-name place))
+      (hash-set! _neighbours exit-name place))
   
     (define/public (remove-neighbour! exit-name)
-      (hash-remove! *neighbours* exit-name))
+      (hash-remove! _neighbours exit-name))
 
     (define/public (exit-exist? direction)
-      (hash-has-key? *exits* direction))
+      (hash-has-key? _exits direction))
     
     (define/public (exits)
-      (hash-keys *exits*))
+      (hash-keys _exits))
 
     (define/public (add-exit! direction neighbour)
-      (hash-set! *exits* direction neighbour))
+      (hash-set! _exits direction neighbour))
                              
     (define/public (neighbours)
-      (hash-keys *neighbours*))
+      (hash-keys _neighbours))
 
     (define/public (walkable?)
       walkable)
@@ -61,9 +61,8 @@
       fire)
     
     (define/public (set-fire)
-      (begin
-        (set! fire #t)
-        (make-not-walkable)))
+      (set! fire #t)
+      (make-not-walkable))
     
     (define/public (extinguish-fire)
       (set! fire #f)
@@ -74,39 +73,38 @@
       pit)
     
     (define/public (set-pit)
-      (begin
-        (set! pit #t)
-        (make-not-walkable)))
+      (set! pit #t)
+      (make-not-walkable))
     
     (define/public (add-character! character)
-      (hash-set! *characters* (send character get-name) character))
+      (hash-set! _characters (send character get-name) character))
 
     (define/public (get-character character-name)
-      (hash-ref *characters* character-name))
+      (hash-ref _characters character-name))
 
     (define/public (delete-character! character-name)
-      (hash-remove! *characters* character-name))
+      (hash-remove! _characters character-name))
 
     (define/public (character-exists? character-name)
-      (hash-has-key? *characters* character-name))
+      (hash-has-key? _characters character-name))
     
     (define/public (characters)
-      (hash-values *characters*))
+      (hash-values _characters))
 
     (define/public (add-item! item)
-      (hash-set! *items* (send item get-name) item))
+      (hash-set! _items (send item get-name) item))
            
     (define/public (remove-item! item-name)
-      (hash-remove! *items* item-name))
+      (hash-remove! _items item-name))
 
     (define/public (get-item item-name)
-      (hash-ref *items* item-name))
+      (hash-ref _items item-name))
 
     (define/public (item-exist? item-name)
-      (hash-has-key? *items* item-name))
+      (hash-has-key? _items item-name))
     
     (define/public (items)
-      (hash-keys *items*))
+      (hash-keys _items))
     
     (super-new)))
 

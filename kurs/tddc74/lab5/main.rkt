@@ -21,6 +21,7 @@
        [width 600]
        [place-name "Dungeoun"]
        [handle-input handle-input_]))
+
 (define story
   "You are a newbie adventurer wanting to find some loot to trade to the merchant at the market.
 You have heard that in the dungeoun, there is gold so you headed that way. Without weapons.

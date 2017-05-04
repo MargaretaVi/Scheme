@@ -30,10 +30,12 @@ Here the player commands are defined
         (print-list this-ui (send (send player get-place) items))
         (send this-ui present "-------------------------------")
         (send this-ui present "The people(s) in this place are: ")
-        (print-list this-ui (return-names (send (send player get-place) characters) '())))
+        (print-list this-ui (return-names (send (send player get-place)
+                                                characters) '())))
       ;any other adjacent room
       (begin
-        (send this-ui present (string-append "You are looking in the direction: " (car arguments)))
+        (send this-ui present (string-append "You are looking in the direction: "
+                                             (car arguments)))
         (send this-ui present "-------------------------------")
         (if (send (send player get-place) exit-exist? (car arguments))
             (begin
@@ -61,15 +63,18 @@ Here the player commands are defined
                                    (send (send (send player get-place)
                                                get-neighbour (car arguments))
                                          characters) '())))
-            (send this-ui present "There is no path in that direction, maybe you ment either north, east, south, west")))))
+            (send this-ui present "There is no path in that direction")))))
 (add-command! "look" look_)
 
 ; moves player to a walkable room that is adjacent to the current room
 (define (move_ this-ui arguments)
   (cond
-    [(or (null? arguments) (not (equal? (car arguments) (or "south" "east" "west" "north"))))
-         (send this-ui present "Invalid command. You need to specify where to go i.e move south, north, east, west")]
-    [(if (not (send (send (send player get-place) get-neighbour (car arguments)) walkable?))
+    [(or (null? arguments) (not (member (car arguments)
+                                        '("south" "east" "west" "north"))))
+     (send this-ui present "Invalid command.
+You need to specify where to go i.e move south, north, east, west")]
+    [(if (not (send (send (send player get-place)
+                          get-neighbour (car arguments)) walkable?))
          (cond
            [(send (send (send player get-place)
                         get-neighbour (car arguments)) fire?)
@@ -86,39 +91,42 @@ the room is on fire. Put out the fire first")]
          (if (send (send player get-place) exit-exist? (car arguments))
              (if (send player move-to (send (send player get-place)
                                             get-neighbour (car arguments)))
-                 (send this-ui present (string-append "You have moved to: "
-                                                      (send (send player get-place) get-name)))
-                 (send this-ui present "You are already in that room, did not move"))
-             (send this-ui present "You cannot go there,
-there is not path leading to that place.")))]))
-
+                 (send this-ui present (string-append
+                                        "You have moved to: "
+                                        (send (send player get-place) get-name)))
+                 (send this-ui present "You are already in that room"))
+             (send this-ui present "No path to room that exist")))]))
 (add-command! "move" move_)
 
 ;Adds items to the players inventory, ie items that the player has picked up
 (define (take_ this-ui arguments)
-  (if (send (send player get-place) item-exist? (car arguments))
-      (if (send player add-item! (send (send player get-place)
-                                       get-item (car arguments)))
-          (begin
-            (send (send player get-place) remove-item!
-                  (car arguments))
-            (send this-ui present (string-append
-                                   (car arguments)
-                                   " added to inventory!")))
-          (send this-ui present
-                "Cannot add item to inventory, item already exists"))
-      (send this-ui present "Item does not exist in this place.")))
+  (cond
+    [(or (null? arguments) (> (length arguments) 2))
+     (send this-ui present "Incorrect input, take takes ONE argument")]
+    [(if (send (send player get-place) item-exist? (car arguments))
+         (if (send player add-item! (send (send player get-place)
+                                          get-item (car arguments)))
+             (begin
+               (send (send player get-place) remove-item! (car arguments))
+               (send this-ui present (string-append (car arguments)
+                                                  " added to inventory!")))
+             (send this-ui present
+                   "Cannot add item to inventory, item already exists"))
+         (send this-ui present "Item does not exist in this place."))]))
 (add-command! "take" take_)
 
 ;Removes items from the players inventory
 ;i.e dropping items on the floor
 (define (drop_ this-ui arguments)
-  (if (send player has-item? (car arguments))
+  (cond
+    [(or (null? arguments) (> (length arguments) 2))
+     (send this-ui present "Incorrect input, drop takes ONE argument")]
+    [(send player has-item? (car arguments))
       (begin
-         (send (send player get-place) add-item! (send player get-item (car arguments)))
-         (send player remove-item! (car arguments))
-         (send this-ui present (string-append "You have dropped the: " (car arguments))))
-      (send this-ui present "You dont have the item in the inventory, cannot drop item")))
+        (send (send player get-place) add-item! (send player get-item (car arguments)))
+        (send player remove-item! (car arguments))
+        (send this-ui present (string-append "You have dropped the: " (car arguments))))]
+      (else(send this-ui present "You dont have the item in the inventory, cannot drop item"))))
      
 (add-command! "drop" drop_)
 
@@ -147,7 +155,7 @@ there is not path leading to that place.")))]))
                          (send this-ui notify "Now the game is finished but you can still do things in this place."))
                        (send this-ui present "Arrow shot, the wumpus is not in that room"))
                    (send this-ui present "You cannot shoot in that direction, the rooms are not linked"))))
-             (send this-ui present "You dont have arrows in your inventory "))]))
+         (send this-ui present "You dont have arrows in your inventory "))]))
 
 (add-command! "shoot" shoot_)
 
@@ -157,10 +165,10 @@ there is not path leading to that place.")))]))
   (cond
     [(null? arguments) (send this-ui present "Please specify in which way you want to throw the water")]
     [(if (send player has-item? "water")
-      (if (send (send (send player get-place) get-neighbour (car arguments)) extinguish-fire)
-          (send this-ui present "Fire has been put out, now room can be entered")
-          (send this-ui present "Room was not on fire, now it's wet"))
-      (send this-ui present "Water not present in inventory, cannot extinguish fire"))]))
+         (if (send (send (send player get-place) get-neighbour (car arguments)) extinguish-fire)
+             (send this-ui present "Fire has been put out, now room can be entered")
+             (send this-ui present "Room was not on fire, now it's wet"))
+         (send this-ui present "Water not present in inventory, cannot extinguish fire"))]))
 
 (add-command! "pour-water" pour-water_)
 
@@ -176,62 +184,57 @@ there is not path leading to that place.")))]))
   (if (null? arguments)
       (send this-ui present "Please specify whom you want to talk to")
       (if (send (send player get-place) character-exists? (car arguments))
-            (begin
-              (send this-ui present (string-append
-                                     (send (send
-                                            (send player get-place)
-                                            get-character (car arguments))
-                                           get-talk-line)
-                                     "I have these items in my inventory: "))
-              (print-list this-ui (return-names
-                                   (send (send (send player get-place)
-                                               get-character (car arguments))
-                                         get-inventory) '())))
-            (send this-ui present "Person you want to talk to is not here"))))
+          (begin
+            (send this-ui present (string-append
+                                   (send (send
+                                          (send player get-place)
+                                          get-character (car arguments))
+                                         get-talk-line)
+                                   "I have these items in my inventory: "))
+            (print-list this-ui (return-names
+                                 (send (send (send player get-place)
+                                             get-character (car arguments))
+                                       get-inventory) '())))
+          (send this-ui present "Person you want to talk to is not here"))))
 (add-command! "talk" talk_)
 
 ;adds and remove items from players inventory
 (define (trade_ this-ui arguments)
   (cond
-   [(or (< (length arguments) 3) (null? arguments))
-    (send this-ui present "Please tell who you want to trade with,
+    [(or (< (length arguments) 3) (null? arguments))
+     (send this-ui present "Please tell who you want to trade with,
 what item you give and what item you want, in this order")]
-   [(equal? (car arguments) (send player get-name)) (send this-ui present "You cannot trade with yourself")]
-   [(not (send (send player get-place) character-exists? (car arguments)))
-    (send this-ui present "The person you want to trade with do not exists")]
-   [(not (and (send (send (send player get-place) get-character
-                          (car arguments)) has-item? (car (cdr (cdr arguments))))
-             (send player has-item? (car (cdr arguments)))))
-    (send this-ui present "Item(s) do not exist")]       
-   (else
-    ;Characters gets item
-         (send player add-item! (send (send (send player get-place)
-                                            get-character (car arguments))
-                                      get-item (car (cdr (cdr arguments)))))
-         (send this-ui present (string-append
-                                (car (cdr (cdr arguments)))
-                                " has been added to the inventory"))
-         (send (send (send player get-place)
-                     get-character (car arguments))
-               add-item! (send player get-item (car (cdr arguments))))
-         ;characters gets item removed
-         (send player remove-item! (car (cdr arguments)))
-         (send this-ui present (string-append
-                                (car (cdr arguments))
-                                " has been removed from the inventory"))
-         (send (send (send player get-place) get-character (car arguments))
-               remove-item! (car (cdr (cdr arguments)))))))
-
+    [(not (send (send player get-place) character-exists? (car arguments)))
+     (send this-ui present "The person you want to trade with is not here")]
+    [(equal?  (send (send (send player get-place)
+                          get-character (car arguments)) get-name)
+              (send player get-name))
+     (send this-ui present "You cannot trade with yourself")]
+    [(not (send (send (send player get-place) get-character (car arguments))
+                has-item? (car (cdr (cdr arguments)))))
+          (send this-ui present "Trader do not have that item")]
+    [(not (send player has-item? (car (cdr arguments))))
+          (send this-ui present "You do not have that item in you inventory")]
+    (else
+     ;trade occurs
+     (send player receive (car (cdr (cdr  arguments)))
+           (send (send player get-place) get-character (car arguments)))
+     (send player give (send player get-item (car (cdr arguments)))
+           (send (send player get-place) get-character (car arguments)))
+     (send this-ui present
+           (string-append (car (cdr (cdr arguments)))
+                          " has been added to the inventory")))))
+ 
 (add-command! "trade" trade_)
 
 (define (amount_ this-ui arguments)
   (cond
-  [(null? arguments)
-   (send this-ui present "Please specify which item you want to look at")]
-  [(not (send player has-item? (car arguments)))
-   (send this-ui present "Item not in inventory")]
-  (else  
-  (send this-ui present (number->string (send (send player get-item (car arguments)) get-amount))))))
+    [(null? arguments)
+     (send this-ui present "Please specify which item you want to look at")]
+    [(not (send player has-item? (car arguments)))
+     (send this-ui present "Item not in inventory")]
+    (else  
+     (send this-ui present (number->string (send (send player get-item (car arguments)) get-amount))))))
 (add-command! "amount" amount_)
 ; -------- help functions to the player commands
 ; prints out a list to the GUI

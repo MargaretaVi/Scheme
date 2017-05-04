@@ -6,7 +6,7 @@
     (init-field amount ;how many exists
                 description
                 name
-                [place #f]
+                [place (void)]
                ) 
     (define/public (get-amount)
       amount)
@@ -21,7 +21,9 @@
       name)
 
     (define/public (move-to! new-place)
-      (set! place new-place))
+      (send place remove-item! (send this get-name))
+      (set! place new-place)
+      (send place add-item! (send this get-name)))
 
     (define/public (decrease-amount)
       (set! amount (- amount 1)))

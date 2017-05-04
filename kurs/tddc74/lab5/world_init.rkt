@@ -17,9 +17,9 @@
         (new character%
              [name name_]
              [description desc_]
-             [talk-line talk-line_])])
+             [talk-line talk-line_]
+             [place place])])
     (send new-char move-to place)
-    (send place add-character! new-char)
     new-char))
 
 ;; ------------ Places
@@ -92,6 +92,38 @@
 (send room7 set-fire)
 (send room9 set-fire)
 (send room3 set-fire)
+
+;; ------------- Characters
+
+(define player
+  (make&add-character
+   "me"
+   "The coat looked worse for wear. Its wearer even more so."
+   "I am  the best in the world."
+   room1))
+
+(define wumpus
+  (make&add-character
+   "wumpus"
+   "I smell."
+   "Chomp Chomp Chomp"
+   room6))
+(send (send wumpus get-place) make-not-walkable)
+
+(define merchant
+  (make&add-character
+   "merchant"
+   "I has apple, ."
+   "kaching!"
+   market))
+
+(define guide
+  (make&add-character
+   "guide"
+   "Helper"
+   "Welcome player, to find the gold you need to kill the wumpus. Trade me some berries and torches and I will give you the weapons. "
+   room1))
+
 ;; ------------- Items
 
 (define arrows
@@ -123,19 +155,22 @@
   (new item%
        [amount 500]
        [name "gold"]
-       [description "So shiny"]))
+       [description "So shiny"]
+       [place (send wumpus get-place)]))
 
 (define berries
   (new item%
        [amount 20]
        [name "berries"]
-       [description "So round"]))
+       [description "So round"]
+       [place room1]))
 
 (define torches
   (new item%
        [amount 20]
        [name "torches"]
-       [description "Good for fire"]))
+       [description "Good for fire"]
+       [place room1]))
 
 (define necklace
   (new item%
@@ -155,47 +190,11 @@
        [name "shoes"]
        [description "heavy"]))
 
-             
-;; ------------- Characters
-
-(define player
-  (make&add-character
-   "me"
-   "The coat looked worse for wear. Its wearer even more so."
-   "I am  the best in the world."
-   room1))
-
-
-;(send player add-item! apple)
-
-(define wumpus
-  (make&add-character
-   "wumpus"
-   "I smell."
-   "Chomp Chomp Chomp"
-   room6))
-(send (send wumpus get-place) make-not-walkable)
-
-(define merchant
-  (make&add-character
-   "merchant"
-   "I has apple, ."
-   "kaching!"
-   market))
-
-(define guide
-  (make&add-character
-   "guide"
-   "Helper"
-   "Welcome player, to find the gold you need to kill the wumpus. Trade me some berries and torches and I will give you the weapons. "
-   room1))
-
-
-(void (send (send wumpus get-place) add-item! gold))
 (void (send room1 add-item! berries))
 (void (send room1 add-item! torches))
 (void (send room7 add-item! apple))
-(void (send room3 add-item! milk))
+(void (send room3 add-item! milk))            
+(void (send (send wumpus get-place) add-item! gold))
 (void (send merchant add-item! necklace))
 (void (send merchant add-item! ring))
 (void (send merchant add-item! shoes))
