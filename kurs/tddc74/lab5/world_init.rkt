@@ -5,11 +5,6 @@
 (require "cmd_store.rkt")
 (provide (all-defined-out))
 
-#|
-(define random-from-to
-  (lambda (from to)
-    (+ (random (- to (- from 1))) from)))
-|#
 ;; Creates and adds a character to a given place. Returns the character.
 (define (make&add-character name_ desc_ talk-line_ place)
   (let
@@ -127,15 +122,14 @@
 ;; ------------- Items
 
 (define arrows
-  (new item%
-       [amount 3]
+  (new arrow-class%
+       [amount 100]
        [name "arrows"]
        [description "Silver arrows"]
        [effect "kill"]))
 
-
 (define water
-  (new item%
+  (new water-class%
        [amount 100]
        [name "water"]
        [description "waterbucket"]
@@ -156,7 +150,7 @@
 
 (define gold
   (new item%
-       [amount 500]
+       [amount 1]
        [name "gold"]
        [description "So shiny"]
        [place (send wumpus get-place)]))
@@ -196,10 +190,10 @@
 (void (send room1 add-item! berries))
 (void (send room1 add-item! torches))
 (void (send room7 add-item! apple))
-(void (send room3 add-item! milk))            
+(void (send room3 add-item! milk))
+(void (send room2 add-item! ring))
+(void (send room4 add-item! necklace))
+(void (send room9 add-item! shoes))
 (void (send (send wumpus get-place) add-item! gold))
-(void (send merchant add-item! necklace))
-(void (send merchant add-item! ring))
-(void (send merchant add-item! shoes))
 (void (send guide add-item! arrows))
 (void (send guide add-item! water))

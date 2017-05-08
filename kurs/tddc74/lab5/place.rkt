@@ -26,7 +26,7 @@
       pit)
 
     ;Returns the member fire
-    (define/private (get-fire)
+    (define/public (get-fire)
       fire)
 
     ;Returns an object
@@ -59,12 +59,16 @@
 
     ;Returns a list of neighbours
     (define/public (neighbours)
-      (hash-keys _neighbours))
+      (hash-values _neighbours))
 
     ;Predicate, checks if room is walkable
     (define/public (walkable?)
       walkable)
 
+    ;Makes the room  walkable
+    (define/public (make-walkable)
+      (set! walkable #t))
+    
     ;Makes the room not walkable
     (define/public (make-not-walkable)
       (set! walkable #f))
@@ -132,7 +136,7 @@
 
     ;Returns a list of item in room
     (define/public (items)
-      (hash-keys _items))
+      (hash-values _items))
     
     (super-new)))
 

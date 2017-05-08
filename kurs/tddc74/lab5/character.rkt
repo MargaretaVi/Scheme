@@ -69,6 +69,7 @@
 
     ;Pick up an item from the room
     (define/public (pick-up item)
+      (send item set-place! place)
       (add-item! item)
       (send place remove-item! (send item get-name)))
 
@@ -79,6 +80,8 @@
     ;Predicate, checks if item is in inventory
     (define/public (has-item? item-name)
       (hash-has-key? _inventory item-name))
+
+    ;(define/public (update-place-inventory)
 
     ;Predicate, checks if character is alive
     (define/public (alive?)

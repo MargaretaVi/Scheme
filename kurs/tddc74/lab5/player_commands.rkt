@@ -21,12 +21,12 @@ Here the player commands are defined
         (send this-ui present
               (string-append  "You are at: " (send (send player get-place) get-name) "\n"
                               (send (send player get-place) get-description) "\n"
-                              "---------------- \nYou see the following exits: "))
-        (print-list this-ui (send (send player get-place) exits))
+                              "---------------- \nYou see the following exits "))
+        (print-list this-ui (send (send player get-place) exits) )
         (send this-ui present
               (string-append "----------------
 You see the following item(s) in the room: " ))
-        (print-list this-ui (send (send player get-place) items))
+        (print-list this-ui (return-names (send (send player get-place) items) '()))
         (send this-ui present (string-append  "---------------- 
 The people(s) in this place are: "))
         (print-list this-ui (return-names (send (send player get-place)
@@ -42,9 +42,12 @@ The people(s) in this place are: "))
            (send this-ui present "The room is on fire, dont walk there")]
           [(send (send (send player get-place)  get-neighbour (car arguments)) pit?)
            (send this-ui present "There is a pit, dont walk there")]
-          [(send (send (send player get-place) get-neighbour (car arguments))
-                 character-exists? "wumpus")
-           (send this-ui present "Shoot the monster!")]
+          [(if (and (send (send (send player get-place) get-neighbour
+                                (car arguments)) character-exists? "wumpus")
+                    (send (send (send (send player get-place) get-neighbour
+                                      (car arguments)) get-character "wumpus") alive?))
+                    (send this-ui present "Shoot the monster!")
+               (send this-ui present "Safe to go"))]
           [else
            (begin
              (send this-ui present
@@ -188,8 +191,22 @@ what item you give and what item you want, in this order")]
 
 (define (use_ this-ui arguments)
   (cond
-    [(null? arguments) (send this-ui present "You need to specify what item to use")]))
-    
+    [(null? arguments)
+     (send this-ui present
+           "You need to specify what item to use and in which direction")]
+    [(not (eq? (length arguments) 2))
+     (send this-ui present "Not enough input arguments")]
+    [(not (send player has-item? (car arguments)))
+     (send this-ui present
+           (string-append "You do not have "
+                          (car arguments) " in your inventory"))]
+    [(not (send (send player get-place) exit-exist? (car (cdr arguments))))
+     (send this-ui present "Exist do not exist")]
+    [(send (send player get-item (car arguments)) use this-ui
+           (send (send player get-place) get-neighbour
+                     (car (cdr arguments))))]))
+           
+(add-command! "use" use_)
 #|
 ; functions which are used to kill the wumpus,
 ; after the wumpus is dead player will be teleported to the market.

@@ -1,14 +1,13 @@
 #lang racket
-(provide item%)
+(provide item% water-class% arrow-class%)
 
 (define item%
   (class object%
     (init-field amount ;how many of the item are there
                 description
                 name
-                [effect (void)]
-                [place (void)]
-               )
+                [place #f]
+                [effect (void)])
 
     ;Returns member amount
     (define/public (get-amount)
@@ -41,26 +40,53 @@
       (set! amount (- amount 1)))
 
     ;Power of item
-    (define/public (use direction)
+    (define/public (use this-ui room)
       name)
 
+    ;Gives the item a place
+    (define/public (set-place! new-place)
+      (set! place new-place)) 
     (super-new)))
 
 ;; Subclass water
 (define water-class%
   (class item%
-    (define/override (use direction)
-     (send (send (send this get-place) get-neighbour direction) extinguish-fire))))
+    (inherit-field
+     amount)
+    (inherit decrease-amount)
+    (define/override (use this-ui room)
+      (send room extinguish-fire)
+      (decrease-amount)
+      (send this-ui present "Water used"))
+    (super-new)))
 
 ;;subclass arrow
 (define arrow-class%
   (class item%
-    (define/override (use direction)
-     (kill-character (send (send (send this get-place) get-neighbour direction) characters)))
+    (inherit-field
+     amount)
+    (inherit decrease-amount)
+    (define/override (use this-ui room)
+      (kill-character (return-names (send room characters) '()) room this-ui)
+      (send this-ui notify "Congratulations! You have found the gold!"))
     
-    (define/private (kill-character lst direction)
-      (if (null? lst)
-          (send (send (send (send this get-place) get-neighbour direction) get-character (car lst)) killed)
-          (kill-character (cdr lst))))
+    (define/private (kill-character lst room this-ui)
+      (if (null? (cdr lst))
+          (begin
+            (send (send room get-character (car lst)) killed)
+            (send room delete-character! (car lst))
+            (decrease-amount)
+            (send room make-walkable)
+            (send this-ui present "Arrow shot"))
+          (kill-character (cdr lst) room)))
           
     (super-new)))
+
+
+;Returns a list with only names
+;Input: list of class-objects
+(define return-names
+  (lambda (list-obj tmp)
+    (if (null? list-obj)
+        tmp
+        (return-names (cdr list-obj) (cons (send (car list-obj) get-name) tmp )))))
