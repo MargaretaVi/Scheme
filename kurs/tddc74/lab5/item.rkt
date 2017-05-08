@@ -3,9 +3,10 @@
 
 (define item%
   (class object%
-    (init-field amount ;how many exists
+    (init-field amount ;how many of the item are there
                 description
                 name
+                [effect (void)]
                 [place (void)]
                )
 
@@ -25,6 +26,10 @@
     (define/public (get-name)
       name)
 
+    ;Returns member effect
+    (define/public (get-effect)
+      effect)
+    
     ;Moves item to a new place
     (define/public (move-to! new-place)
       (send place remove-item! (send this get-name))
@@ -35,6 +40,27 @@
     (define/public (decrease-amount)
       (set! amount (- amount 1)))
 
-    
+    ;Power of item
+    (define/public (use direction)
+      name)
+
     (super-new)))
 
+;; Subclass water
+(define water-class%
+  (class item%
+    (define/override (use direction)
+     (send (send (send this get-place) get-neighbour direction) extinguish-fire))))
+
+;;subclass arrow
+(define arrow-class%
+  (class item%
+    (define/override (use direction)
+     (kill-character (send (send (send this get-place) get-neighbour direction) characters)))
+    
+    (define/private (kill-character lst direction)
+      (if (null? lst)
+          (send (send (send (send this get-place) get-neighbour direction) get-character (car lst)) killed)
+          (kill-character (cdr lst))))
+          
+    (super-new)))

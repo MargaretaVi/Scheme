@@ -83,5 +83,7 @@
     ;Predicate, checks if character is alive
     (define/public (alive?)
       living)
-    
+
     (super-new)))
+
+      

@@ -5,11 +5,11 @@
 (require "cmd_store.rkt")
 (provide (all-defined-out))
 
-
+#|
 (define random-from-to
   (lambda (from to)
     (+ (random (- to (- from 1))) from)))
-
+|#
 ;; Creates and adds a character to a given place. Returns the character.
 (define (make&add-character name_ desc_ talk-line_ place)
   (let
@@ -107,7 +107,7 @@
    "wumpus"
    "I smell."
    "Chomp Chomp Chomp"
-   room6))
+   room6 ))
 (send (send wumpus get-place) make-not-walkable)
 
 (define merchant
@@ -130,13 +130,16 @@
   (new item%
        [amount 3]
        [name "arrows"]
-       [description "Silver arrows"]))
+       [description "Silver arrows"]
+       [effect "kill"]))
+
 
 (define water
   (new item%
        [amount 100]
        [name "water"]
-       [description "waterbucket"]))
+       [description "waterbucket"]
+       [effect "extinguish"]))
            
 
 (define apple
