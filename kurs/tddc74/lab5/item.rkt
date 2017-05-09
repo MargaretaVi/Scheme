@@ -67,8 +67,7 @@
      amount)
     (inherit decrease-amount)
     (define/override (use this-ui room)
-      (kill-character (return-names (send room characters) '()) room this-ui)
-      (send this-ui notify "Congratulations! You have found the gold!"))
+      (kill-character (return-names (send room characters) '()) room this-ui))
     
     (define/private (kill-character lst room this-ui)
       (if (null? (cdr lst))
@@ -76,8 +75,10 @@
             (send (send room get-character (car lst)) killed)
             (send room delete-character! (car lst))
             (decrease-amount)
-            (send room make-walkable)
-            (send this-ui present "Arrow shot"))
+            (send room make-walkable) 
+            (if (equal? (car lst) "wumpus")
+                (send this-ui notify "Congratulations! You have killed the wumpus!")
+                (send this-ui present "Arrow shot")))
           (kill-character (cdr lst) room)))
           
     (super-new)))

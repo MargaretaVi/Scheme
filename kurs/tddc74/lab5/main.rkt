@@ -32,6 +32,7 @@ Talk to everyone you see, they might have some useful information. When using we
     (send GUI present "----------------")
     (send GUI present story)
     (send GUI present "----------------")))
+    
 
       
          

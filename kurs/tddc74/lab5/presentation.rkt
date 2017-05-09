@@ -73,7 +73,7 @@ feel free. But don't change the interface.
       (define dialog-box 
         (new dialog% 
              [label message]
-             [width 200]
+             [width 100]
              [height 100]
              [enabled #t]
              [style '(close-button)]
