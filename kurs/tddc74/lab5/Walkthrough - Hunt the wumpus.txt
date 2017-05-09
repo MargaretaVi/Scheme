@@ -31,10 +31,11 @@ n - neutral/nothing harmful in the room
 p - pit: not walkable
 
 f - fire in the room.
-To walk into a room of fire you need to first put out the fire by pouring water into that room
 
-You have limited amount of arrows and if you finish all you arrow before finding the wumpus you cannot finish the game,
-thus you need to restart the game
+To walk into a room of fire you need to first put out the fire by pouring water into that room by using the commano
+(use water direction)
+to shoot:
+(use arrows direction)
 ----------------------
 You will be spawned in the dungeoun, in room 1. The first thing to do is to trade with the guide in the same room. 
 Pick up the berries and torches to trade for arrows and water.
@@ -42,12 +43,14 @@ Pick up the berries and torches to trade for arrows and water.
 There are two paths to the goal: 
 1-2-3-6 
 Walk to the east, landing in the room 2. put out the fire in room 3. walk to room 3. 
-Pick up the milk in that room and shot the wumpus in the room to the north.
-You get transported to the market.
+Pick up the milk in that room if you want and shoot the wumpus in the room that is in the south direction -> wumpus killed.
+The gold is in the same room as the wumpus.
+
 
 1-4-7-8-9-6
 Walk north - > room 4. Put out the fire in room 7, walk to room 7. walk east landing in room 8. 
 Put out the fire in room 9, walk to room 9. Shoot south, to room 6 -> the wumpus is killed. 
-You get transported to the market.
+The gold is in the same room as the wumpus.
+
 
 
