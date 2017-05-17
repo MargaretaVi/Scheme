@@ -3,7 +3,7 @@ Walkthrough - Hunt the wumpus
 This is the walkthrough for the game: Hunt the wumpus
 The purpose of the game is to find loot in the dungeoun that can be used to trade with merchant at the market. 
 However to go to the market, you need a pass. Which can be found somewhere in the dungenoun.
-
+(When arriving at the market the game will close, after a pop-up message)
 
 The layout for the map is the following:
 
@@ -56,8 +56,7 @@ Walk to the north, landing in room 4. Put out the fire in room 7 and walk there.
 Put out the fire in room 9, walk there. Standing in room 9 shoot south and kill the wumpus. Walk south and pick up the gold and the pass. 
 
 ------------------------
-Go back in the reverse order back to the first room, now you can go to the market if you want.
-to quit the game, use quit.
+Go back in the reverse order back to the first room, now you can go to the market.
 
 
 
