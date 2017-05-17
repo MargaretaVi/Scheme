@@ -23,8 +23,9 @@
        [handle-input handle-input_]))
 
 (define story
-"You are an adventure that want to find the gold that the wumpus is guarding, though you don't have any weapons.
-Talk to everyone you see, they might have some useful information. When using weapons, be careful, they are deadly.\nYou are currently in room 1 ")
+"You are an adventure that want to find the loot in the dungeoun to trade with the merchant at the market.
+Talk to everyone you see, they might have some useful information. When using weapons, be careful, they are deadly.
+Ps. How do you get to the market? \nYou are currently in room 1 ")
 
 (define main
   (begin 
@@ -36,9 +37,6 @@ Talk to everyone you see, they might have some useful information. When using we
 
       
          
-         
- 
-  
     
 
 

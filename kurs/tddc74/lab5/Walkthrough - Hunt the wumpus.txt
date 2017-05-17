@@ -1,11 +1,10 @@
 Walkthrough - Hunt the wumpus
 
 This is the walkthrough for the game: Hunt the wumpus
-To finish the game you need to find the wumpus and kill it, since the end goal is to get to the market.
-The market can only be accessed by killing the wumpus. When you have arrived to the market the game is finished but you
-can still trade things with the merchant located there. 
+The purpose of the game is to find loot in the dungeoun that can be used to trade with merchant at the market. 
+However to go to the market, you need a pass. Which can be found somewhere in the dungenoun.
 
-When you have arrived at the market you can no longer 
+
 The layout for the map is the following:
 
 ---|---|---|
@@ -36,21 +35,30 @@ To walk into a room of fire you need to first put out the fire by pouring water 
 (use water direction)
 to shoot:
 (use arrows direction)
+There are loots around in the dungeoun that are not necessary to have to finish the game, pick it up if you want.
+
+
+In the same room as the wumpus there lies the gold and the pass needed to go to the market.
 ----------------------
 You will be spawned in the dungeoun, in room 1. The first thing to do is to trade with the guide in the same room. 
 Pick up the berries and torches to trade for arrows and water.
+If you try to go to the market it will tell you that you need the pass to go there so explore the dungenoun for now.
 
 There are two paths to the goal: 
 1-2-3-6 
 Walk to the east, landing in the room 2. put out the fire in room 3. walk to room 3. 
-Pick up the milk in that room if you want and shoot the wumpus in the room that is in the south direction -> wumpus killed.
-The gold is in the same room as the wumpus.
+Shoot the wumpus in the room that is in the north direction -> wumpus killed.
+Walk to the north and in that room pick up the gold and pass.
 
 
 1-4-7-8-9-6
-Walk north - > room 4. Put out the fire in room 7, walk to room 7. walk east landing in room 8. 
-Put out the fire in room 9, walk to room 9. Shoot south, to room 6 -> the wumpus is killed. 
-The gold is in the same room as the wumpus.
+Walk to the north, landing in room 4. Put out the fire in room 7 and walk there. Waslk east, landing in toom 8. 
+Put out the fire in room 9, walk there. Standing in room 9 shoot south and kill the wumpus. Walk south and pick up the gold and the pass. 
+
+------------------------
+Go back in the reverse order back to the first room, now you can go to the market if you want.
+to quit the game, use quit.
+
 
 
 

@@ -66,9 +66,10 @@
 (define market
   (new place%
        [name "market"]
-       [description "Where you can buy stuffs to eat"]))
+       [description "Where you can buy stuffs"]))
 
 ;; Connect the world.
+(connect-places! room1 "west" market "east")
 (connect-places! room1 "east" room2 "west")
 (connect-places! room1 "north" room4 "south")
 (connect-places! room2 "north" room5 "south")
@@ -120,7 +121,13 @@
    room1))
 
 ;; ------------- Items
-
+(define pass
+  (new pass-class%
+       [amount 1]
+       [name "pass"]
+       [description "A key"]
+       [effect "Allows you to go in places that othervice are forbidden"]))
+       
 (define arrows
   (new arrow-class%
        [amount 100]
@@ -191,14 +198,18 @@
 (void (send room1 add-item! torches))
 (void (send room7 add-item! apple))
 (void (send room3 add-item! milk))
-(void (send room2 add-item! ring))
-(void (send room4 add-item! necklace))
-(void (send room9 add-item! shoes))
+(void (send merchant add-item! ring))
+(void (send merchant add-item! necklace))
+(void (send merchant add-item! shoes))
 (void (send (send wumpus get-place) add-item! gold))
+(void (send (send wumpus get-place) add-item! pass))
 (void (send guide add-item! arrows))
 (void (send guide add-item! water))
 ;; For debug purpose
-;(void (send player add-item! arrows))
-;(void (send player add-item! water))
-;(void (send player add-item! berries))
-;(void (send player add-item! torches))
+#|
+(void (send player add-item! arrows))
+(void (send player add-item! water))
+(void (send player add-item! berries))
+(void (send player add-item! torches))
+(void (send player add-item! pass))
+|#

@@ -1,5 +1,5 @@
 #lang racket
-(provide item% water-class% arrow-class%)
+(provide item% water-class% arrow-class% pass-class%)
 
 (define item%
   (class object%
@@ -45,7 +45,8 @@
 
     ;Gives the item a place
     (define/public (set-place! new-place)
-      (set! place new-place)) 
+      (set! place new-place))
+    
     (super-new)))
 
 ;; Subclass water
@@ -83,6 +84,19 @@
           
     (super-new)))
 
+;;subclass pass
+(define pass-class%
+  (class item%
+    (inherit-field
+     place)
+    (inherit get-place)
+      
+    (define/override (use this-ui room)
+      (cond
+))
+      
+    (super-new)))
+        
 
 ;Returns a list with only names
 ;Input: list of class-objects

@@ -37,7 +37,7 @@
       (send place delete-character! (send this get-name))
       (send new-place add-character! this)
       (set! place new-place))
-
+    
     ;Returns a list of items
     (define/public (get-inventory)
       (hash-values _inventory))

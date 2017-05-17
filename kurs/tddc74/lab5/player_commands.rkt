@@ -47,6 +47,10 @@ direction")
 (define help_help
   "To get more information about each commanad please type help 'command-name'")
 
+(define quit_help
+  "Command do not need any arugments.
+By using quit you will quit the game")
+
 ;Prints out the players inventory
 (define (inventory_ this-ui arguments)
   (if (not (null? arguments))
@@ -78,7 +82,9 @@ The people(s) in this place are: "))
     [(equal? (length arguments) 1)
      (begin
        (send this-ui present (string-append "You are looking in the direction: "
-                                            (car arguments) "\n----------------"))
+                                            (car arguments) "\n----------------
+That is " (send (send (send player get-place) get-neighbour (car arguments))
+                    get-name) "\n"))
        (cond
          [(not (send (send player get-place) exit-exist? (car arguments)))
           (send this-ui present "There is no path in that direction")]
@@ -111,6 +117,8 @@ The other people in that place are:" ))
     [(or (null? arguments) (not (member (car arguments)
                                         '("south" "east" "west" "north"))))
      (send this-ui present move_help)]
+    [(not (send (send player get-place) neighbour-exist? (car arguments)))
+     (send this-ui present "No exist in that direction try again")]
     [(not (send (send (send player get-place) get-neighbour
                       (car arguments)) walkable?))
      (cond
@@ -126,6 +134,11 @@ the room is a bottomless pit, find another way")]
 the wumpus will eat you alive")])]
     [(not (send (send player get-place) exit-exist? (car arguments)))
      (send this-ui present "No path to room that exist")]
+    [(and (not (send player has-item? "pass"))
+               (equal? (send (send (send player get-place) get-neighbour
+                                       (car arguments)) get-name) "market"))
+     (send this-ui present
+           "You are not allowed in to the market yet, perhaps if you find a pass")]
     [else (begin
             (send player move-to (send (send player get-place) get-neighbour
                                        (car arguments)))
@@ -228,8 +241,8 @@ the wumpus will eat you alive")])]
      (send this-ui present
            (number->string (send (send player get-item (car arguments))
                                  get-amount))))))
-
 (add-command! "amount" amount_)
+
 ;print out the player commands to the GUI
 (define (help_ this-ui arguments)
   (cond
@@ -260,16 +273,16 @@ the wumpus will eat you alive")])]
         (send this-ui present talk_help)]
        [(equal? (car arguments) "trade")
         (send this-ui present trade_help)]
+       [(equal? (car arguments) "quit")
+        (send this-ui present quit_help)]
        [(equal? (car arguments) "help")
         (send this-ui present help_help)])]))
-    
-
 (add-command! "help" help_)
 
 (define (use_ this-ui arguments)
   (cond
     [(null? arguments) (send this-ui present use_help)]
-    [(not (eq? (length arguments) 2))
+    [(not (equal? (length arguments) 2))
      (send this-ui present "Not enough input arguments")]
     [(not (send player has-item? (car arguments)))
      (send this-ui present
@@ -277,12 +290,16 @@ the wumpus will eat you alive")])]
                           (car arguments) " in your inventory"))]
     [(not (send (send player get-place) exit-exist? (car (cdr arguments))))
      (send this-ui present "Exist do not exist")]
-    [(send (send player get-item (car arguments)) use this-ui
+    [else (send (send player get-item (car arguments)) use this-ui
            (send (send player get-place) get-neighbour
-                 (car (cdr arguments))))]))
-           
+                 (car (cdr arguments))))]))        
 (add-command! "use" use_)
 
+(define (quit_ this-ui arguments)
+  (send this-ui notify "You are now exiting the game")
+  (send this-ui close-ui))
+
+(add-command! "quit" quit_)
 ; -------- help functions to the player commands
 ; prints out a list to the GUI
 (define (print-list this-ui arguments)
