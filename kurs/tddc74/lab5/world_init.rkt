@@ -206,10 +206,9 @@
 (void (send guide add-item! arrows))
 (void (send guide add-item! water))
 ;; For debug purpose
-#|
+
 (void (send player add-item! arrows))
 (void (send player add-item! water))
 (void (send player add-item! berries))
 (void (send player add-item! torches))
 (void (send player add-item! pass))
-|#

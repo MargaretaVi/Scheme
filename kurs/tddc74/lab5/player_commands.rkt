@@ -134,14 +134,14 @@ the room is a bottomless pit, find another way")]
 the wumpus will eat you alive")])]
     [(not (send (send player get-place) exit-exist? (car arguments)))
      (send this-ui present "No path to room that exist")]
-    [(if (and (not (send player has-item? "pass"))
-               (equal? (send (send (send player get-place) get-neighbour
-                                       (car arguments)) get-name) "market"))
-         (send this-ui present
-               "You are not allowed in to the market yet, perhaps if you find a pass")
-         (begin
-           (send this-ui notify  "Congratulations. Game ends here.")
-           (send this-ui close-ui)))]
+    [(equal? (send (send (send player get-place) get-neighbour
+                                       (car arguments)) get-name) "market")
+     (if (not (send player has-item? "pass")) 
+              (send this-ui present
+                    "You are not allowed in to the market yet, perhaps if you find a pass")          
+              (begin
+                (send this-ui notify  "Congratulations. Game ends here.")
+                (send this-ui close-ui)))]
     [else (begin
             (send player move-to (send (send player get-place) get-neighbour
                                        (car arguments)))
